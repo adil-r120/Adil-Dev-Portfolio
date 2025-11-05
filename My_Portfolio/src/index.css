@@ -1,0 +1,86 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --background: 215 28% 10%;
+    --foreground: 0 0% 100%;
+
+    --card: 217 25% 14%;
+    --card-foreground: 0 0% 100%;
+
+    --popover: 217 25% 14%;
+    --popover-foreground: 0 0% 100%;
+
+    --primary: 17 88% 60%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 217 25% 18%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 217 25% 18%;
+    --muted-foreground: 215 20% 65%;
+
+    --accent: 17 88% 60%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 17 88% 60%;
+    --input: 217 25% 20%;
+    --ring: 17 88% 60%;
+
+    --radius: 0.5rem;
+
+    /* Custom portfolio colors */
+    --navy-dark: 215 28% 10%;
+    --navy-card: 217 25% 14%;
+    --orange-accent: 17 88% 60%;
+    --orange-glow: 17 88% 60%;
+    --text-muted: 215 20% 65%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-gradient-to-r from-orange-500 to-orange-400 bg-clip-text text-transparent;
+  }
+
+  .card-glow {
+    @apply border border-orange-500/20 hover:border-orange-500/40 transition-all duration-300;
+  }
+
+  .animate-marquee {
+    animation: marquee 30s linear infinite;
+  }
+
+  @keyframes marquee {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+}
