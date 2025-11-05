@@ -17,12 +17,12 @@ const Contact = () => {
     {
       icon: Linkedin,
       label: "LinkedIn",
-      href: "https://linkedin.com"
+      href: "https://www.linkedin.com/in/adil-raza-8a1996293/"
     },
     {
       icon: Github,
       label: "GitHub",
-      href: "https://github.com"
+      href: "https://github.com/adil-r120"
     }
   ];
 
