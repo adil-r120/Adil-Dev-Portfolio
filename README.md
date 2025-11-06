@@ -1,4 +1,6 @@
-<<<<<<< HEAD
+# My-Portfolio
+A modern, responsive personal portfolio website built to showcase my projects, skills, and experience as a developer. Designed with a clean UI, fast performance, and a focus on accessibility and user experience.
+>>>>>>> 895462dc3e8282756ceb043d0b194ac200140d36
 # My Portfolio
 
 Welcome to my personal portfolio website! This is a modern, responsive portfolio built with React, TypeScript, and Tailwind CSS to showcase my skills, projects, and experience as an aspiring Software Engineer.
