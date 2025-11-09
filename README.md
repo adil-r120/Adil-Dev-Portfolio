@@ -24,7 +24,7 @@ Welcome to my personal portfolio website! This is a modern, responsive portfolio
 
 ## About
 
-This portfolio website showcases my journey as an aspiring Software Engineer. It includes information about my education, technical skills, projects, certifications, and ways to contact me. The website is designed with a modern UI and responsive layout to provide an optimal viewing experience across all devices.
+👤This portfolio website showcases my journey as an aspiring Software Engineer. It includes information about my education, technical skills, projects, certifications, and ways to contact me. The website is designed with a modern UI and responsive layout to provide an optimal viewing experience across all devices.
 
 ## Features
 
