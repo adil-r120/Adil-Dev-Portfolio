@@ -21,13 +21,13 @@ const Skills = () => {
       title: "Programming Languages",
       icon: "💻",
       skills: [
-        { name: "Python", proficiency: 80 },
-        { name: "Java", proficiency: 80 },
-        { name: "C++", proficiency: 75 },
+        { name: "Python", proficiency: 70 },
+        { name: "Java", proficiency: 70 },
+        { name: "C++", proficiency: 65 },
         { name: "C", proficiency: 70 },
-        { name: "JavaScript", proficiency: 70 },
+        { name: "JavaScript", proficiency: 50 },
         { name: "SQL", proficiency: 85 },
-        { name: "XML", proficiency: 80 }
+        { name: "XML", proficiency: 70 }
       ]
     },
     {
@@ -36,9 +36,9 @@ const Skills = () => {
       skills: [
         { name: "HTML", proficiency: 90 },
         { name: "CSS", proficiency: 65 },
-        { name: "JavaScript", proficiency: 70 },
+        { name: "JavaScript", proficiency: 60 },
         { name: "React", proficiency: 85 },
-        { name: "REST APIs", proficiency: 70 }
+        { name: "REST APIs", proficiency: 60 }
       ]
     },
     {
@@ -47,7 +47,7 @@ const Skills = () => {
       skills: [
         { name: "SQL", proficiency: 85 },
         { name: "MySQL", proficiency: 80 },
-        { name: "DBMS", proficiency: 85 }
+        { name: "DBMS", proficiency: 80 }
       ]
     },
     {
@@ -58,24 +58,24 @@ const Skills = () => {
         { name: "Cloud Computing", proficiency: 55 },
         { name: "Google Cloud Platform (GCP)", proficiency: 65 },
         { name: "Figma", proficiency: 100 },
-        { name: "GitHub", proficiency: 90 },
-        { name: "Linux", proficiency: 75 }
+        { name: "GitHub", proficiency: 80 },
+        { name: "Linux", proficiency: 65 }
       ]
     },
     {
       title: "AI & Data Science",
       icon: "🤖",
       skills: [
-        { name: "Artificial Intelligence (AI)", proficiency: 85 },
-        { name: "Data Science", proficiency: 75 },
-        { name: "Python for data science", proficiency: 70 }
+        { name: "Artificial Intelligence (AI)", proficiency: 75 },
+        { name: "Data Science", proficiency: 65 },
+        { name: "Python for data science", proficiency: 60 }
       ]
     },
     {
       title: "Software Development",
       icon: "⚙️",
       skills: [
-        { name: "Object-Oriented Programming (OOP)", proficiency: 75 },
+        { name: "Object-Oriented Programming (OOP)", proficiency: 65 },
         { name: "Software Development", proficiency: 80 },
         { name: "Java Frameworks", proficiency: 70 }
       ]
@@ -94,19 +94,19 @@ const Skills = () => {
       title: "Concepts",
       icon: "📚",
       skills: [
-        { name: "Data Structures & Algorithms", proficiency: 65 },
-        { name: "OOPs", proficiency: 75 },
+        { name: "Data Structures & Algorithms", proficiency: 55 },
+        { name: "OOPs", proficiency: 65 },
         { name: "DBMS", proficiency: 85 },
-        { name: "Operating Systems", proficiency: 70 }
+        { name: "Operating Systems", proficiency: 60 }
       ]
     },
     {
       title: "Languages",
       icon: "🗣️",
       skills: [
-        { name: "English", proficiency: 90 },
+        { name: "English", proficiency: 80 },
         { name: "Hindi", proficiency: 100 },
-        { name: "Urdu", proficiency: 100 }
+        { name: "Urdu", proficiency: 90 }
       ]
     }
   ];

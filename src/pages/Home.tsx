@@ -69,8 +69,9 @@ const Home = () => {
               <div className="relative w-60 h-60 md:w-80 md:h-80 rounded-full border-4 border-orange-500 overflow-hidden">
                 {/* profile image */}
                 <img 
-                  src="/profile_image.png"
-                  alt="MD Adil Raza" 
+                  // src="/profile_image1.png"
+                  src="/AR_logo.jpg"
+                  alt="AR" 
                   className="w-full h-full object-cover object-center"
                 />
               </div>
