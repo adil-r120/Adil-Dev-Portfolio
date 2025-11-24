@@ -25,7 +25,7 @@ const Certifications = () => {
       // credentialId: "44848394TC",
       skills: ["Git"],
       link: "/certificates/git.pdf",
-      // image: "/certificates/git-training.png"
+      // image: "/certificates/git.png"
     },
     {
       title: "Cloud Computing",
