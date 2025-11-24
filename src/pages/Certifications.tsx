@@ -11,86 +11,121 @@ type Certification = {
   credentialId?: string;
   skills?: string[];
   description?: string;
+  link?: string;
+  image?: string;
 };
 
 const Certifications = () => {
   const certifications: Certification[] = [
     {
+      title: "Git Training",
+      issuer: "EduPyramids, SINE, IIT Bombay",
+      icon: "🐙",
+      issued: "Nov 2025",
+      // credentialId: "44848394TC",
+      skills: ["Git"],
+      link: "/certificates/git.pdf",
+      // image: "/certificates/git-training.png"
+    },
+    {
+      title: "Cloud Computing",
+      issuer: "NPTEL, IIT Kharagpur",
+      icon: "☁️",
+      issued: "Oct 2025",
+      credentialId: "NPTEL25CS107S252601106",
+      skills: ["Cloud Computing"],
+      link: "/certificates/NPTEL.pdf",
+      // image: "/certificates/cloud-computing.png"
+    },
+    {
       title: "DBMS - Master the Fundamental and Advanced Concepts",
       issuer: "Scaler",
       icon: "🗄️",
       issued: "Oct 2025",
-      credentialId: "@#",
-      skills: ["Database Management System (DBMS)"]
+      // credentialId: "@#",
+      skills: ["Database Management System (DBMS)"],
+      link: "/certificates/DBMS.png",
+      // image: "/certificates/dbms.png"
     },
     {
       title: "Symposium on Data for Public Good",
       issuer: "Indian Institute of Science (IISc)",
       icon: "📊",
       issued: "Oct 2025",
-      skills: ["Python (Programming Language)", "Data Science", "Cloud Computing"]
+      skills: ["Python (Programming Language)", "Data Science", "Cloud Computing"],
+      link: "/certificates/iisc.pdf"
     },
     {
       title: "SQL-Bootcamp",
       issuer: "LetsUpgrade",
       icon: "🗄️",
       issued: "Sep 2025",
-      credentialId: "LUESQLSEPT125246",
-      skills: ["SQL"]
+      // credentialId: "LUESQLSEPT125246",
+      skills: ["SQL"],
+      link: "/certificates/sql.pdf"
     },
     {
       title: "AWS CLOUD PRACTITIONER ESSENTIAL",
       issuer: "Amazon Web Services (AWS)",
       icon: "☁️",
       issued: "Jul 2025",
-      skills: ["Amazon Web Services (AWS)"]
+      skills: ["Amazon Web Services (AWS)"],
+      link: "/certificates/awsa.pdf"
     },
     {
       title: "AWS SimuLearn: Cloud Computing Essentials",
       issuer: "Amazon Web Services (AWS)",
       icon: "☁️",
       issued: "Jul 2025",
-      skills: ["Cloud Computing"]
+      skills: ["Cloud Computing"],
+      link: "/certificates/aws training.pdf"
     },
     {
       title: "Google Cloud Arcade Facilitator",
       issuer: "Google",
       icon: "☁️",
       issued: "Apr 2025",
-      credentialId: "@#",
-      skills: ["Google Cloud Platform (GCP)"]
+      // credentialId: "@#",
+      skills: ["Google Cloud Platform (GCP)"],
+      link: "https://www.cloudskillsboost.google/public_profiles/66042bf4-1de9-4045-9c85-de693b5d7287/badges/14604966?utm_medium=social&utm_source=linkedin&utm_campaign=ql-social-share"
     },
     {
       title: "Html",
       issuer: "Great Learning",
       icon: "🌐",
       issued: "Aug 2024",
-      skills: ["HTML"]
+      skills: ["HTML"],
+      link: "/certificates/html.jpg",
+      // image: "/certificates/html.png"
     },
     {
       title: "Python 101 for Data Science",
       issuer: "Cognitive Class",
       icon: "🐍",
       issued: "Jun 2024",
-      credentialId: "c8a3c0d5b1f8472b8d2178bc312a832b",
-      skills: ["Python for data science"]
+      // credentialId: "c8a3c0d5b1f8472b8d2178bc312a832b",
+      skills: ["Python for data science"],
+      link: "/certificates/PYTHON2.pdf"
     },
     {
       title: "Data Science 101",
       issuer: "Cognitive Class",
       icon: "📊",
       issued: "May 2024",
-      expires: "Oct 2034",
-      credentialId: "0c120f62302b440a846959499af7e411",
-      skills: ["Data Science"]
+      // expires: "Oct 2034",
+      // credentialId: "0c120f62302b440a846959499af7e411",
+      skills: ["Data Science"],
+      link: "/certificates/IBM.a.pdf"
     },
     {
       title: "Python for Data science",
       issuer: "IBM",
       icon: "🐍",
       issued: "May 2024",
-      credentialId: "https://www.credly.com/go/HYtdgjjh",
-      skills: ["Python for Data Science"]
+      // credentialId: "https://www.credly.com/go/HYtdgjjh",
+      skills: ["Python for Data Science"],
+      // link: "https://www.credly.com/go/HYtdgjjh"
+      link:"/certificates/Python_for_Data_Science_Badge.pdf"
     }
   ];
 
@@ -114,14 +149,23 @@ const Certifications = () => {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 max-w-7xl mx-auto mb-12 md:mb-16">
           {certifications.map((cert, index) => (
-            <div
+            <a
               key={index}
-              className="bg-card p-4 md:p-6 rounded-lg border border-orange-500/20 hover:border-orange-500/40 transition-all"
+              href={cert.link || '#'}
+              target={cert.link && cert.link !== '#' ? '_blank' : undefined}
+              rel={cert.link && cert.link !== '#' ? 'noopener noreferrer' : undefined}
+              className="bg-card p-4 md:p-6 rounded-lg border border-orange-500/20 hover:border-orange-500/40 transition-all block"
             >
               <div className="flex items-start gap-3 md:gap-4">
-                <div className="w-10 h-10 md:w-12 md:h-12 rounded-lg bg-orange-500/10 flex items-center justify-center flex-shrink-0 text-xl md:text-2xl">
-                  {cert.icon}
-                </div>
+                {cert.image ? (
+                  <div className="w-10 h-10 md:w-12 md:h-12 rounded-lg flex items-center justify-center flex-shrink-0 overflow-hidden">
+                    <img src={cert.image} alt={cert.title} className="w-full h-full object-contain" />
+                  </div>
+                ) : (
+                  <div className="w-10 h-10 md:w-12 md:h-12 rounded-lg bg-orange-500/10 flex items-center justify-center flex-shrink-0 text-xl md:text-2xl">
+                    {cert.icon}
+                  </div>
+                )}
                 <div className="flex-1">
                   <h3 className="font-bold mb-1 md:mb-2 leading-tight text-sm md:text-base">{cert.title}</h3>
                   <p className="text-xs md:text-sm text-muted-foreground mb-1 md:mb-2">{cert.issuer}</p>
@@ -166,7 +210,7 @@ const Certifications = () => {
                   )}
                 </div>
               </div>
-            </div>
+            </a>
           ))}
         </div>
 
