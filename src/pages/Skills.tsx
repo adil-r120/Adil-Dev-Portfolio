@@ -1,6 +1,6 @@
 import Navigation from "@/components/Navigation";
 import { Badge } from "@/components/ui/badge";
-import { Code2, Database, Cloud, Globe, BookOpen, Languages } from "lucide-react";
+import { Code2, Database, Cloud, Globe, BookOpen, Languages, Monitor, Code, FileText, Terminal, Server } from "lucide-react";
 
 // Define the type for skills with proficiency
 type Skill = {
@@ -108,7 +108,8 @@ const Skills = () => {
         { name: "Hindi", proficiency: 100 },
         { name: "Urdu", proficiency: 90 }
       ]
-    }
+    },
+
   ];
 
   // Progress bar component
@@ -160,6 +161,56 @@ const Skills = () => {
               </div>
             </div>
           ))}
+        </div>
+
+        {/* My Coding Platforms Section */}
+        <div className="max-w-4xl mx-auto mt-12 md:mt-16 text-center">
+          <div className="flex items-center gap-3 mb-6">
+            <Monitor className="w-6 h-6 md:w-8 md:h-8 text-orange-500" />
+            <h2 className="text-xl md:text-2xl font-bold">Coding Platforms</h2>
+          </div>
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 justify-center">
+            <a
+              href="https://www.codechef.com/users/adil_r120"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-card p-4 rounded-lg border border-orange-500/20 hover:border-orange-500/40 transition-all group text-center"
+            >
+              <Code className="w-8 h-8 md:w-10 md:h-10 text-orange-500 mx-auto mb-2" />
+              <div className="text-orange-500 mb-2 text-sm md:text-base font-medium">CodeChef</div>
+              <Badge variant="secondary" className="text-xs"></Badge>
+            </a>
+            <a
+              href="https://leetcode.com/u/adil_r120/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-card p-4 rounded-lg border border-orange-500/20 hover:border-orange-500/40 transition-all group text-center"
+            >
+              <FileText className="w-8 h-8 md:w-10 md:h-10 text-orange-500 mx-auto mb-2" />
+              <div className="text-orange-500 mb-2 text-sm md:text-base font-medium">LeetCode</div>
+              <Badge variant="secondary" className="text-xs"></Badge>
+            </a>
+            <a
+              href="https://www.hackerrank.com/profile/mdadilraza510"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-card p-4 rounded-lg border border-orange-500/20 hover:border-orange-500/40 transition-all group text-center"
+            >
+              <Terminal className="w-8 h-8 md:w-10 md:h-10 text-orange-500 mx-auto mb-2" />
+              <div className="text-orange-500 mb-2 text-sm md:text-base font-medium">HackerRank</div>
+              <Badge variant="secondary" className="text-xs"></Badge>
+            </a>
+            <a
+              href="https://auth.geeksforgeeks.org/user/mdadilraza510"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-card p-4 rounded-lg border border-orange-500/20 hover:border-orange-500/40 transition-all group text-center"
+            >
+              <Server className="w-8 h-8 md:w-10 md:h-10 text-orange-500 mx-auto mb-2" />
+              <div className="text-orange-500 mb-2 text-sm md:text-base font-medium">GeeksforGeeks</div>
+              <Badge variant="secondary" className="text-xs"></Badge>
+            </a>
+          </div>
         </div>
       </main>
     </div>
