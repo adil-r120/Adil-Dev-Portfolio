@@ -1,12 +1,12 @@
 import Navigation from "@/components/Navigation";
-import { Mail, Phone, Linkedin, Github, Download } from "lucide-react";
+import { Mail, Phone, Linkedin, Github, Instagram, Download } from "lucide-react";
 import Footer from "@/components/Footer";
 
 const Contact = () => {
   const contactMethods = [
     {
       icon: Mail,
-      label: "mdadilraza510@gmail.com",
+      label:"mdadilraza510@gmail.com",
       href: "mailto:mdadilraza510@gmail.com"
     },
     {
@@ -23,6 +23,11 @@ const Contact = () => {
       icon: Github,
       label: "GitHub",
       href: "https://github.com/adil-r120"
+    },
+    {
+      icon: Instagram,
+      label: "Instagram",
+      href: "https://www.instagram.com/adil_r120/"
     }
   ];
 

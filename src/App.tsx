@@ -10,6 +10,7 @@ import Skills from "./pages/Skills";
 import Projects from "./pages/Projects";
 import Certifications from "./pages/Certifications";
 import Contact from "./pages/Contact";
+import Experiences from "./pages/Experiences";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -25,6 +26,7 @@ const App = () => (
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="/skills" element={<Skills />} />
+            <Route path="/experiences" element={<Experiences />} />
             <Route path="/projects" element={<Projects />} />
             <Route path="/certifications" element={<Certifications />} />
             <Route path="/contact" element={<Contact />} />
