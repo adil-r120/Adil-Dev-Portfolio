@@ -109,7 +109,7 @@ const Projects = () => {
       date: "19th November 2024",
       // tags: ["Mobile Development", "Android", "Java"],
       // position: "Top 5 Finalists",
-      link: "/certificate/pixel.jpeg"
+      link: "/certificates/pixel.jpeg"
     }
     /*{
       title: "Startup Weekend Hackathon",

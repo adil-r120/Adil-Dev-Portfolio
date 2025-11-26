@@ -37,8 +37,18 @@ const About = () => {
       institution: "Park Mount Public School",
       board: "Central Board of Secondary Education",
       grade: "Grade: A",
+      period:"Mar 2020 - April 2022",
       location: "Patna, India",
       activities: "Captain of Cricket team"
+    },
+     {
+      degree: "Matric (X)",
+      institution: "Nezamia Public School",
+      board: "Central Board of Secondary Education",
+      grade: "Grade: B",
+      period:"Mar 2020",
+      location: "Patna, India",
+      activities: "Drawing & Sketching",
     }
   ];
 
