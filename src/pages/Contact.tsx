@@ -1,5 +1,5 @@
 import Navigation from "@/components/Navigation";
-import { Mail, Phone, Linkedin, Github, Instagram, Download } from "lucide-react";
+import { Mail, Phone, Linkedin, Github, Instagram, Download, Briefcase } from "lucide-react";
 import Footer from "@/components/Footer";
 
 const Contact = () => {
@@ -28,6 +28,11 @@ const Contact = () => {
       icon: Instagram,
       label: "Instagram",
       href: "https://www.instagram.com/adil_r120/"
+    },
+    {
+      icon: Briefcase,
+      label: "Naukri",
+      href: "https://www.naukri.com/mnjuser/profile?id=&altresid"
     }
   ];
 

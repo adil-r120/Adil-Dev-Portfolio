@@ -10,6 +10,7 @@ type Project = {
   image: string;
   date: string;
   tags: string[];
+  link?: string;
 };
 
 // Define the type for hackathons
@@ -20,6 +21,7 @@ type Hackathon = {
   date: string;
   tags?: string[];
   position?: string;
+  link?: string;
 };
 
 const Projects = () => {
@@ -29,42 +31,64 @@ const Projects = () => {
       description: "A full-featured e-commerce Air Jordan website design built with figma, wireframe, and prototype. Features include user login/signup, product search, shopping cart, and payment processing.",
       image: "🛍️",
       date: "March 2025 - May 2025",
-      tags: ["Figma", "Ui/Ux design", "WireFrame", "Protoptype"]
+      tags: ["Figma", "Ui/Ux design", "WireFrame", "Protoptype"],
+      link: "https://github.com/adil-r120/E-Commerce-Website-Design"
     },
     {
       title: "Personal Expense Tracker",
       description: "A productivity application for managing tasks and projects with real-time collaboration features. Built with java and javaframe work, MYSQL databases.",
       image: "📋",
       date: "sep 2025 - Jan 2025",
-      tags: ["Java", "Reactjs", "MYSQL databases","RestApi"]
+      tags: ["Java", "Reactjs", "MYSQL databases","RestApi"],
+      link: "https://github.com/adil-r120/Personal-Expense-Tracker"
     },
     {
       title: "Portfolio Website",
       description: "A responsive portfolio website showcasing projects and skills with modern design and smooth animations.",
       image: "🌟",
       date: "December 2023 - January 2024",
-      tags: ["React", "Tailwind CSS", "Nodejs"]
+      tags: ["React", "Tailwind CSS", "Nodejs"],
+      link: "https://github.com/adil-r120/Adil-Dev-Portfolio"
     },
     {
       title: "Real-time Weather Detector",
       description: "A weather application that provides real-time weather information using REST API integration.",
       image: "🌦️",
       date: "Sep 2023 - Jan 2023",
-      tags: ["HTML", "CSS", "JavaScript", "REST API"]
+      tags: ["HTML", "CSS", "JavaScript", "REST API"],
+      link: "https://github.com/adil-r120/Weather-App"
     },
     {
       title: "Tic Tac Toe Game",
       description: "A classic Tic Tac Toe game implementation with an interactive user interface.",
       image: "⭕",
       date: "Feb 2024 - June 2024",
-      tags: ["HTML", "CSS", "JavaScript"]
+      tags: ["HTML", "CSS", "JavaScript"],
+      link: "https://github.com/adil-r120/Tic-Tac-Toe-Game"
     },
     {
-      title: "E-commerce Webpage",
+      title: "Amazon-Clone",
       description: "A frontend implementation of an Amazon-style e-commerce webpage.",
       image: "🛒",
       date: "Aug 2024 - Sep 2024",
-      tags: ["HTML", "CSS"]
+      tags: ["HTML", "CSS"],
+      link: "https://github.com/adil-r120/Amazon-Clone"
+    },
+    {
+      title: "Zepto-Clone",
+      description: "Zepto Clone – Grocery Delivery Website This is a Zepto Clone a frontend UI project built using HTML and CSS only. It replicates the modern and minimal design of the popular Zepto grocery delivery platform, showcasing how an elegant and responsive layout can be created without JavaScript or frameworks.",
+      image: "🛒",
+      date: "Feb 2024 - Mar 2024",
+      tags: ["HTML", "CSS"],
+      link: "https://github.com/adil-r120/Zepto-Clone"
+    },
+    {
+      title: "Snatix – Photography Website",
+      description: "Snatix – Photography Website is a full-stack photography portfolio. It allows photographers to showcase their work, manage galleries, and connect with clients through a seamless, responsive, and modern web interface.",
+      image: "📸",
+      date: " Jan 2025 - Oct 2025",
+      tags: ["HTML", "TypeScript", "JavaScript", "MYSQL","Photography"],
+      link: "https://github.com/adil-r120/Snatix"
     }
   ];
 
@@ -75,15 +99,17 @@ const Projects = () => {
       image: "🏆",
       date: "10-12th April 2025",
       // tags: ["React", "Node.js", "Socket.io", "MongoDB"],
-      // position: "1st Place Winner"
+      // position: "1st Place Winner",
+      link: "/certificates/hackathon.png"
     },
     {
       title: "Pixel Pursuit Event 2024",
-      description: "A Pixel Pursuit event organized by Mobile Development Club.",
+      description: "A Pixel Pursuit event organized by Mobile Development Club at NHCE campus.",
       image: "🌱",
       date: "19th November 2024",
       // tags: ["Mobile Development", "Android", "Java"],
-      // position: "Top 5 Finalists"
+      // position: "Top 5 Finalists",
+      link: "/certificate/pixel.jpeg"
     }
     /*{
       title: "Startup Weekend Hackathon",
@@ -91,7 +117,8 @@ const Projects = () => {
       image: "💡",
       date: "September 2024",
       tags: ["React Native", "Firebase", "Express.js", "Machine Learning"],
-      position: "Best Social Impact Award"
+      position: "Best Social Impact Award",
+      link: "#"
     }*/
   ];
 
@@ -104,9 +131,12 @@ const Projects = () => {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 max-w-7xl mx-auto">
           {projects.map((project) => (
-            <div
+            <a
               key={project.title}
-              className="bg-card rounded-lg border border-orange-500/20 hover:border-orange-500/40 transition-all overflow-hidden group"
+              href={project.link}
+              target={project.link && project.link !== "#" ? "_blank" : undefined}
+              rel={project.link && project.link !== "#" ? "noopener noreferrer" : undefined}
+              className="bg-card rounded-lg border border-orange-500/20 hover:border-orange-500/40 transition-all overflow-hidden group block"
             >
               <div className="h-40 md:h-48 bg-gradient-to-br from-orange-500/20 to-transparent flex items-center justify-center text-5xl md:text-7xl group-hover:scale-110 transition-transform">
                 {project.image}
@@ -135,7 +165,7 @@ const Projects = () => {
                   ))}
                 </div>
               </div>
-            </div>
+            </a>
           ))}
         </div>
 
@@ -150,9 +180,12 @@ const Projects = () => {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 max-w-7xl mx-auto">
             {hackathons.map((hackathon) => (
-              <div
+              <a
                 key={hackathon.title}
-                className="bg-card rounded-lg border border-orange-500/20 hover:border-orange-500/40 transition-all overflow-hidden group"
+                href={hackathon.link}
+                target={hackathon.link && hackathon.link !== "#" ? "_blank" : undefined}
+                rel={hackathon.link && hackathon.link !== "#" ? "noopener noreferrer" : undefined}
+                className="bg-card rounded-lg border border-orange-500/20 hover:border-orange-500/40 transition-all overflow-hidden group block"
               >
                 <div className="h-40 md:h-48 bg-gradient-to-br from-orange-500/20 to-transparent flex items-center justify-center text-5xl md:text-7xl group-hover:scale-110 transition-transform">
                   {hackathon.image}
@@ -194,7 +227,7 @@ const Projects = () => {
                     </div>
                   )}
                 </div>
-              </div>
+              </a>
             ))}
           </div>
         </div>

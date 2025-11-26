@@ -132,11 +132,13 @@ const Certifications = () => {
   const courses = [
     {
       title: "Cloud Computing",
-      institution: "IIT Kharagpur"
+      institution: "IIT Kharagpur",
+      link: "https://swayam.gov.in/mycourses"
     },
     {
       title: "Data Structure and Algorithm",
-      institution: "PW Skills"
+      institution: "PW Skills",
+      link: "https://youtu.be/RJ733wzbNoA?si=ew1VgCZ2d1d_sohR"
     }
   ];
 
@@ -217,18 +219,21 @@ const Certifications = () => {
         <div className="max-w-5xl mx-auto">
           <div className="flex items-center justify-center gap-2 md:gap-3 mb-6 md:mb-12">
             <Award className="w-6 h-6 md:w-8 md:h-8 text-orange-500" />
-            <h2 className="text-2xl md:text-4xl font-bold">Courses Completed</h2>
+            <h2 className="text-2xl md:text-4xl font-bold">Courses</h2>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">
             {courses.map((course) => (
-              <div
+              <a
                 key={course.title}
-                className="bg-card p-4 md:p-6 rounded-lg border border-orange-500/20"
+                href={course.link}
+                target={course.link !== "#" ? "_blank" : undefined}
+                rel={course.link !== "#" ? "noopener noreferrer" : undefined}
+                className="bg-card p-4 md:p-6 rounded-lg border border-orange-500/20 hover:border-orange-500/40 transition-all block"
               >
                 <h3 className="text-base md:text-lg font-bold mb-1 md:mb-2">{course.title}</h3>
                 <p className="text-xs md:text-sm text-muted-foreground">{course.institution}</p>
-              </div>
+              </a>
             ))}
           </div>
         </div>
