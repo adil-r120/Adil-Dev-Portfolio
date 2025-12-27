@@ -25,7 +25,7 @@ const Navigation = () => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 10);
     };
-    
+
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -41,17 +41,17 @@ const Navigation = () => {
   ];
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-      scrolled 
-        ? "bg-background/90 backdrop-blur-md border-b border-orange-500/10" 
-        : "bg-background/80 backdrop-blur-sm"
-    }`}>
+    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled
+      ? "bg-background/90 backdrop-blur-md border-b border-orange-500/10"
+      : "bg-background/80 backdrop-blur-sm"
+      }`}>
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
-          <Link to="/" className="text-xl font-bold">
+          <Link to="/" className="text-xl font-bold flex items-center gap-2">
+            <img src="/logo_new.svg" alt="Logo" className="w-8 h-8" />
             MD ADIL RAZA
           </Link>
-          
+
           {/* Mobile menu button */}
           <button
             onClick={toggleMenu}
@@ -64,23 +64,22 @@ const Navigation = () => {
               <Menu className="w-6 h-6" />
             )}
           </button>
-          
+
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => (
               <Link
                 key={link.path}
                 to={link.path}
-                className={`text-sm transition-colors hover:text-orange-500 ${
-                  location.pathname === link.path
-                    ? "text-orange-500"
-                    : "text-foreground/80"
-                }`}
+                className={`text-sm transition-colors hover:text-orange-500 ${location.pathname === link.path
+                  ? "text-orange-500"
+                  : "text-foreground/80"
+                  }`}
               >
                 {link.label}
               </Link>
             ))}
-            
+
             <button
               onClick={toggleTheme}
               className="p-2 rounded-full bg-orange-500/10 text-orange-500 hover:bg-orange-500/20 transition-colors"
@@ -95,7 +94,7 @@ const Navigation = () => {
           </div>
         </div>
       </div>
-      
+
       {/* Mobile Navigation Menu */}
       {isMenuOpen && (
         <div className="md:hidden bg-background/95 backdrop-blur-lg border-b border-orange-500/10">
@@ -105,16 +104,15 @@ const Navigation = () => {
                 key={link.path}
                 to={link.path}
                 onClick={closeMenu}
-                className={`px-4 py-2 rounded-md text-base transition-colors ${
-                  location.pathname === link.path
-                    ? "text-orange-500 bg-orange-500/10"
-                    : "text-foreground/80 hover:text-orange-500 hover:bg-orange-500/5"
-                }`}
+                className={`px-4 py-2 rounded-md text-base transition-colors ${location.pathname === link.path
+                  ? "text-orange-500 bg-orange-500/10"
+                  : "text-foreground/80 hover:text-orange-500 hover:bg-orange-500/5"
+                  }`}
               >
                 {link.label}
               </Link>
             ))}
-            
+
             <div className="pt-2">
               <button
                 onClick={() => {
