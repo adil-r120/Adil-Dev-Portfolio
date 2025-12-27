@@ -12,15 +12,17 @@ import Certifications from "./pages/Certifications";
 import Contact from "./pages/Contact";
 import Experiences from "./pages/Experiences";
 import NotFound from "./pages/NotFound";
+import ScrollToTop from "@/components/ScrollToTop"; // Import new component
 
 const queryClient = new QueryClient();
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
-    <ThemeProvider defaultTheme="light" storageKey="vite-ui-theme">
+    <ThemeProvider defaultTheme="light" storageKey="vite-ui-theme" attribute="class">
       <TooltipProvider>
         <Toaster />
         <Sonner />
+        <ScrollToTop />
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Home />} />

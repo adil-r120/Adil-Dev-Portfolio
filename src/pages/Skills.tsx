@@ -115,8 +115,8 @@ const Skills = () => {
   // Progress bar component
   const ProgressBar = ({ proficiency }: { proficiency: number }) => (
     <div className="w-40 bg-gray-200 rounded-full h-2 ml-2 flex-shrink-0">
-      <div 
-        className="bg-orange-500 h-2 rounded-full" 
+      <div
+        className="bg-orange-500 h-2 rounded-full"
         style={{ width: `${proficiency}%` }}
       ></div>
     </div>
@@ -125,7 +125,7 @@ const Skills = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
-      
+
       <main className="container mx-auto px-4 pt-24 md:pt-32 pb-20">
         <h1 className="text-3xl md:text-5xl font-bold text-center mb-8 md:mb-16">Technical Skills</h1>
 
@@ -133,7 +133,8 @@ const Skills = () => {
           {skillCategories.map((category, index) => (
             <div
               key={category.title}
-              className="bg-card p-4 md:p-8 rounded-lg border border-orange-500/20 hover:border-orange-500/40 transition-all"
+              className="bg-card p-4 md:p-8 rounded-lg border border-orange-500/20 hover:border-orange-500/40 transition-all card-glow animate-fade-in-up"
+              style={{ animationDelay: `${index * 100}ms` }}
             >
               <div className="flex items-center gap-3 mb-4 md:mb-6">
                 <div className="w-8 h-8 md:w-10 md:h-10 rounded-lg bg-orange-500/10 flex items-center justify-center text-lg md:text-xl">
@@ -146,17 +147,20 @@ const Skills = () => {
                   {index === 6 && <div className="text-orange-500 text-sm md:text-base">🎨</div>}
                   {index === 7 && <BookOpen className="w-4 h-4 md:w-6 md:h-6 text-orange-500" />}
                   {index === 8 && <Languages className="w-4 h-4 md:w-6 md:h-6 text-orange-500" />}
-                  {!([0,1,2,3,4,5,6,7,8].includes(index)) && <Code2 className="w-4 h-4 md:w-6 md:h-6 text-orange-500" />}
+                  {!([0, 1, 2, 3, 4, 5, 6, 7, 8].includes(index)) && <Code2 className="w-4 h-4 md:w-6 md:h-6 text-orange-500" />}
                 </div>
                 <h2 className="text-lg md:text-2xl font-bold">{category.title}</h2>
               </div>
 
-              <div className="space-y-2 md:space-y-3">
+              <div className="flex flex-wrap gap-2">
                 {category.skills.map((skill) => (
-                  <div key={skill.name} className="flex items-center justify-between">
-                    <span className="text-xs md:text-sm">{skill.name}</span>
-                    <ProgressBar proficiency={skill.proficiency} />
-                  </div>
+                  <Badge
+                    key={skill.name}
+                    variant="secondary"
+                    className="text-sm py-1 px-3 bg-secondary hover:bg-orange-500/10 hover:text-orange-500 transition-colors cursor-default"
+                  >
+                    {skill.name}
+                  </Badge>
                 ))}
               </div>
             </div>

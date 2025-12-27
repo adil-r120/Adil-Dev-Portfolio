@@ -2,58 +2,73 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Download } from "lucide-react";
 import Navigation from "@/components/Navigation";
+import { useState, useEffect } from "react"; // Added useState and useEffect
 
 const Home = () => {
   const skills = [
-    "Artificial Intelligence (AI)", "GitHub", "REST APIs", "SQL", "DBMS", 
-    "User Experience Design (UED)", /*"Hindi",*/ 
-    "Java Frameworks", "HTML", "Software Development", 
-    "Cloud Computing","Wireframing", "Operating Systems", "Linux", 
-    "Amazon Web Services (AWS)", "C++", "Java", "Object-Oriented Programming (OOP)", 
-    "Google Cloud Platform (GCP)", "XML", "Figma (Software)", "CSS","Python for data science","Python (Programming Language)", "C"
+    "Artificial Intelligence (AI)", "GitHub", "REST APIs", "SQL", "DBMS",
+    "User Experience Design (UED)",
+    "Java Frameworks", "HTML", "Software Development",
+    "Cloud Computing", "Wireframing", "Operating Systems", "Linux",
+    "Amazon Web Services (AWS)", "C++", "Java", "Object-Oriented Programming (OOP)",
+    "Google Cloud Platform (GCP)", "XML", "Figma (Software)", "CSS", "Python for data science", "Python (Programming Language)", "C"
+  ];
+
+  const roles = [
+    "Aspiring Software Engineer",
+    "Full Stack Developer",
+    "Cloud Enthusiast",
+    "AI Enthusiast"
   ];
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background overflow-hidden relative">
+      {/* Background Decoration */}
+      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-orange-500/5 rounded-full blur-[100px] -z-10 animate-fade-in-up delay-500"></div>
+      <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-blue-500/5 rounded-full blur-[100px] -z-10 animate-fade-in-up delay-500"></div>
+
       <Navigation />
-      
+
       <main className="container mx-auto px-4 pt-24 md:pt-32 pb-20">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
           {/* Left Column - Text Content */}
-          <div className="space-y-6 md:space-y-8">
+          <div className="space-y-6 md:space-y-8 animate-fade-in-up">
             <div className="space-y-4">
               <h1 className="text-4xl md:text-6xl font-bold">
                 Hello<span className="text-orange-500">..</span>
               </h1>
               <div className="flex items-center gap-3">
                 <div className="h-1 w-12 md:w-16 bg-orange-500"></div>
-                <p className="text-lg md:text-xl text-muted-foreground">I'm MD ADIL RAZA</p>
+                <p className="text-lg md:text-xl text-muted-foreground font-medium">I'm MD ADIL RAZA</p>
               </div>
             </div>
 
-            <h2 className="text-2xl md:text-4xl font-bold">Aspiring Software Engineer</h2>
-            <p className="text-base md:text-xl text-muted-foreground">
+            <h2 className="text-2xl md:text-4xl font-bold h-12 md:h-14 flex items-center">
+              Aspiring Software Engineer
+            </h2>
+
+            <p className="text-base md:text-xl text-muted-foreground max-w-lg leading-relaxed delay-100 animate-fade-in-up">
               Full Stack Enthusiast | Passionate About AI, Web Development & Cloud Computing
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 pt-4">
-              <a 
-                href="https://github.com/adil-r120?tab=projects" 
-                target="_blank" 
+            <div className="flex flex-col sm:flex-row gap-4 pt-4 delay-200 animate-fade-in-up">
+              <a
+                href="https://github.com/adil-r120?tab=projects"
+                target="_blank"
                 rel="noopener noreferrer"
               >
-                <Button 
-                  size="lg" 
-                  className="bg-orange-500 hover:bg-orange-600 text-white w-full sm:w-auto"
+                <Button
+                  size="lg"
+                  className="bg-orange-500 hover:bg-orange-600 text-white w-full sm:w-auto shadow-lg shadow-orange-500/25 hover:shadow-orange-500/40 transition-all duration-300"
                 >
                   Got a project?
                 </Button>
               </a>
               <a href="/MDADILRAZA(1NH23CS146).pdf" download="MDADILRAZA(1NH23CS146).pdf">
-                <Button 
-                  size="lg" 
-                  variant="outline" 
-                  className="border-orange-500 text-orange-500 hover:bg-orange-500/10 w-full sm:w-auto"
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="border-orange-500 text-orange-500 hover:bg-orange-500/10 w-full sm:w-auto backdrop-blur-sm"
                 >
                   <Download className="mr-2 h-4 w-4" />
                   My Resume
@@ -68,10 +83,9 @@ const Home = () => {
               <div className="absolute inset-0 bg-orange-500/20 rounded-full blur-3xl"></div>
               <div className="relative w-60 h-60 md:w-80 md:h-80 rounded-full border-4 border-orange-500 overflow-hidden">
                 {/* profile image */}
-                <img 
-                  // src="/profile_image1.png"
+                <img
                   src="/AR_logo.jpg"
-                  alt="AR" 
+                  alt="AR"
                   className="w-full h-full object-cover object-center"
                 />
               </div>

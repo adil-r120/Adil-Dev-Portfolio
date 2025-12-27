@@ -55,7 +55,7 @@ const About = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
-      
+
       <main className="container mx-auto px-4 pt-24 md:pt-32 pb-20">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-16">
           {/* Left Column - Skills */}
@@ -127,7 +127,7 @@ const About = () => {
               </div>
               <div className="text-center p-4 md:p-6 bg-card rounded-lg border border-orange-500/20">
                 <div className="text-2xl md:text-4xl font-bold mb-1 md:mb-2">
-                  7<span className="text-orange-500">+</span>
+                  10<span className="text-orange-500">+</span>
                 </div>
                 <p className="text-xs md:text-sm text-muted-foreground">Certifications</p>
               </div>
