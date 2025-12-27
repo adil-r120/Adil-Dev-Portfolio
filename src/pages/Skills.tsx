@@ -133,7 +133,7 @@ const Skills = () => {
           {skillCategories.map((category, index) => (
             <div
               key={category.title}
-              className="bg-card p-4 md:p-8 rounded-lg border border-orange-500/20 hover:border-orange-500/40 transition-all card-glow animate-fade-in-up"
+              className="bg-card p-4 md:p-8 rounded-lg border border-blue-500/20 hover:border-blue-900/50 transition-all card-glow animate-fade-in-up"
               style={{ animationDelay: `${index * 100}ms` }}
             >
               <div className="flex items-center gap-3 mb-4 md:mb-6">
@@ -178,40 +178,40 @@ const Skills = () => {
               href="https://www.codechef.com/users/adil_r120"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-card p-4 rounded-lg border border-orange-500/20 hover:border-orange-500/40 transition-all group text-center"
+              className="bg-card p-4 rounded-lg border border-blue-500/20 hover:border-blue-900/50 transition-all group text-center"
             >
               <Code className="w-8 h-8 md:w-10 md:h-10 text-orange-500 mx-auto mb-2" />
-              <div className="text-orange-500 mb-2 text-sm md:text-base font-medium">CodeChef</div>
+              <div className="text-blue-900 dark:text-blue-100 mb-2 text-sm md:text-base font-medium">CodeChef</div>
               <Badge variant="secondary" className="text-xs"></Badge>
             </a>
             <a
               href="https://leetcode.com/u/adil_r120/"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-card p-4 rounded-lg border border-orange-500/20 hover:border-orange-500/40 transition-all group text-center"
+              className="bg-card p-4 rounded-lg border border-blue-500/20 hover:border-blue-900/50 transition-all group text-center"
             >
               <FileText className="w-8 h-8 md:w-10 md:h-10 text-orange-500 mx-auto mb-2" />
-              <div className="text-orange-500 mb-2 text-sm md:text-base font-medium">LeetCode</div>
+              <div className="text-blue-900 dark:text-blue-100 mb-2 text-sm md:text-base font-medium">LeetCode</div>
               <Badge variant="secondary" className="text-xs"></Badge>
             </a>
             <a
               href="https://www.hackerrank.com/profile/mdadilraza510"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-card p-4 rounded-lg border border-orange-500/20 hover:border-orange-500/40 transition-all group text-center"
+              className="bg-card p-4 rounded-lg border border-blue-500/20 hover:border-blue-900/50 transition-all group text-center"
             >
               <Terminal className="w-8 h-8 md:w-10 md:h-10 text-orange-500 mx-auto mb-2" />
-              <div className="text-orange-500 mb-2 text-sm md:text-base font-medium">HackerRank</div>
+              <div className="text-blue-900 dark:text-blue-100 mb-2 text-sm md:text-base font-medium">HackerRank</div>
               <Badge variant="secondary" className="text-xs"></Badge>
             </a>
             <a
               href="https://auth.geeksforgeeks.org/user/mdadilraza510"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-card p-4 rounded-lg border border-orange-500/20 hover:border-orange-500/40 transition-all group text-center"
+              className="bg-card p-4 rounded-lg border border-blue-500/20 hover:border-blue-900/50 transition-all group text-center"
             >
               <Server className="w-8 h-8 md:w-10 md:h-10 text-orange-500 mx-auto mb-2" />
-              <div className="text-orange-500 mb-2 text-sm md:text-base font-medium">GeeksforGeeks</div>
+              <div className="text-blue-900 dark:text-blue-100 mb-2 text-sm md:text-base font-medium">GeeksforGeeks</div>
               <Badge variant="secondary" className="text-xs"></Badge>
             </a>
           </div>

@@ -11,13 +11,13 @@ type Experience = {
   description: string;
   skills: string[];
   link?: string;
-//   role?: string;
+  //   role?: string;
 };
 
 const Experiences = () => {
   const experiences: Experience[] = [
     {
-      title:"Volunteer – Technical Team",
+      title: "Volunteer – Technical Team",
       company: "New Horizon College of Engineering",
       period: "Oct 2025 - Present",
       location: "Bangalore,Karnatka,India",
@@ -48,7 +48,7 @@ const Experiences = () => {
   return (
     <div className="min-h-screen bg-background flex flex-col">
       <Navigation />
-      
+
       <main className="container mx-auto px-4 pt-24 md:pt-32 pb-20 flex-grow">
         <div className="max-w-4xl mx-auto">
           <header className="text-center mb-12 md:mb-16">
@@ -61,14 +61,14 @@ const Experiences = () => {
 
           <div className="space-y-8 md:space-y-10">
             {experiences.map((exp, index) => (
-              <div 
+              <div
                 key={index}
-                className="bg-card p-6 md:p-8 rounded-lg border border-orange-500/20 hover:border-orange-500/40 transition-all relative"
+                className="bg-card p-6 md:p-8 rounded-lg border border-blue-500/20 hover:border-blue-500/40 transition-all relative"
               >
                 {exp.link && (
-                  <a 
-                    href={exp.link} 
-                    target="_blank" 
+                  <a
+                    href={exp.link}
+                    target="_blank"
                     rel="noopener noreferrer"
                     className="absolute inset-0 z-0"
                     aria-label={`Visit ${exp.company}`}
@@ -80,18 +80,18 @@ const Experiences = () => {
                     <h3 className="text-lg md:text-xl text-orange-500 font-medium mt-1">{exp.company}</h3>
                   </div>
                   {exp.link && (
-                    <a 
-                      href={exp.link} 
-                      target="_blank" 
+                    <a
+                      href={exp.link}
+                      target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-2 text-sm text-orange-500 hover:text-orange-600 transition-colors shrink-0 relative z-10"
+                      className="flex items-center gap-2 text-sm text-blue-900 dark:text-blue-400 hover:text-blue-700 transition-colors shrink-0 relative z-10"
                     >
                       <ExternalLink className="w-4 h-4" />
                       Visit
                     </a>
                   )}
                 </div>
-                
+
                 <div className="flex flex-wrap items-center gap-4 md:gap-6 mb-4">
                   <div className="flex items-center gap-1.5 text-sm text-muted-foreground">
                     <Calendar className="w-4 h-4" />
@@ -102,14 +102,14 @@ const Experiences = () => {
                     <span>{exp.location}</span>
                   </div>
                 </div>
-                
+
                 <p className="text-base md:text-muted-foreground mb-5 leading-relaxed">
                   {exp.description}
                 </p>
-                
+
                 <div className="flex flex-wrap gap-2">
                   {exp.skills.map((skill, skillIndex) => (
-                    <span 
+                    <span
                       key={skillIndex}
                       className="px-3 py-1 bg-orange-500/10 text-orange-500 text-xs md:text-sm rounded-full"
                     >
@@ -122,7 +122,7 @@ const Experiences = () => {
           </div>
         </div>
       </main>
-      
+
       <Footer />
     </div>
   );

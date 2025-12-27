@@ -25,7 +25,7 @@ const Home = () => {
     <div className="min-h-screen bg-background overflow-hidden relative">
       {/* Background Decoration */}
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-orange-500/5 rounded-full blur-[100px] -z-10 animate-fade-in-up delay-500"></div>
-      <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-blue-500/5 rounded-full blur-[100px] -z-10 animate-fade-in-up delay-500"></div>
+      <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-blue-900/5 rounded-full blur-[100px] -z-10 animate-fade-in-up delay-500"></div>
 
       <Navigation />
 
@@ -59,7 +59,7 @@ const Home = () => {
               >
                 <Button
                   size="lg"
-                  className="bg-orange-500 hover:bg-orange-600 text-white w-full sm:w-auto shadow-lg shadow-orange-500/25 hover:shadow-orange-500/40 transition-all duration-300"
+                  className="bg-blue-900 hover:bg-blue-800 text-white w-full sm:w-auto shadow-lg shadow-blue-900/25 hover:shadow-blue-900/40 transition-all duration-300"
                 >
                   Got a project?
                 </Button>
@@ -68,7 +68,7 @@ const Home = () => {
                 <Button
                   size="lg"
                   variant="outline"
-                  className="border-orange-500 text-orange-500 hover:bg-orange-500/10 w-full sm:w-auto backdrop-blur-sm"
+                  className="border-blue-900 text-blue-900 hover:bg-blue-900/10 w-full sm:w-auto backdrop-blur-sm"
                 >
                   <Download className="mr-2 h-4 w-4" />
                   My Resume
@@ -80,8 +80,8 @@ const Home = () => {
           {/* Right Column - Profile Image */}
           <div className="flex justify-center md:justify-end">
             <div className="relative">
-              <div className="absolute inset-0 bg-orange-500/20 rounded-full blur-3xl"></div>
-              <div className="relative w-60 h-60 md:w-80 md:h-80 rounded-full border-4 border-orange-500 overflow-hidden">
+              <div className="absolute inset-0 bg-blue-900/20 rounded-full blur-3xl"></div>
+              <div className="relative w-60 h-60 md:w-80 md:h-80 rounded-full border-4 border-blue-900 overflow-hidden">
                 {/* profile image */}
                 <img
                   src="/AR_logo.jpg"

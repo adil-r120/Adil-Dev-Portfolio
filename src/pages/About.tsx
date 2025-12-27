@@ -37,16 +37,16 @@ const About = () => {
       institution: "Park Mount Public School",
       board: "Central Board of Secondary Education",
       grade: "Grade: A",
-      period:"Mar 2020 - April 2022",
+      period: "Mar 2020 - April 2022",
       location: "Patna, India",
       activities: "Captain of Cricket team"
     },
-     {
+    {
       degree: "Matric (X)",
       institution: "Nezamia Public School",
       board: "Central Board of Secondary Education",
       grade: "Grade: B",
-      period:"Mar 2020",
+      period: "Mar 2020",
       location: "Patna, India",
       activities: "Drawing & Sketching",
     }
@@ -63,7 +63,7 @@ const About = () => {
             {skills.map((skill) => (
               <div
                 key={skill.title}
-                className="flex gap-3 md:gap-4 p-4 md:p-6 bg-card rounded-lg border border-orange-500/20 hover:border-orange-500/40 transition-all"
+                className="flex gap-3 md:gap-4 p-4 md:p-6 bg-card rounded-lg border border-blue-500/20 hover:border-blue-900/50 transition-all"
               >
                 <div className="flex-shrink-0">
                   <div className="w-10 h-10 md:w-12 md:h-12 rounded-lg bg-orange-500/10 flex items-center justify-center">
@@ -83,24 +83,20 @@ const About = () => {
             <div>
               <h1 className="text-3xl md:text-5xl font-bold mb-4 md:mb-6">About me</h1>
               <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
-                Aspiring Software Engineer with a passion for coding and technology. 
-                Currently pursuing BE in Computer Science Engineering at New Horizon 
-                College of Engineering, Bangalore. Eager to learn and grow, building skills 
-                in AI, Web Development, and Cloud Computing. Aiming to become a Full-Stack 
-                Software Engineer by acquiring technical skills through projects and courses.
+               Aspiring Software Engineer with a passion for coding and technology. Currently pursuing a Bachelor of Engineering in Computer Science Engineering at New Horizon College of Engineering, Bangalore. Actively building skills in full-stack development, AI, and cloud computing through hands-on projects and coursework. Driven to continuously learn, grow, and develop scalable software solutions that solve real-world problems.
               </p>
             </div>
 
             <div className="space-y-4 md:space-y-6">
               <div className="flex items-center gap-2">
-                <div className="w-6 h-6 md:w-8 md:h-8 rounded-lg bg-orange-500/10 flex items-center justify-center">
-                  <BookOpen className="w-3 h-3 md:w-4 md:h-4 text-orange-500" />
+                <div className="w-8 h-8 md:w-10 md:h-10 rounded-lg bg-orange-500/10 flex items-center justify-center">
+                  <BookOpen className="w-4 h-4 md:w-6 md:h-6 text-orange-500" />
                 </div>
-                <h3 className="text-lg md:text-xl font-bold text-orange-500">Education</h3>
+                <h3 className="text-2xl md:text-3xl font-bold text-foreground">Education</h3>
               </div>
-              
+
               {education.map((edu, index) => (
-                <div key={index} className="bg-card p-4 md:p-6 rounded-lg border border-orange-500/20">
+                <div key={index} className="bg-card p-4 md:p-6 rounded-lg border border-blue-500/20 hover:border-blue-900/50 transition-all card-glow">
                   <h4 className="text-base md:text-lg font-semibold mb-1 md:mb-2">{edu.degree}</h4>
                   <p className="text-sm text-muted-foreground mb-1">{edu.institution}</p>
                   {edu.board && <p className="text-xs md:text-sm text-muted-foreground mb-1">{edu.board}</p>}
@@ -119,19 +115,19 @@ const About = () => {
             </div>
 
             <div className="grid grid-cols-3 gap-3 md:gap-6">
-              <div className="text-center p-4 md:p-6 bg-card rounded-lg border border-orange-500/20">
+              <div className="text-center p-4 md:p-6 bg-card rounded-lg border border-blue-500/20 hover:border-blue-900/50 transition-all card-glow">
                 <div className="text-2xl md:text-4xl font-bold mb-1 md:mb-2">
                   5<span className="text-orange-500">+</span>
                 </div>
                 <p className="text-xs md:text-sm text-muted-foreground">Projects Completed</p>
               </div>
-              <div className="text-center p-4 md:p-6 bg-card rounded-lg border border-orange-500/20">
+              <div className="text-center p-4 md:p-6 bg-card rounded-lg border border-blue-500/20 hover:border-blue-900/50 transition-all card-glow">
                 <div className="text-2xl md:text-4xl font-bold mb-1 md:mb-2">
                   10<span className="text-orange-500">+</span>
                 </div>
                 <p className="text-xs md:text-sm text-muted-foreground">Certifications</p>
               </div>
-              <div className="text-center p-4 md:p-6 bg-card rounded-lg border border-orange-500/20">
+              <div className="text-center p-4 md:p-6 bg-card rounded-lg border border-blue-500/20 hover:border-blue-900/50 transition-all card-glow">
                 <div className="text-2xl md:text-4xl font-bold mb-1 md:mb-2">1</div>
                 <p className="text-xs md:text-sm text-muted-foreground">Hackathon</p>
               </div>

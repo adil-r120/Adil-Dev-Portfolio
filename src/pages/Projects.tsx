@@ -39,7 +39,7 @@ const Projects = () => {
       description: "A productivity application for managing tasks and projects with real-time collaboration features. Built with java and javaframe work, MYSQL databases.",
       image: "📋",
       date: "sep 2025 - Jan 2025",
-      tags: ["Java", "Reactjs", "MYSQL databases","RestApi"],
+      tags: ["Java", "Reactjs", "MYSQL databases", "RestApi"],
       link: "https://github.com/adil-r120/Personal-Expense-Tracker"
     },
     {
@@ -87,7 +87,7 @@ const Projects = () => {
       description: "Snatix – Photography Website is a full-stack photography portfolio. It allows photographers to showcase their work, manage galleries, and connect with clients through a seamless, responsive, and modern web interface.",
       image: "📸",
       date: " Jan 2025 - Oct 2025",
-      tags: ["HTML", "TypeScript", "JavaScript", "MYSQL","Photography"],
+      tags: ["HTML", "TypeScript", "JavaScript", "MYSQL", "Photography"],
       link: "https://github.com/adil-r120/Snatix"
     }
   ];
@@ -125,7 +125,7 @@ const Projects = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
-      
+
       <main className="container mx-auto px-4 pt-24 md:pt-32 pb-20">
         <h1 className="text-3xl md:text-5xl font-bold text-center mb-8 md:mb-16">Projects</h1>
 
@@ -136,18 +136,18 @@ const Projects = () => {
               href={project.link}
               target={project.link && project.link !== "#" ? "_blank" : undefined}
               rel={project.link && project.link !== "#" ? "noopener noreferrer" : undefined}
-              className="bg-card rounded-lg border border-orange-500/20 hover:border-orange-500/40 transition-all overflow-hidden group block"
+              className="bg-card rounded-lg border border-blue-500/20 hover:border-blue-900/50 transition-all overflow-hidden group block"
             >
-              <div className="h-40 md:h-48 bg-gradient-to-br from-orange-500/20 to-transparent flex items-center justify-center text-5xl md:text-7xl group-hover:scale-110 transition-transform">
+              <div className="h-40 md:h-48 bg-gradient-to-br from-blue-900/20 to-transparent flex items-center justify-center text-5xl md:text-7xl group-hover:scale-110 transition-transform">
                 {project.image}
               </div>
-              
+
               <div className="p-4 md:p-6 space-y-3 md:space-y-4">
                 <h3 className="text-lg md:text-xl font-bold">{project.title}</h3>
                 <p className="text-sm text-muted-foreground leading-relaxed">
                   {project.description}
                 </p>
-                
+
                 <div className="flex items-center gap-2 text-xs md:text-sm text-muted-foreground">
                   <Calendar className="w-3 h-3 md:w-4 md:h-4" />
                   <span>{project.date}</span>
@@ -185,29 +185,29 @@ const Projects = () => {
                 href={hackathon.link}
                 target={hackathon.link && hackathon.link !== "#" ? "_blank" : undefined}
                 rel={hackathon.link && hackathon.link !== "#" ? "noopener noreferrer" : undefined}
-                className="bg-card rounded-lg border border-orange-500/20 hover:border-orange-500/40 transition-all overflow-hidden group block"
+                className="bg-card rounded-lg border border-blue-500/20 hover:border-blue-900/50 transition-all overflow-hidden group block"
               >
-                <div className="h-40 md:h-48 bg-gradient-to-br from-orange-500/20 to-transparent flex items-center justify-center text-5xl md:text-7xl group-hover:scale-110 transition-transform">
+                <div className="h-40 md:h-48 bg-gradient-to-br from-blue-900/20 to-transparent flex items-center justify-center text-5xl md:text-7xl group-hover:scale-110 transition-transform">
                   {hackathon.image}
                 </div>
-                
+
                 <div className="p-4 md:p-6 space-y-3 md:space-y-4">
                   <div className="flex justify-between items-start">
                     <h3 className="text-lg md:text-xl font-bold">{hackathon.title}</h3>
                     {'position' in hackathon && hackathon.position && (
-                      <Badge 
-                        variant="secondary" 
+                      <Badge
+                        variant="secondary"
                         className="text-[0.6rem] md:text-xs bg-orange-500/10 text-orange-500 border-orange-500/20 whitespace-nowrap px-2 py-0.5 md:px-2.5 md:py-1"
                       >
                         {hackathon.position}
                       </Badge>
                     )}
                   </div>
-                  
+
                   <p className="text-sm text-muted-foreground leading-relaxed">
                     {hackathon.description}
                   </p>
-                  
+
                   <div className="flex items-center gap-2 text-xs md:text-sm text-muted-foreground">
                     <Calendar className="w-3 h-3 md:w-4 md:h-4" />
                     <span>{hackathon.date}</span>

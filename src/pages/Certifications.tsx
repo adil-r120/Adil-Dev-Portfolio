@@ -125,7 +125,7 @@ const Certifications = () => {
       // credentialId: "https://www.credly.com/go/HYtdgjjh",
       skills: ["Python for Data Science"],
       // link: "https://www.credly.com/go/HYtdgjjh"
-      link:"/certificates/Python_for_Data_Science_Badge.pdf"
+      link: "/certificates/Python_for_Data_Science_Badge.pdf"
     }
   ];
 
@@ -145,7 +145,7 @@ const Certifications = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
-      
+
       <main className="container mx-auto px-4 pt-24 md:pt-32 pb-20">
         <h1 className="text-3xl md:text-5xl font-bold text-center mb-8 md:mb-16">Certifications</h1>
 
@@ -156,7 +156,7 @@ const Certifications = () => {
               href={cert.link || '#'}
               target={cert.link && cert.link !== '#' ? '_blank' : undefined}
               rel={cert.link && cert.link !== '#' ? 'noopener noreferrer' : undefined}
-              className="bg-card p-4 md:p-6 rounded-lg border border-orange-500/20 hover:border-orange-500/40 transition-all block"
+              className="bg-card p-4 md:p-6 rounded-lg border border-blue-500/20 hover:border-blue-900/50 transition-all block card-glow"
             >
               <div className="flex items-start gap-3 md:gap-4">
                 {cert.image ? (
@@ -171,37 +171,37 @@ const Certifications = () => {
                 <div className="flex-1">
                   <h3 className="font-bold mb-1 md:mb-2 leading-tight text-sm md:text-base">{cert.title}</h3>
                   <p className="text-xs md:text-sm text-muted-foreground mb-1 md:mb-2">{cert.issuer}</p>
-                  
+
                   {cert.issued && (
                     <div className="flex items-center gap-1 text-[0.6rem] md:text-xs text-muted-foreground mb-1">
                       <Calendar className="w-2.5 h-2.5 md:w-3 md:h-3" />
                       <span>Issued {cert.issued}</span>
                     </div>
                   )}
-                  
+
                   {cert.expires && (
                     <div className="text-[0.6rem] md:text-xs text-muted-foreground mb-1">
                       Expires {cert.expires}
                     </div>
                   )}
-                  
+
                   {cert.credentialId && (
                     <div className="flex items-center gap-1 text-[0.6rem] md:text-xs text-muted-foreground mb-1 md:mb-2">
                       <IdCard className="w-2.5 h-2.5 md:w-3 md:h-3" />
                       <span>Credential ID: {cert.credentialId}</span>
                     </div>
                   )}
-                  
+
                   {cert.description && (
                     <p className="text-[0.6rem] md:text-xs text-muted-foreground mt-1 md:mt-2">
                       {cert.description}
                     </p>
                   )}
-                  
+
                   {cert.skills && (
                     <div className="mt-2 md:mt-3 flex flex-wrap gap-1">
                       {cert.skills.map((skill, skillIndex) => (
-                        <span 
+                        <span
                           key={skillIndex}
                           className="text-[0.6rem] md:text-xs bg-orange-500/10 text-orange-500 px-1.5 py-0.5 md:px-2 md:py-1 rounded"
                         >
@@ -229,7 +229,7 @@ const Certifications = () => {
                 href={course.link}
                 target={course.link !== "#" ? "_blank" : undefined}
                 rel={course.link !== "#" ? "noopener noreferrer" : undefined}
-                className="bg-card p-4 md:p-6 rounded-lg border border-orange-500/20 hover:border-orange-500/40 transition-all block"
+                className="bg-card p-4 md:p-6 rounded-lg border border-blue-500/20 hover:border-blue-900/50 transition-all block card-glow"
               >
                 <h3 className="text-base md:text-lg font-bold mb-1 md:mb-2">{course.title}</h3>
                 <p className="text-xs md:text-sm text-muted-foreground">{course.institution}</p>
