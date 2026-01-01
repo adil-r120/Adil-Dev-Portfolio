@@ -84,7 +84,8 @@ const Projects = () => {
       image: "🛒",
       date: "Aug 2024 - Sep 2024",
       tags: ["HTML", "CSS"],
-      link: "https://github.com/adil-r120/Amazon-Clone"
+      // link: "https://github.com/adil-r120/Amazon-Clone"
+      link: "https://amazon-clone.vercel.app/"
     },
     {
       title: "Zepto-Clone",
@@ -92,7 +93,8 @@ const Projects = () => {
       image: "🛒",
       date: "Feb 2024 - Mar 2024",
       tags: ["HTML", "CSS"],
-      link: "https://github.com/adil-r120/Zepto-Clone"
+      // link: "https://github.com/adil-r120/Zepto-Clone"
+      link: "https://zepto-clone.vercel.app/"
     },
     {
       title: "Snatix – Photography Website",
