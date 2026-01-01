@@ -31,7 +31,7 @@ const Projects = () => {
       description: "An AI-powered sales dashboard featuring real-time stock market integration, predictive analytics, and an intelligent chatbot assistant. Built with a modern tech stack for seamless data visualization and user interaction.",
       image: "📈",
       date: "Nov 2025 - Present",
-      tags: ["React", "Python(RestApi)", "TypeScript", "MYSQL/PostgreSQL", "LLM", "AI/ML", "Tailwind CSS"],
+      tags: ["React", "Python", "RestApi", "TypeScript", "MYSQL/PostgreSQL", "LLM", "AI/ML", "Tailwind CSS", "Socket.io"],
       // link: "https://github.com/adil-r120/SalesPulse"
       link: "https://salespulse.vercel.app/"
     },
@@ -80,7 +80,7 @@ const Projects = () => {
     },
     {
       title: "Amazon-Clone",
-      description: "A frontend implementation of an Amazon-style e-commerce webpage.",
+      description: "Amazon Clone – Website This is a Amazon Clone a frontend UI project built using HTML and CSS only. It replicates the modern and minimal design of the popular Amazon website, showcasing how an elegant and responsive layout can be created without JavaScript or frameworks",
       image: "🛒",
       date: "Aug 2024 - Sep 2024",
       tags: ["HTML", "CSS"],
