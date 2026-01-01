@@ -76,7 +76,7 @@ const Projects = () => {
       date: "Feb 2024 - June 2024",
       tags: ["HTML", "CSS", "JavaScript"],
       // link: "https://github.com/adil-r120/Tic-Tac-Toe-Game"
-      link: "https://tic-tac-toe-game.vercel.app/"
+      link: "https://tic-tac-toe-game-demo.vercel.app/"
     },
     {
       title: "Amazon-Clone",
@@ -85,7 +85,7 @@ const Projects = () => {
       date: "Aug 2024 - Sep 2024",
       tags: ["HTML", "CSS"],
       // link: "https://github.com/adil-r120/Amazon-Clone"
-      link: "https://amazon-clone.vercel.app/"
+      link: "https://amazon-clone-146.vercel.app/"
     },
     {
       title: "Zepto-Clone",
@@ -94,7 +94,7 @@ const Projects = () => {
       date: "Feb 2024 - Mar 2024",
       tags: ["HTML", "CSS"],
       // link: "https://github.com/adil-r120/Zepto-Clone"
-      link: "https://zepto-clone.vercel.app/"
+      link: "https://zepto-clone-sigma.vercel.app/zepto.html"
     },
     {
       title: "Snatix – Photography Website",
