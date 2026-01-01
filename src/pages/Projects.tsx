@@ -75,7 +75,8 @@ const Projects = () => {
       image: "⭕",
       date: "Feb 2024 - June 2024",
       tags: ["HTML", "CSS", "JavaScript"],
-      link: "https://github.com/adil-r120/Tic-Tac-Toe-Game"
+      // link: "https://github.com/adil-r120/Tic-Tac-Toe-Game"
+      link: "https://tic-tac-toe-game.vercel.app/"
     },
     {
       title: "Amazon-Clone",
@@ -99,7 +100,8 @@ const Projects = () => {
       image: "📸",
       date: " Jan 2025 - Oct 2025",
       tags: ["HTML", "TypeScript", "JavaScript", "MYSQL", "Photography"],
-      link: "https://github.com/adil-r120/Snatix"
+      // link: "https://github.com/adil-r120/Snatix"
+      link: "https://snatix.vercel.app/"
     }
   ];
 
