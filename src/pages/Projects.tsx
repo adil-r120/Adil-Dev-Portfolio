@@ -27,10 +27,19 @@ type Hackathon = {
 const Projects = () => {
   const projects: Project[] = [
     {
+      title: "SalesPulse:Interactive Data Analytics Dashboard",
+      description: "An AI-powered sales dashboard featuring real-time stock market integration, predictive analytics, and an intelligent chatbot assistant. Built with a modern tech stack for seamless data visualization and user interaction.",
+      image: "📈",
+      date: "Nov 2025 - Present",
+      tags: ["React", "Python(RestApi)", "TypeScript", "MYSQL/PostgreSQL", "LLM", "AI/ML", "Tailwind CSS"],
+      // link: "https://github.com/adil-r120/SalesPulse"
+      link: "https://salespulse-three.vercel.app/"
+    },
+    {
       title: "E-commerce Design",
       description: "A full-featured e-commerce Air Jordan website design built with figma, wireframe, and prototype. Features include user login/signup, product search, shopping cart, and payment processing.",
       image: "🛍️",
-      date: "March 2025 - May 2025",
+      date: "March 2025 - April 2025",
       tags: ["Figma", "Ui/Ux design", "WireFrame", "Protoptype"],
       link: "https://github.com/adil-r120/E-Commerce-Website-Design"
     },
@@ -38,7 +47,7 @@ const Projects = () => {
       title: "Personal Expense Tracker",
       description: "A productivity application for managing tasks and projects with real-time collaboration features. Built with java and javaframe work, MYSQL databases.",
       image: "📋",
-      date: "sep 2025 - Jan 2025",
+      date: "Sep 2025 - Jan 2025",
       tags: ["Java", "Reactjs", "MYSQL databases", "RestApi"],
       link: "https://github.com/adil-r120/Personal-Expense-Tracker"
     },
@@ -48,7 +57,8 @@ const Projects = () => {
       image: "🌟",
       date: "December 2023 - January 2024",
       tags: ["React", "Tailwind CSS", "Nodejs"],
-      link: "https://github.com/adil-r120/Adil-Dev-Portfolio"
+      // link: "https://github.com/adil-r120/Adil-Dev-Portfolio"
+      link: "https://adil-dev-portfolio.vercel.app/"
     },
     {
       title: "Real-time Weather Detector",
