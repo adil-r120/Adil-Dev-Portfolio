@@ -33,7 +33,7 @@ const Projects = () => {
       date: "Nov 2025 - Present",
       tags: ["React", "Python(RestApi)", "TypeScript", "MYSQL/PostgreSQL", "LLM", "AI/ML", "Tailwind CSS"],
       // link: "https://github.com/adil-r120/SalesPulse"
-      link: "https://salespulse-three.vercel.app/"
+      link: "https://salespulse.vercel.app/"
     },
     {
       title: "E-commerce Design",
@@ -66,7 +66,8 @@ const Projects = () => {
       image: "🌦️",
       date: "Sep 2023 - Jan 2023",
       tags: ["HTML", "CSS", "JavaScript", "REST API"],
-      link: "https://github.com/adil-r120/Weather-App"
+      // link: "https://github.com/adil-r120/Weather-App"
+      link: "https://weather-dekho-app.vercel.app/"
     },
     {
       title: "Tic Tac Toe Game",
