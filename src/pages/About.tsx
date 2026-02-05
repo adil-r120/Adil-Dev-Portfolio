@@ -83,7 +83,7 @@ const About = () => {
             <div>
               <h1 className="text-3xl md:text-5xl font-bold mb-4 md:mb-6">About me</h1>
               <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
-               Aspiring Software Engineer with a passion for coding and technology. Currently pursuing a Bachelor of Engineering in Computer Science Engineering at New Horizon College of Engineering, Bangalore. Actively building skills in full-stack development, AI, and cloud computing through hands-on projects and coursework. Driven to continuously learn, grow, and develop scalable software solutions that solve real-world problems.
+              I am an aspiring Software Engineer passionate about building innovative and scalable software solutions. Currently pursuing a Bachelor of Engineering in Computer Science Engineering at New Horizon College of Engineering, Bangalore, I am actively developing skills in full-stack development, AI, and cloud computing through hands-on projects and continuous learning. I enjoy solving real-world problems through technology and constantly strive to improve my technical and problem-solving abilities.
               </p>
             </div>
 
@@ -128,7 +128,9 @@ const About = () => {
                 <p className="text-xs md:text-sm text-muted-foreground">Certifications</p>
               </div>
               <div className="text-center p-4 md:p-6 bg-card rounded-lg border border-blue-500/20 hover:border-blue-900/50 transition-all card-glow">
-                <div className="text-2xl md:text-4xl font-bold mb-1 md:mb-2">1</div>
+                <div className="text-2xl md:text-4xl font-bold mb-1 md:mb-2">1
+                  <span className="text-orange-500">+</span>
+                </div>
                 <p className="text-xs md:text-sm text-muted-foreground">Hackathon</p>
               </div>
             </div>

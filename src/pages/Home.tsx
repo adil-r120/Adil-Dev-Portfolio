@@ -64,7 +64,7 @@ const Home = () => {
                   Got a project?
                 </Button>
               </a>
-              <a href="/MDADILRAZA(1NH23CS146).pdf" download="MDADILRAZA(1NH23CS146).pdf">
+              <a href="/MD-ADIL-RAZA-Resume.pdf" download="MD-ADIL-RAZA-Resume.pdf">
                 <Button
                   size="lg"
                   variant="outline"
@@ -78,10 +78,10 @@ const Home = () => {
           </div>
 
           {/* Right Column - Profile Image */}
-          <div className="flex justify-center md:justify-end">
+          <div className="flex justify-center md:justify-end md:pr-24">
             <div className="relative">
               <div className="absolute inset-0 bg-blue-900/20 rounded-full blur-3xl"></div>
-              <div className="relative w-60 h-60 md:w-80 md:h-80 rounded-full border-4 border-blue-900 overflow-hidden">
+              <div className="relative w-72 h-72 md:w-96 md:h-96 rounded-full border-4 border-blue-900 overflow-hidden">
                 {/* profile image */}
                 <img
                   src="/AR_logo.jpg"

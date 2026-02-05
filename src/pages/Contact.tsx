@@ -63,13 +63,13 @@ const Contact = () => {
             <div className="bg-card p-6 md:p-8 rounded-lg border border-blue-500/20 hover:border-blue-900/50 transition-all hover:shadow-md space-y-4">
               <h2 className="text-xl font-bold">Professional Summary</h2>
               <p className="text-base text-muted-foreground leading-relaxed">
-                Aspiring Software Engineer and Computer Science student with a strong foundation in full-stack development, problem-solving, and modern technologies. Passionate about building scalable, user-centric applications and continuously learning emerging fields such as cloud computing and AI/ML.
+                Computer Science Engineering student passionate about AI, software development, and full-stack development.Experienced in building applications using React, NodeJS, Java, Python and MySQL. Strong interest in solving real-world problems and learning new technologies.
               </p>
 
               <div className="pt-4">
                 <a
-                  href="/MDADILRAZA(1NH23CS146).pdf"
-                  download="MDADILRAZA(1NH23CS146).pdf"
+                  href="/MD-ADIL-RAZA-Resume.pdf"
+                  download="MD-ADIL-RAZA-Resume.pdf"
                   className="inline-flex items-center gap-2 px-6 py-3 bg-blue-900 text-white rounded-lg hover:bg-blue-800 transition-colors font-medium text-sm w-full sm:w-auto justify-center"
                 >
                   <Download className="w-4 h-4" />

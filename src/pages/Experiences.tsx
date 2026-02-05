@@ -20,7 +20,7 @@ const Experiences = () => {
       title: "Volunteer – Technical Team",
       company: "New Horizon College of Engineering",
       period: "Oct 2025 - Present",
-      location: "Bangalore,Karnatka,India",
+      location: "Bengaluru, Karnataka, India",
       description: "Volunteered as a Technical Team Member during the National Level 48-Hour Hackathon organized under Silver Spectrum Techfest 2025 by the Departments of CSE and AIML at New Horizon College of Engineering, Supported participants with technical troubleshooting, GitHub deployment. Worked closely with student teams and mentors to ensure smooth event operations and project presentations.Strengthened skills in team coordination, system setup, and real-time problem solving.",
       skills: ["Team Collaboration", "Technical Event Management", "Communication Skills", "Participant Assistance", "Leadership & Responsibility"],
       link: "/certificates/hack_v.pdf"
