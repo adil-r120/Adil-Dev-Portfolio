@@ -27,6 +27,22 @@ type Hackathon = {
 const Projects = () => {
   const projects: Project[] = [
     {
+      title: "Client Lead Management System",
+      description: "A comprehensive CRM solution for managing client leads with features like lead tracking, activity timeline, custom fields for budget and priority, bulk operations, and advanced filtering. Built with modern technologies for efficient sales pipeline management.",
+      image: "👥",
+      date: "Feb 2026 - Present",
+      tags: ["React", "TypeScript", "Node.js", "SQL Lite", "Tailwind CSS", "CRM"],
+      link: "https://client-lead-management-system.vercel.app/"
+    },
+    {
+      title: "Local Business Website",
+      description: "A modern and elegant Local Business website featuring an interactive menu, online ordering system, table reservation, and customer reviews. Designed with a focus on user experience and aesthetic appeal to showcase the cafe's ambiance and offerings.",
+      image: "☕",
+      date: "Jan 2026 - Feb 2026",
+      tags: ["React", "TypeScript", "Tailwind CSS", "Responsive Design", "UI/UX"],
+      link: "https://local-business-website-1.vercel.app/"
+    },
+    {
       title: "SalesPulse:Interactive Data Analytics Dashboard",
       description: "An AI-powered sales dashboard featuring real-time stock market integration, predictive analytics, and an intelligent chatbot assistant. Built with a modern tech stack for seamless data visualization and user interaction.",
       image: "📈",
