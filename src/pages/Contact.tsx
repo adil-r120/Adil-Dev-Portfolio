@@ -18,7 +18,7 @@ const Contact = () => {
     {
       icon: Linkedin,
       label: "LinkedIn",
-      href: "https://www.linkedin.com/in/adil-raza-8a1996293/"
+      href: "https://www.linkedin.com/in/mdadilraza-dev/"
     },
     {
       icon: Github,

@@ -53,7 +53,7 @@ const Home = () => {
 
             <div className="flex flex-col sm:flex-row gap-4 pt-4 delay-200 animate-fade-in-up">
               <a
-                href="https://github.com/adil-r120?tab=projects"
+                href="https://github.com/adil-r120"
                 target="_blank"
                 rel="noopener noreferrer"
               >

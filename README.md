@@ -157,7 +157,7 @@ npm run preview
 
 - Email: [mdadilraza510@gmail.com](mailto:mdadilraza510@gmail.com)
 - Phone: +91 6203662085
-- LinkedIn: [linkedin.com/in/adil-raza-8a1996293](https://www.linkedin.com/in/adil-raza-8a1996293/)
+- LinkedIn: [linkedin.com/in/mdadilraza-dev](https://www.linkedin.com/in/mdadilraza-dev/)
 - GitHub: [github.com/adil-r120](https://github.com/adil-r120)
 
 ## License

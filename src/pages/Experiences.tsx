@@ -43,6 +43,24 @@ const Experiences = () => {
       skills: ["Git", "Python", "Documentation", "Collaboration"],
       link: "https://github.com"
     }*/
+    {
+      title: "Full Stack Web Developer",
+      company: "Future Interns",
+      period: "Feb 2026 - Mar 2026",
+      location: "Remote",
+      description: "Developed responsive websites for clients in various industries. Implemented modern UI/UX designs and optimized site performance",
+      skills: ["React", "Tailwind CSS", "TypeScript", "Node.js", "sqlLite", "Git", "GitHub"],
+      link: "https://futureinterns.in"
+    },
+    // {
+    //   title: "Open Source Contributor",
+    //   company: "Community Project",
+    //   period: "Sep 2023 - Dec 2023",
+    //   location: "Remote",
+    //   description: "Contributed to open-source projects on GitHub, focusing on bug fixes and feature enhancements. Collaborated with developers worldwide to improve documentation and user experience.",
+    //   skills: ["Git", "Python", "Documentation", "Collaboration"],
+    //   link: "https://github.com"
+    // }
   ];
 
   return (
