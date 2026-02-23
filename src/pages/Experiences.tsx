@@ -48,9 +48,10 @@ const Experiences = () => {
       company: "Future Interns",
       period: "Feb 2026 - Mar 2026",
       location: "Remote",
-      description: "Developed responsive websites for clients in various industries. Implemented modern UI/UX designs and optimized site performance",
+      description: "Successfully completed a 1-month intensive internship in Full Stack Web Development. Developed dynamic and responsive web applications using frontend technologies like HTML, React, JavaScript and backend integration. Worked on API integration, database handling, authentication systems, and project deployment.",
       skills: ["React", "Tailwind CSS", "TypeScript", "Node.js", "sqlLite", "Git", "GitHub"],
-      link: "https://futureinterns.in"
+      link: "/certificates/MD ADIL RAZA Internship Certificate.pdf"
+      // link: "https://github.com/mdadilraza2005/Future-Interns-Internship"  
     },
     // {
     //   title: "Open Source Contributor",

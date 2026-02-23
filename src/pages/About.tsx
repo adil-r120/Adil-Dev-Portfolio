@@ -48,7 +48,7 @@ const About = () => {
       grade: "Grade: B",
       period: "Mar 2020",
       location: "Patna, India",
-      activities: "Drawing & Sketching",
+      activities: "Drawing",
     }
   ];
 

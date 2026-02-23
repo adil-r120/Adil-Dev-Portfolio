@@ -28,19 +28,19 @@ const Projects = () => {
   const projects: Project[] = [
     {
       title: "Client Lead Management System",
-      description: "A comprehensive CRM solution for managing client leads with features like lead tracking, activity timeline, custom fields for budget and priority, bulk operations, and advanced filtering. Built with modern technologies for efficient sales pipeline management.",
+      description: "Developed a Client Lead Management System (Mini CRM) using React.js, Node.js, Express, and sql lite. The application supports full CRUD operations, lead status tracking, and backend API integration, demonstrating my ability to build and integrate complete full-stack web applications.",
       image: "👥",
-      date: "Feb 2026 - Present",
+      date: "Feb 2026 - March 2026",
       tags: ["React", "TypeScript", "Node.js", "SQL Lite", "Tailwind CSS", "CRM"],
-      link: "https://client-lead-management-system.vercel.app/"
+      link: "https://lnkd.in/gSi3QAjR"
     },
     {
       title: "Local Business Website",
-      description: "A modern and elegant Local Business website featuring an interactive menu, online ordering system, table reservation, and customer reviews. Designed with a focus on user experience and aesthetic appeal to showcase the cafe's ambiance and offerings.",
+      description: "Designed and deployed a responsive website for a local business using React.js, focusing on modern UI, mobile responsiveness, and improved online visibility to enhance customer engagement.",
       image: "☕",
-      date: "Jan 2026 - Feb 2026",
+      date: "Feb 2026 - March 2026",
       tags: ["React", "TypeScript", "Tailwind CSS", "Responsive Design", "UI/UX"],
-      link: "https://local-business-website-1.vercel.app/"
+      link: "https://lnkd.in/gEYeCZ_W"
     },
     {
       title: "SalesPulse:Interactive Data Analytics Dashboard",
