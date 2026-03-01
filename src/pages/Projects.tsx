@@ -32,7 +32,7 @@ const Projects = () => {
       image: "👥",
       date: "Feb 2026 - March 2026",
       tags: ["React", "TypeScript", "Node.js", "SQL Lite", "Tailwind CSS", "CRM"],
-      link: "https://lnkd.in/gSi3QAjR"
+      link: "future-fs-02-crm.vercel.app"
     },
     {
       title: "Local Business Website",
@@ -40,7 +40,7 @@ const Projects = () => {
       image: "☕",
       date: "Feb 2026 - March 2026",
       tags: ["React", "TypeScript", "Tailwind CSS", "Responsive Design", "UI/UX"],
-      link: "https://lnkd.in/gEYeCZ_W"
+      link: "future-fs-03-b-b.vercel.app"
     },
     {
       title: "SalesPulse:Interactive Data Analytics Dashboard",
