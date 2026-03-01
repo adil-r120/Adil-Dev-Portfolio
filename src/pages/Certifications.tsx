@@ -1,18 +1,21 @@
 import Navigation from "@/components/Navigation";
-import { Award, Trophy, Calendar, IdCard } from "lucide-react";
+import { Calendar, IdCard, ExternalLink, BookOpen, Code2, Database, Cloud, Brain, Globe } from "lucide-react";
 
-// Define the type for certifications
 type Certification = {
   title: string;
   issuer: string;
-  icon: string;
+  issuerIcon: React.ReactNode;
   issued?: string;
-  expires?: string;
   credentialId?: string;
   skills?: string[];
-  description?: string;
   link?: string;
-  image?: string;
+};
+
+type Course = {
+  title: string;
+  institution: string;
+  icon: React.ReactNode;
+  link: string;
 };
 
 const Certifications = () => {
@@ -20,126 +23,115 @@ const Certifications = () => {
     {
       title: "Git Training",
       issuer: "EduPyramids, SINE, IIT Bombay",
-      icon: "🐙",
+      issuerIcon: <span className="text-xl">🐙</span>,
       issued: "Nov 2025",
-      // credentialId: "44848394TC",
       skills: ["Git"],
       link: "/certificates/git.pdf",
-      // image: "/certificates/git.png"
     },
     {
       title: "Cloud Computing",
       issuer: "NPTEL, IIT Kharagpur",
-      icon: "☁️",
+      issuerIcon: <Cloud className="w-5 h-5 text-sky-500" />,
       issued: "Oct 2025",
       credentialId: "NPTEL25CS107S252601106",
       skills: ["Cloud Computing"],
       link: "/certificates/NPTEL.pdf",
-      // image: "/certificates/cloud-computing.png"
     },
     {
-      title: "DBMS - Master the Fundamental and Advanced Concepts",
+      title: "DBMS — Master Fundamental & Advanced Concepts",
       issuer: "Scaler",
-      icon: "🗄️",
+      issuerIcon: <Database className="w-5 h-5 text-purple-500" />,
       issued: "Oct 2025",
-      // credentialId: "@#",
       skills: ["Database Management System (DBMS)"],
       link: "/certificates/DBMS.png",
-      // image: "/certificates/dbms.png"
     },
     {
       title: "Symposium on Data for Public Good",
       issuer: "Indian Institute of Science (IISc)",
-      icon: "📊",
+      issuerIcon: <Brain className="w-5 h-5 text-emerald-500" />,
       issued: "Oct 2025",
-      skills: ["Python (Programming Language)", "Data Science", "Cloud Computing"],
-      link: "/certificates/iisc.pdf"
+      skills: ["Python", "Data Science", "Cloud Computing"],
+      link: "/certificates/iisc.pdf",
     },
     {
-      title: "SQL-Bootcamp",
+      title: "SQL Bootcamp",
       issuer: "LetsUpgrade",
-      icon: "🗄️",
+      issuerIcon: <Database className="w-5 h-5 text-orange-500" />,
       issued: "Sep 2025",
-      // credentialId: "LUESQLSEPT125246",
       skills: ["SQL"],
-      link: "/certificates/sql.pdf"
+      link: "/certificates/sql.pdf",
     },
     {
-      title: "AWS CLOUD PRACTITIONER ESSENTIAL",
+      title: "AWS Cloud Practitioner Essentials",
       issuer: "Amazon Web Services (AWS)",
-      icon: "☁️",
+      issuerIcon: <span className="text-xl">🟠</span>,
       issued: "Jul 2025",
       skills: ["Amazon Web Services (AWS)"],
-      link: "/certificates/awsa.pdf"
+      link: "/certificates/awsa.pdf",
     },
     {
       title: "AWS SimuLearn: Cloud Computing Essentials",
       issuer: "Amazon Web Services (AWS)",
-      icon: "☁️",
+      issuerIcon: <Cloud className="w-5 h-5 text-orange-400" />,
       issued: "Jul 2025",
       skills: ["Cloud Computing"],
-      link: "/certificates/aws training.pdf"
+      link: "/certificates/aws training.pdf",
     },
     {
       title: "Google Cloud Arcade Facilitator",
       issuer: "Google",
-      icon: "☁️",
+      issuerIcon: <span className="text-xl">🌐</span>,
       issued: "Apr 2025",
-      // credentialId: "@#",
       skills: ["Google Cloud Platform (GCP)"],
-      link: "https://www.cloudskillsboost.google/public_profiles/66042bf4-1de9-4045-9c85-de693b5d7287/badges/14604966?utm_medium=social&utm_source=linkedin&utm_campaign=ql-social-share"
+      link: "https://www.cloudskillsboost.google/public_profiles/66042bf4-1de9-4045-9c85-de693b5d7287/badges/14604966",
     },
     {
-      title: "Html",
+      title: "HTML",
       issuer: "Great Learning",
-      icon: "🌐",
+      issuerIcon: <Globe className="w-5 h-5 text-red-500" />,
       issued: "Aug 2024",
       skills: ["HTML"],
       link: "/certificates/html.jpg",
-      // image: "/certificates/html.png"
     },
     {
       title: "Python 101 for Data Science",
       issuer: "Cognitive Class",
-      icon: "🐍",
+      issuerIcon: <span className="text-xl">🐍</span>,
       issued: "Jun 2024",
-      // credentialId: "c8a3c0d5b1f8472b8d2178bc312a832b",
-      skills: ["Python for data science"],
-      link: "/certificates/PYTHON2.pdf"
+      skills: ["Python for Data Science"],
+      link: "/certificates/PYTHON2.pdf",
     },
     {
       title: "Data Science 101",
       issuer: "Cognitive Class",
-      icon: "📊",
+      issuerIcon: <Brain className="w-5 h-5 text-blue-500" />,
       issued: "May 2024",
-      // expires: "Oct 2034",
-      // credentialId: "0c120f62302b440a846959499af7e411",
       skills: ["Data Science"],
-      link: "/certificates/IBM.a.pdf"
+      link: "/certificates/IBM.a.pdf",
     },
     {
-      title: "Python for Data science",
+      title: "Python for Data Science",
       issuer: "IBM",
-      icon: "🐍",
+      issuerIcon: <Code2 className="w-5 h-5 text-blue-600" />,
       issued: "May 2024",
-      // credentialId: "https://www.credly.com/go/HYtdgjjh",
       skills: ["Python for Data Science"],
-      // link: "https://www.credly.com/go/HYtdgjjh"
-      link: "/certificates/Python_for_Data_Science_Badge.pdf"
-    }
+      link: "/certificates/Python_for_Data_Science_Badge.pdf",
+    },
   ];
 
-  const courses = [
+  const courses: Course[] = [
     {
       title: "Cloud Computing",
       institution: "IIT Kharagpur",
-      link: "https://swayam.gov.in/mycourses"
+      icon: <Cloud className="w-5 h-5 text-sky-500" />,
+      link: "https://swayam.gov.in/mycourses",
     },
     {
       title: "Data Structure and Algorithm",
       institution: "PW Skills",
-      link: "https://youtu.be/RJ733wzbNoA?si=ew1VgCZ2d1d_sohR"
-    }
+      icon: <Code2 className="w-5 h-5 text-orange-500" />,
+      link: "https://youtu.be/RJ733wzbNoA?si=ew1VgCZ2d1d_sohR",
+    },
   ];
 
   return (
@@ -147,30 +139,31 @@ const Certifications = () => {
       <Navigation />
 
       <main className="container mx-auto px-4 pt-24 md:pt-32 pb-20">
-        <h1 className="text-3xl md:text-5xl font-bold text-center mb-8 md:mb-16">Certifications</h1>
+        {/* Header */}
+        <div className="text-center mb-8 md:mb-16">
+          <h1 className="text-3xl md:text-5xl font-bold">Certifications</h1>
+        </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 max-w-7xl mx-auto mb-12 md:mb-16">
+        {/* Certification Cards */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 max-w-7xl mx-auto mb-16 md:mb-20">
           {certifications.map((cert, index) => (
             <a
               key={index}
-              href={cert.link || '#'}
-              target={cert.link && cert.link !== '#' ? '_blank' : undefined}
-              rel={cert.link && cert.link !== '#' ? 'noopener noreferrer' : undefined}
-              className="bg-card p-4 md:p-6 rounded-lg border border-blue-500/20 hover:border-blue-900/50 transition-all block card-glow"
+              href={cert.link || "#"}
+              target={cert.link && cert.link !== "#" ? "_blank" : undefined}
+              rel={cert.link && cert.link !== "#" ? "noopener noreferrer" : undefined}
+              className="bg-card p-4 md:p-6 rounded-lg border border-blue-500/20 hover:border-blue-900/50 transition-all block card-glow group"
             >
               <div className="flex items-start gap-3 md:gap-4">
-                {cert.image ? (
-                  <div className="w-10 h-10 md:w-12 md:h-12 rounded-lg flex items-center justify-center flex-shrink-0 overflow-hidden">
-                    <img src={cert.image} alt={cert.title} className="w-full h-full object-contain" />
+                <div className="w-10 h-10 md:w-12 md:h-12 rounded-lg bg-orange-500/10 flex items-center justify-center flex-shrink-0">
+                  {cert.issuerIcon}
+                </div>
+                <div className="flex-1 min-w-0">
+                  <div className="flex items-start justify-between gap-2">
+                    <h3 className="font-bold mb-1 leading-tight text-sm md:text-base">{cert.title}</h3>
+                    <ExternalLink className="w-3.5 h-3.5 text-muted-foreground/40 group-hover:text-orange-500 transition-colors flex-shrink-0 mt-0.5" />
                   </div>
-                ) : (
-                  <div className="w-10 h-10 md:w-12 md:h-12 rounded-lg bg-orange-500/10 flex items-center justify-center flex-shrink-0 text-xl md:text-2xl">
-                    {cert.icon}
-                  </div>
-                )}
-                <div className="flex-1">
-                  <h3 className="font-bold mb-1 md:mb-2 leading-tight text-sm md:text-base">{cert.title}</h3>
-                  <p className="text-xs md:text-sm text-muted-foreground mb-1 md:mb-2">{cert.issuer}</p>
+                  <p className="text-xs md:text-sm text-muted-foreground mb-2">{cert.issuer}</p>
 
                   {cert.issued && (
                     <div className="flex items-center gap-1 text-[0.6rem] md:text-xs text-muted-foreground mb-1">
@@ -179,27 +172,15 @@ const Certifications = () => {
                     </div>
                   )}
 
-                  {cert.expires && (
-                    <div className="text-[0.6rem] md:text-xs text-muted-foreground mb-1">
-                      Expires {cert.expires}
-                    </div>
-                  )}
-
                   {cert.credentialId && (
-                    <div className="flex items-center gap-1 text-[0.6rem] md:text-xs text-muted-foreground mb-1 md:mb-2">
-                      <IdCard className="w-2.5 h-2.5 md:w-3 md:h-3" />
-                      <span>Credential ID: {cert.credentialId}</span>
+                    <div className="flex items-center gap-1 text-[0.6rem] md:text-xs text-muted-foreground mb-2">
+                      <IdCard className="w-2.5 h-2.5 md:w-3 md:h-3 flex-shrink-0" />
+                      <span className="truncate">ID: {cert.credentialId}</span>
                     </div>
-                  )}
-
-                  {cert.description && (
-                    <p className="text-[0.6rem] md:text-xs text-muted-foreground mt-1 md:mt-2">
-                      {cert.description}
-                    </p>
                   )}
 
                   {cert.skills && (
-                    <div className="mt-2 md:mt-3 flex flex-wrap gap-1">
+                    <div className="mt-2 flex flex-wrap gap-1">
                       {cert.skills.map((skill, skillIndex) => (
                         <span
                           key={skillIndex}
@@ -216,9 +197,10 @@ const Certifications = () => {
           ))}
         </div>
 
+        {/* Courses Section */}
         <div className="max-w-5xl mx-auto">
-          <div className="flex items-center justify-center gap-2 md:gap-3 mb-6 md:mb-12">
-            <Award className="w-6 h-6 md:w-8 md:h-8 text-orange-500" />
+          <div className="flex items-center justify-center gap-2 md:gap-3 mb-6 md:mb-10">
+            <BookOpen className="w-6 h-6 md:w-8 md:h-8 text-orange-500" />
             <h2 className="text-2xl md:text-4xl font-bold">Courses</h2>
           </div>
 
@@ -227,12 +209,22 @@ const Certifications = () => {
               <a
                 key={course.title}
                 href={course.link}
-                target={course.link !== "#" ? "_blank" : undefined}
-                rel={course.link !== "#" ? "noopener noreferrer" : undefined}
-                className="bg-card p-4 md:p-6 rounded-lg border border-blue-500/20 hover:border-blue-900/50 transition-all block card-glow"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-card p-4 md:p-6 rounded-lg border border-blue-500/20 hover:border-blue-900/50 transition-all block card-glow group"
               >
-                <h3 className="text-base md:text-lg font-bold mb-1 md:mb-2">{course.title}</h3>
-                <p className="text-xs md:text-sm text-muted-foreground">{course.institution}</p>
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-lg bg-orange-500/10 flex items-center justify-center flex-shrink-0">
+                    {course.icon}
+                  </div>
+                  <div className="flex-1">
+                    <div className="flex items-center justify-between gap-2">
+                      <h3 className="text-base md:text-lg font-bold">{course.title}</h3>
+                      <ExternalLink className="w-3.5 h-3.5 text-muted-foreground/40 group-hover:text-orange-500 transition-colors flex-shrink-0" />
+                    </div>
+                    <p className="text-xs md:text-sm text-muted-foreground">{course.institution}</p>
+                  </div>
+                </div>
               </a>
             ))}
           </div>

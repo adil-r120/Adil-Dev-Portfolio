@@ -32,7 +32,7 @@ const ScrollToTop = () => {
     return (
         <>
             {isVisible && (
-                <div className="fixed bottom-8 right-8 z-50 animate-in fade-in zoom-in duration-300">
+                <div className="fixed bottom-32 right-6 z-50 animate-in fade-in zoom-in duration-300">
                     <Button
                         onClick={scrollToTop}
                         size="icon"

@@ -4,16 +4,20 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Send } from "lucide-react";
+import { toast } from "sonner";
 
 const ContactForm = () => {
     const [isSubmitting, setIsSubmitting] = useState(false);
 
     const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
-        // Form submits natively via action/method, no reset needed here as it redirects or opens client
-        // But for better UX we might just use the native behavior directly on the form tag
-        // Removing preventDefault to allow native submission
         setIsSubmitting(true);
-        setTimeout(() => setIsSubmitting(false), 2000); // Reset button state
+        toast.info("Sending message...", {
+            description: "You'll be redirected to confirm the submission.",
+            duration: 3000,
+        });
+
+        // Re-enable button after a short delay
+        setTimeout(() => setIsSubmitting(false), 2000);
     };
 
     return (

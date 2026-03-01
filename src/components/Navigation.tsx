@@ -1,6 +1,6 @@
 import { Link, useLocation } from "react-router-dom";
 import { useTheme } from "next-themes";
-import { Moon, Sun, Menu, X } from "lucide-react";
+import { Moon, Sun, Menu, X, Linkedin } from "lucide-react";
 import { useState, useEffect } from "react";
 
 const Navigation = () => {
@@ -69,6 +69,15 @@ const Navigation = () => {
               {link.label}
             </Link>
           ))}
+          <a
+            href="https://www.linkedin.com/in/mdadilraza-dev/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="LinkedIn Profile"
+            className="p-2 rounded-full bg-blue-900/10 text-blue-900 dark:text-blue-400 hover:bg-blue-900/20 transition-colors"
+          >
+            <Linkedin className="w-5 h-5" />
+          </a>
           <button
             onClick={toggleTheme}
             className="p-2 rounded-full bg-blue-900/10 text-blue-900 dark:text-blue-400 hover:bg-blue-900/20 transition-colors"
@@ -105,6 +114,16 @@ const Navigation = () => {
                 {link.label}
               </Link>
             ))}
+            <a
+              href="https://www.linkedin.com/in/mdadilraza-dev/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 px-4 py-2 rounded-md text-base text-foreground/80 hover:text-blue-600 hover:bg-blue-500/5"
+              onClick={closeMenu}
+            >
+              <Linkedin className="w-5 h-5" />
+              <span>LinkedIn</span>
+            </a>
             <button
               onClick={() => {
                 toggleTheme();

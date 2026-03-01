@@ -29,96 +29,89 @@ const Projects = () => {
     {
       title: "Client Lead Management System",
       description: "Developed a Client Lead Management System (Mini CRM) using React.js, Node.js, Express, and sql lite. The application supports full CRUD operations, lead status tracking, and backend API integration, demonstrating my ability to build and integrate complete full-stack web applications.",
-      image: "👥",
+      image: "/project-images/crm.webp",
       date: "Feb 2026 - March 2026",
       tags: ["React", "TypeScript", "Node.js", "SQL Lite", "Tailwind CSS", "CRM"],
-      link: "future-fs-02-crm.vercel.app"
+      link: "https://future-fs-02-crm.vercel.app"
     },
     {
       title: "Local Business Website",
       description: "Designed and deployed a responsive website for a local business using React.js, focusing on modern UI, mobile responsiveness, and improved online visibility to enhance customer engagement.",
-      image: "☕",
+      image: "/project-images/local-business.webp",
       date: "Feb 2026 - March 2026",
       tags: ["React", "TypeScript", "Tailwind CSS", "Responsive Design", "UI/UX"],
-      link: "future-fs-03-b-b.vercel.app"
+      link: "https://future-fs-03-b-b.vercel.app"
     },
     {
-      title: "SalesPulse:Interactive Data Analytics Dashboard",
+      title: "SalesPulse: Interactive Data Analytics Dashboard",
       description: "An AI-powered sales dashboard featuring real-time stock market integration, predictive analytics, and an intelligent chatbot assistant. Built with a modern tech stack for seamless data visualization and user interaction.",
-      image: "📈",
+      image: "/project-images/salespulse.webp",
       date: "Nov 2025 - Present",
       tags: ["React", "Python", "RestApi", "TypeScript", "MYSQL/PostgreSQL", "LLM", "AI/ML", "Tailwind CSS", "Socket.io"],
-      // link: "https://github.com/adil-r120/SalesPulse"
       link: "https://salespulse.vercel.app/"
     },
     {
       title: "E-commerce Design",
       description: "A full-featured e-commerce Air Jordan website design built with figma, wireframe, and prototype. Features include user login/signup, product search, shopping cart, and payment processing.",
-      image: "🛍️",
+      image: "/project-images/ecommerce.webp",
       date: "March 2025 - April 2025",
-      tags: ["Figma", "Ui/Ux design", "WireFrame", "Protoptype"],
+      tags: ["Figma", "Ui/Ux design", "WireFrame", "Prototype"],
       link: "https://github.com/adil-r120/E-Commerce-Website-Design"
     },
     {
       title: "Personal Expense Tracker",
-      description: "A productivity application for managing tasks and projects with real-time collaboration features. Built with java and javaframe work, MYSQL databases.",
-      image: "📋",
-      date: "Sep 2025 - Jan 2025",
+      description: "A productivity application for managing tasks and projects with real-time collaboration features. Built with Java, React.js and MYSQL databases.",
+      image: "/project-images/expense-tracker.webp",
+      date: "Sep 2024 - Jan 2025",
       tags: ["Java", "Reactjs", "MYSQL databases", "RestApi"],
       link: "https://github.com/adil-r120/Personal-Expense-Tracker"
     },
     {
       title: "Portfolio Website",
       description: "A responsive portfolio website showcasing projects and skills with modern design and smooth animations.",
-      image: "🌟",
+      image: "/project-images/portfolio.webp",
       date: "December 2023 - January 2024",
       tags: ["React", "Tailwind CSS", "Nodejs"],
-      // link: "https://github.com/adil-r120/Adil-Dev-Portfolio"
       link: "https://adil-dev-portfolio.vercel.app/"
     },
     {
       title: "Real-time Weather Detector",
       description: "A weather application that provides real-time weather information using REST API integration.",
-      image: "🌦️",
-      date: "Sep 2023 - Jan 2023",
+      image: "/project-images/weather.webp",
+      date: "Sep 2023 - Jan 2024",
       tags: ["HTML", "CSS", "JavaScript", "REST API"],
-      // link: "https://github.com/adil-r120/Weather-App"
       link: "https://weather-dekho-app.vercel.app/"
     },
     {
       title: "Tic Tac Toe Game",
       description: "A classic Tic Tac Toe game implementation with an interactive user interface.",
-      image: "⭕",
+      image: "/project-images/tictactoe.webp",
       date: "Feb 2024 - June 2024",
       tags: ["HTML", "CSS", "JavaScript"],
-      // link: "https://github.com/adil-r120/Tic-Tac-Toe-Game"
       link: "https://tic-tac-toe-game-demo.vercel.app/"
     },
     {
       title: "Amazon-Clone",
-      description: "Amazon Clone – Website This is a Amazon Clone a frontend UI project built using HTML and CSS only. It replicates the modern and minimal design of the popular Amazon website, showcasing how an elegant and responsive layout can be created without JavaScript or frameworks",
-      image: "🛒",
+      description: "Amazon Clone – A frontend UI project built using HTML and CSS only. It replicates the modern and minimal design of the popular Amazon website, showcasing how an elegant and responsive layout can be created without JavaScript or frameworks.",
+      image: "/project-images/amazon.webp",
       date: "Aug 2024 - Sep 2024",
       tags: ["HTML", "CSS"],
-      // link: "https://github.com/adil-r120/Amazon-Clone"
       link: "https://amazon-clone-146.vercel.app/"
     },
     {
       title: "Zepto-Clone",
-      description: "Zepto Clone – Grocery Delivery Website This is a Zepto Clone a frontend UI project built using HTML and CSS only. It replicates the modern and minimal design of the popular Zepto grocery delivery platform, showcasing how an elegant and responsive layout can be created without JavaScript or frameworks.",
-      image: "🛒",
+      description: "Zepto Clone – A frontend UI project built using HTML and CSS only. It replicates the modern and minimal design of the popular Zepto grocery delivery platform, showcasing how an elegant and responsive layout can be created without JavaScript or frameworks.",
+      image: "/project-images/zepto.webp",
       date: "Feb 2024 - Mar 2024",
       tags: ["HTML", "CSS"],
-      // link: "https://github.com/adil-r120/Zepto-Clone"
       link: "https://zepto-clone-sigma.vercel.app/zepto.html"
     },
     {
       title: "Snatix – Photography Website",
       description: "Snatix – Photography Website is a full-stack photography portfolio. It allows photographers to showcase their work, manage galleries, and connect with clients through a seamless, responsive, and modern web interface.",
-      image: "📸",
-      date: " Jan 2025 - Oct 2025",
+      image: "/project-images/snatix.webp",
+      date: "Jan 2025 - Oct 2025",
       tags: ["HTML", "TypeScript", "JavaScript", "MYSQL", "Photography"],
-      // link: "https://github.com/adil-r120/Snatix"
       link: "https://snatix.vercel.app/"
     }
   ];
@@ -127,19 +120,15 @@ const Projects = () => {
     {
       title: "Quantum_X Hackathon 2025",
       description: "A 24-hour hackathon organized by NHCE computer science department. Our team developed a real-time application.",
-      image: "🏆",
+      image: "/project-images/hackathon-quantumx.png",
       date: "10-12th April 2025",
-      // tags: ["React", "Node.js", "Socket.io", "MongoDB"],
-      // position: "1st Place Winner",
       link: "/certificates/hackathon.png"
     },
     {
       title: "Pixel Pursuit Event 2024",
       description: "A Pixel Pursuit event organized by Mobile Development Club at NHCE campus.",
-      image: "🌱",
+      image: "/project-images/hackathon-pixel.png",
       date: "19th November 2024",
-      // tags: ["Mobile Development", "Android", "Java"],
-      // position: "Top 5 Finalists",
       link: "/certificates/pixel.jpeg"
     }
     /*{
@@ -169,8 +158,12 @@ const Projects = () => {
               rel={project.link && project.link !== "#" ? "noopener noreferrer" : undefined}
               className="bg-card rounded-lg border border-blue-500/20 hover:border-blue-900/50 transition-all overflow-hidden group block"
             >
-              <div className="h-40 md:h-48 bg-gradient-to-br from-blue-900/20 to-transparent flex items-center justify-center text-5xl md:text-7xl group-hover:scale-110 transition-transform">
-                {project.image}
+              <div className="w-full aspect-video bg-gradient-to-br from-slate-800 to-slate-950 flex items-center justify-center overflow-hidden p-2">
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="max-w-full max-h-full object-contain rounded group-hover:scale-105 transition-transform duration-300"
+                />
               </div>
 
               <div className="p-4 md:p-6 space-y-3 md:space-y-4">
@@ -218,8 +211,14 @@ const Projects = () => {
                 rel={hackathon.link && hackathon.link !== "#" ? "noopener noreferrer" : undefined}
                 className="bg-card rounded-lg border border-blue-500/20 hover:border-blue-900/50 transition-all overflow-hidden group block"
               >
-                <div className="h-40 md:h-48 bg-gradient-to-br from-blue-900/20 to-transparent flex items-center justify-center text-5xl md:text-7xl group-hover:scale-110 transition-transform">
-                  {hackathon.image}
+                <div className="w-full aspect-video bg-gradient-to-br from-slate-800 to-slate-950 flex items-center justify-center overflow-hidden p-2">
+                  <img
+                    src={hackathon.image}
+                    alt={hackathon.title}
+                    loading="lazy"
+                    decoding="async"
+                    className="max-w-full max-h-full object-contain rounded group-hover:scale-105 transition-transform duration-300"
+                  />
                 </div>
 
                 <div className="p-4 md:p-6 space-y-3 md:space-y-4">

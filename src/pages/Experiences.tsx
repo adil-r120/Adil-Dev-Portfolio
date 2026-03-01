@@ -1,6 +1,6 @@
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
-import { Calendar, MapPin, ExternalLink } from "lucide-react";
+import { Calendar, MapPin, ExternalLink, Download } from "lucide-react";
 
 // Define the type for experiences
 type Experience = {
@@ -75,7 +75,15 @@ const Experiences = () => {
             <p className="text-base md:text-xl text-muted-foreground max-w-2xl mx-auto">
               A journey through my professional and educational experiences
             </p>
-            <div className="w-16 md:w-24 h-1 bg-orange-500 mx-auto rounded-full mt-6"></div>
+            <div className="w-16 md:w-24 h-1 bg-orange-500 mx-auto rounded-full mt-6 mb-8"></div>
+            <a
+              href="/certificates/MD-ADIL-RAZA-Resume.pdf"
+              download="MD-ADIL-RAZA-Resume.pdf"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-orange-500 hover:bg-orange-600 text-white font-semibold text-sm md:text-base shadow-lg shadow-orange-500/30 transition-all hover:scale-105 hover:shadow-orange-500/50"
+            >
+              <Download className="w-4 h-4" />
+              Download Resume
+            </a>
           </header>
 
           <div className="space-y-8 md:space-y-10">
