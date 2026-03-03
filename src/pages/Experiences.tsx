@@ -79,6 +79,8 @@ const Experiences = () => {
             <a
               href="/certificates/MD-ADIL-RAZA-Resume.pdf"
               download="MD-ADIL-RAZA-Resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-orange-500 hover:bg-orange-600 text-white font-semibold text-sm md:text-base shadow-lg shadow-orange-500/30 transition-all hover:scale-105 hover:shadow-orange-500/50"
             >
               <Download className="w-4 h-4" />

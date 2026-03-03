@@ -119,7 +119,12 @@ const ChatbotWidget = () => {
             if (!apiKey) {
                 setMessages((prev) => [
                     ...prev,
-                    { role: "assistant", content: "⚠️ Groq API key not configured. Please add VITE_GROQ_API_KEY to your .env file." },
+                    {
+                        role: "assistant",
+                        content: "⚠️ Chatbot is not configured properly. \n\n" +
+                            "If you are seeing this on a **deployed site (Vercel)**, please add `VITE_GROQ_API_KEY` to your Environment Variables in the Vercel dashboard. \n\n" +
+                            "If you are running **locally**, ensure `VITE_GROQ_API_KEY` is in your `.env` file and restart your terminal."
+                    },
                 ]);
                 return;
             }

@@ -68,8 +68,10 @@ const Contact = () => {
 
               <div className="pt-4">
                 <a
-                  href="/MD-ADIL-RAZA-Resume.pdf"
+                  href="/certificates/MD-ADIL-RAZA-Resume.pdf"
                   download="MD-ADIL-RAZA-Resume.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 px-6 py-3 bg-blue-900 text-white rounded-lg hover:bg-blue-800 transition-colors font-medium text-sm w-full sm:w-auto justify-center"
                 >
                   <Download className="w-4 h-4" />

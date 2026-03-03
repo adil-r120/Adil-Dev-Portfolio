@@ -1,5 +1,6 @@
 import Navigation from "@/components/Navigation";
-import { Calendar, IdCard, ExternalLink, BookOpen, Code2, Database, Cloud, Brain, Globe } from "lucide-react";
+import { Calendar, IdCard, ExternalLink, BookOpen, Code2, Database, Cloud, Brain, Globe, Trophy } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
 
 type Certification = {
   title: string;
@@ -11,12 +12,17 @@ type Certification = {
   link?: string;
 };
 
-type Course = {
+// Define the type for hackathons
+type Hackathon = {
   title: string;
-  institution: string;
-  icon: React.ReactNode;
-  link: string;
+  description: string;
+  image: string;
+  date: string;
+  tags?: string[];
+  position?: string;
+  link?: string;
 };
+
 
 const Certifications = () => {
   const certifications: Certification[] = [
@@ -119,19 +125,21 @@ const Certifications = () => {
     },
   ];
 
-  const courses: Course[] = [
+  const hackathons: Hackathon[] = [
     {
-      title: "Cloud Computing",
-      institution: "IIT Kharagpur",
-      icon: <Cloud className="w-5 h-5 text-sky-500" />,
-      link: "https://swayam.gov.in/mycourses",
+      title: "Quantum_X Hackathon 2025",
+      description: "A 24-hour hackathon organized by NHCE computer science department. Our team developed a real-time application.",
+      image: "/project-images/hackathon-quantumx.png",
+      date: "10-12th April 2025",
+      link: "/certificates/hackathon.png"
     },
     {
-      title: "Data Structure and Algorithm",
-      institution: "PW Skills",
-      icon: <Code2 className="w-5 h-5 text-orange-500" />,
-      link: "https://youtu.be/RJ733wzbNoA?si=ew1VgCZ2d1d_sohR",
-    },
+      title: "Pixel Pursuit Event 2024",
+      description: "A Pixel Pursuit event organized by Mobile Development Club at NHCE campus.",
+      image: "/project-images/hackathon-pixel.png",
+      date: "19th November 2024",
+      link: "/certificates/pixel.jpeg"
+    }
   ];
 
   return (
@@ -197,40 +205,78 @@ const Certifications = () => {
           ))}
         </div>
 
-        {/* Courses Section */}
-        <div className="max-w-5xl mx-auto">
-          <div className="flex items-center justify-center gap-2 md:gap-3 mb-6 md:mb-10">
-            <BookOpen className="w-6 h-6 md:w-8 md:h-8 text-orange-500" />
-            <h2 className="text-2xl md:text-4xl font-bold">Courses</h2>
-          </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">
-            {courses.map((course) => (
+        {/* Hackathon Section */}
+        <div className="mb-16 md:mb-20">
+          <div className="flex items-center justify-center gap-2 md:gap-3 mb-8 md:mb-16">
+            <Trophy className="w-6 h-6 md:w-8 md:h-8 text-orange-500" />
+            <h2 className="text-2xl md:text-4xl font-bold text-center">Hackathons</h2>
+          </div>
+          <p className="text-base md:text-lg text-center text-muted-foreground mb-8 md:mb-12 max-w-3xl mx-auto">
+            Showcasing my participation and achievements in various hackathons and coding competitions
+          </p>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 max-w-7xl mx-auto">
+            {hackathons.map((hackathon) => (
               <a
-                key={course.title}
-                href={course.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-card p-4 md:p-6 rounded-lg border border-blue-500/20 hover:border-blue-900/50 transition-all block card-glow group"
+                key={hackathon.title}
+                href={hackathon.link}
+                target={hackathon.link && hackathon.link !== "#" ? "_blank" : undefined}
+                rel={hackathon.link && hackathon.link !== "#" ? "noopener noreferrer" : undefined}
+                className="bg-card rounded-lg border border-blue-500/20 hover:border-blue-900/50 transition-all overflow-hidden group block"
               >
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-lg bg-orange-500/10 flex items-center justify-center flex-shrink-0">
-                    {course.icon}
+                <div className="w-full aspect-video bg-gradient-to-br from-slate-800 to-slate-950 flex items-center justify-center overflow-hidden p-2">
+                  <img
+                    src={hackathon.image}
+                    alt={hackathon.title}
+                    loading="lazy"
+                    decoding="async"
+                    className="max-w-full max-h-full object-contain rounded group-hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
+
+                <div className="p-4 md:p-6 space-y-3 md:space-y-4">
+                  <div className="flex justify-between items-start">
+                    <h3 className="text-lg md:text-xl font-bold">{hackathon.title}</h3>
+                    {hackathon.position && (
+                      <Badge
+                        variant="secondary"
+                        className="text-[0.6rem] md:text-xs bg-orange-500/10 text-orange-500 border-orange-500/20 whitespace-nowrap px-2 py-0.5 md:px-2.5 md:py-1"
+                      >
+                        {hackathon.position}
+                      </Badge>
+                    )}
                   </div>
-                  <div className="flex-1">
-                    <div className="flex items-center justify-between gap-2">
-                      <h3 className="text-base md:text-lg font-bold">{course.title}</h3>
-                      <ExternalLink className="w-3.5 h-3.5 text-muted-foreground/40 group-hover:text-orange-500 transition-colors flex-shrink-0" />
+
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    {hackathon.description}
+                  </p>
+
+                  <div className="flex items-center gap-2 text-xs md:text-sm text-muted-foreground">
+                    <Calendar className="w-3 h-3 md:w-4 md:h-4" />
+                    <span>{hackathon.date}</span>
+                  </div>
+
+                  {hackathon.tags && (
+                    <div className="flex flex-wrap gap-1 md:gap-2 pt-2">
+                      {hackathon.tags.map((tag) => (
+                        <Badge
+                          key={tag}
+                          variant="secondary"
+                          className="text-[0.6rem] md:text-xs bg-orange-500/10 text-orange-500 border-orange-500/20 px-2 py-0.5 md:px-2.5 md:py-1"
+                        >
+                          {tag}
+                        </Badge>
+                      ))}
                     </div>
-                    <p className="text-xs md:text-sm text-muted-foreground">{course.institution}</p>
-                  </div>
+                  )}
                 </div>
               </a>
             ))}
           </div>
         </div>
-      </main>
-    </div>
+      </main >
+    </div >
   );
 };
 

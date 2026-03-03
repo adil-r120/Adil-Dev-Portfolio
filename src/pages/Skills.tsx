@@ -1,6 +1,6 @@
 import Navigation from "@/components/Navigation";
 import { Badge } from "@/components/ui/badge";
-import { Code2, Database, Cloud, Globe, BookOpen, Languages, Monitor, Code, FileText, Terminal, Server } from "lucide-react";
+import { Code2, Database, Cloud, Globe, BookOpen, Languages, Monitor, Code, FileText, Terminal, Server, ExternalLink } from "lucide-react";
 
 // Define the type for skills with proficiency
 type Skill = {
@@ -13,6 +13,13 @@ type SkillCategory = {
   title: string;
   icon: string;
   skills: Skill[];
+};
+
+type Course = {
+  title: string;
+  institution: string;
+  icon: React.ReactNode;
+  link: string;
 };
 
 const Skills = () => {
@@ -112,6 +119,21 @@ const Skills = () => {
 
   ];
 
+  const courses: Course[] = [
+    {
+      title: "Cloud Computing",
+      institution: "IIT Kharagpur",
+      icon: <Cloud className="w-5 h-5 text-sky-500" />,
+      link: "https://swayam.gov.in/mycourses",
+    },
+    {
+      title: "Data Structure and Algorithm",
+      institution: "PW Skills",
+      icon: <Code2 className="w-5 h-5 text-orange-500" />,
+      link: "https://youtu.be/RJ733wzbNoA?si=ew1VgCZ2d1d_sohR",
+    },
+  ];
+
   // Progress bar component
   const ProgressBar = ({ proficiency }: { proficiency: number }) => (
     <div className="w-40 bg-gray-200 rounded-full h-2 ml-2 flex-shrink-0">
@@ -165,6 +187,40 @@ const Skills = () => {
               </div>
             </div>
           ))}
+        </div>
+
+
+        {/* Courses Section */}
+        <div className="max-w-5xl mx-auto mt-16 md:mt-24">
+          <div className="flex items-center justify-center gap-2 md:gap-3 mb-6 md:mb-10">
+            <BookOpen className="w-6 h-6 md:w-8 md:h-8 text-orange-500" />
+            <h2 className="text-2xl md:text-4xl font-bold">Courses</h2>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">
+            {courses.map((course) => (
+              <a
+                key={course.title}
+                href={course.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-card p-4 md:p-6 rounded-lg border border-blue-500/20 hover:border-blue-900/50 transition-all block card-glow group"
+              >
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-lg bg-orange-500/10 flex items-center justify-center flex-shrink-0">
+                    {course.icon}
+                  </div>
+                  <div className="flex-1">
+                    <div className="flex items-center justify-between gap-2">
+                      <h3 className="text-base md:text-lg font-bold">{course.title}</h3>
+                      <ExternalLink className="w-3.5 h-3.5 text-muted-foreground/40 group-hover:text-orange-500 transition-colors flex-shrink-0" />
+                    </div>
+                    <p className="text-xs md:text-sm text-muted-foreground">{course.institution}</p>
+                  </div>
+                </div>
+              </a>
+            ))}
+          </div>
         </div>
 
         {/* My Coding Platforms Section */}

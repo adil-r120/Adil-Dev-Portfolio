@@ -1,7 +1,6 @@
 import Navigation from "@/components/Navigation";
 import { Badge } from "@/components/ui/badge";
 import { Calendar } from "lucide-react";
-import { Trophy } from "lucide-react";
 
 // Define the type for projects
 type Project = {
@@ -13,16 +12,7 @@ type Project = {
   link?: string;
 };
 
-// Define the type for hackathons
-type Hackathon = {
-  title: string;
-  description: string;
-  image: string;
-  date: string;
-  tags?: string[];
-  position?: string;
-  link?: string;
-};
+// Define the type for projects
 
 const Projects = () => {
   const projects: Project[] = [
@@ -116,32 +106,6 @@ const Projects = () => {
     }
   ];
 
-  const hackathons: Hackathon[] = [
-    {
-      title: "Quantum_X Hackathon 2025",
-      description: "A 24-hour hackathon organized by NHCE computer science department. Our team developed a real-time application.",
-      image: "/project-images/hackathon-quantumx.png",
-      date: "10-12th April 2025",
-      link: "/certificates/hackathon.png"
-    },
-    {
-      title: "Pixel Pursuit Event 2024",
-      description: "A Pixel Pursuit event organized by Mobile Development Club at NHCE campus.",
-      image: "/project-images/hackathon-pixel.png",
-      date: "19th November 2024",
-      link: "/certificates/pixel.jpeg"
-    }
-    /*{
-      title: "Startup Weekend Hackathon",
-      description: "A weekend-long event where multidisciplinary teams create a startup from concept to pitch. Developed a mental health support platform for students.",
-      image: "💡",
-      date: "September 2024",
-      tags: ["React Native", "Firebase", "Express.js", "Machine Learning"],
-      position: "Best Social Impact Award",
-      link: "#"
-    }*/
-  ];
-
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
@@ -191,75 +155,6 @@ const Projects = () => {
               </div>
             </a>
           ))}
-        </div>
-
-        {/* Hackathon Section */}
-        <div className="mt-16 md:mt-20">
-          <div className="flex items-center justify-center gap-2 md:gap-3 mb-8 md:mb-16">
-            <h2 className="text-2xl md:text-4xl font-bold text-center">Hackathons</h2>
-          </div>
-          <p className="text-base md:text-lg text-center text-muted-foreground mb-8 md:mb-12 max-w-3xl mx-auto">
-            Showcasing my participation and achievements in various hackathons and coding competitions
-          </p>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 max-w-7xl mx-auto">
-            {hackathons.map((hackathon) => (
-              <a
-                key={hackathon.title}
-                href={hackathon.link}
-                target={hackathon.link && hackathon.link !== "#" ? "_blank" : undefined}
-                rel={hackathon.link && hackathon.link !== "#" ? "noopener noreferrer" : undefined}
-                className="bg-card rounded-lg border border-blue-500/20 hover:border-blue-900/50 transition-all overflow-hidden group block"
-              >
-                <div className="w-full aspect-video bg-gradient-to-br from-slate-800 to-slate-950 flex items-center justify-center overflow-hidden p-2">
-                  <img
-                    src={hackathon.image}
-                    alt={hackathon.title}
-                    loading="lazy"
-                    decoding="async"
-                    className="max-w-full max-h-full object-contain rounded group-hover:scale-105 transition-transform duration-300"
-                  />
-                </div>
-
-                <div className="p-4 md:p-6 space-y-3 md:space-y-4">
-                  <div className="flex justify-between items-start">
-                    <h3 className="text-lg md:text-xl font-bold">{hackathon.title}</h3>
-                    {'position' in hackathon && hackathon.position && (
-                      <Badge
-                        variant="secondary"
-                        className="text-[0.6rem] md:text-xs bg-orange-500/10 text-orange-500 border-orange-500/20 whitespace-nowrap px-2 py-0.5 md:px-2.5 md:py-1"
-                      >
-                        {hackathon.position}
-                      </Badge>
-                    )}
-                  </div>
-
-                  <p className="text-sm text-muted-foreground leading-relaxed">
-                    {hackathon.description}
-                  </p>
-
-                  <div className="flex items-center gap-2 text-xs md:text-sm text-muted-foreground">
-                    <Calendar className="w-3 h-3 md:w-4 md:h-4" />
-                    <span>{hackathon.date}</span>
-                  </div>
-
-                  {'tags' in hackathon && hackathon.tags && (
-                    <div className="flex flex-wrap gap-1 md:gap-2 pt-2">
-                      {hackathon.tags.map((tag) => (
-                        <Badge
-                          key={tag}
-                          variant="secondary"
-                          className="text-[0.6rem] md:text-xs bg-orange-500/10 text-orange-500 border-orange-500/20 px-2 py-0.5 md:px-2.5 md:py-1"
-                        >
-                          {tag}
-                        </Badge>
-                      ))}
-                    </div>
-                  )}
-                </div>
-              </a>
-            ))}
-          </div>
         </div>
       </main>
     </div>

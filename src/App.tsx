@@ -11,6 +11,7 @@ import Projects from "./pages/Projects";
 import Certifications from "./pages/Certifications";
 import Contact from "./pages/Contact";
 import Experiences from "./pages/Experiences";
+import NotFound from "./pages/NotFound";
 import ScrollToTop from "@/components/ScrollToTop";
 import { Analytics } from "@vercel/analytics/react";
 import ChatbotWidget from "@/components/ChatbotWidget";
@@ -23,10 +24,10 @@ const App = () => (
       <TooltipProvider>
         <Toaster />
         <Sonner />
-        <ScrollToTop />
-        <Analytics />
-        <ChatbotWidget />
         <BrowserRouter>
+          <ScrollToTop />
+          <Analytics />
+          <ChatbotWidget />
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
@@ -35,6 +36,7 @@ const App = () => (
             <Route path="/projects" element={<Projects />} />
             <Route path="/certifications" element={<Certifications />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>
       </TooltipProvider>

@@ -1,5 +1,25 @@
+import { useState, useEffect } from "react";
 import Navigation from "@/components/Navigation";
 import { Code2, Palette, Cloud, Brain, BookOpen } from "lucide-react";
+
+const AnimatedCounter = ({ end, duration = 2000 }: { end: number; duration?: number }) => {
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    let startTimestamp: number | null = null;
+    const step = (timestamp: number) => {
+      if (!startTimestamp) startTimestamp = timestamp;
+      const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+      setCount(Math.floor(progress * end));
+      if (progress < 1) {
+        window.requestAnimationFrame(step);
+      }
+    };
+    window.requestAnimationFrame(step);
+  }, [end, duration]);
+
+  return <>{count}</>;
+};
 
 const About = () => {
   const skills = [
@@ -117,21 +137,24 @@ const About = () => {
             <div className="grid grid-cols-3 gap-3 md:gap-6">
               <div className="text-center p-4 md:p-6 bg-card rounded-lg border border-blue-500/20 hover:border-blue-900/50 transition-all card-glow">
                 <div className="text-2xl md:text-4xl font-bold mb-1 md:mb-2">
-                  5<span className="text-orange-500">+</span>
+                  <AnimatedCounter end={11} />
+                  <span className="text-orange-500">+</span>
                 </div>
                 <p className="text-xs md:text-sm text-muted-foreground">Projects Completed</p>
               </div>
               <div className="text-center p-4 md:p-6 bg-card rounded-lg border border-blue-500/20 hover:border-blue-900/50 transition-all card-glow">
                 <div className="text-2xl md:text-4xl font-bold mb-1 md:mb-2">
-                  10<span className="text-orange-500">+</span>
+                  <AnimatedCounter end={12} />
+                  <span className="text-orange-500">+</span>
                 </div>
                 <p className="text-xs md:text-sm text-muted-foreground">Certifications</p>
               </div>
               <div className="text-center p-4 md:p-6 bg-card rounded-lg border border-blue-500/20 hover:border-blue-900/50 transition-all card-glow">
-                <div className="text-2xl md:text-4xl font-bold mb-1 md:mb-2">1
+                <div className="text-2xl md:text-4xl font-bold mb-1 md:mb-2">
+                  <AnimatedCounter end={2} />
                   <span className="text-orange-500">+</span>
                 </div>
-                <p className="text-xs md:text-sm text-muted-foreground">Hackathon</p>
+                <p className="text-xs md:text-sm text-muted-foreground">Hackathons</p>
               </div>
             </div>
           </div>
