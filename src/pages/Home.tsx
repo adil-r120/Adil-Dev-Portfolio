@@ -78,7 +78,8 @@ const Home = () => {
               <div className="absolute inset-0 bg-blue-900/20 rounded-full blur-3xl"></div>
               <div className="relative w-72 h-72 md:w-96 md:h-96 rounded-full border-4 border-blue-900 overflow-hidden">
                 <img
-                  src="/AR_logo.jpg"
+                  // src="/AR_logo.jpg"
+                  src="/p2.png"
                   alt="AR"
                   className="w-full h-full object-cover object-center"
                 />
