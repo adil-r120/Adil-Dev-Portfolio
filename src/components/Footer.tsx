@@ -7,7 +7,7 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-2 text-muted-foreground">
             {/* <span>Built with</span>
-            <Heart className="w-4 h-4 text-orange-500 fill-orange-500" /> */}
+            <Heart className="w-4 h-4 text-royal fill-royal" /> */}
             <span>MD ADIL RAZA</span>
           </div>
 
@@ -26,7 +26,7 @@ const Footer = () => {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="LinkedIn"
-              className="p-2 rounded-full text-muted-foreground hover:text-blue-600 hover:bg-blue-500/10 transition-colors"
+              className="p-2 rounded-full text-muted-foreground hover:text-royal hover:bg-royal/10 transition-colors"
             >
               <Linkedin className="w-5 h-5" />
             </a>

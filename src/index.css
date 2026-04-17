@@ -42,8 +42,11 @@ All colors MUST be HSL.
     /* Custom portfolio colors - Light */
     --navy-dark: 215 28% 10%;
     --navy-card: 217 25% 14%;
-    --orange-accent: 24.6 95% 53.1%;
-    --orange-glow: 24.6 95% 53.1%;
+    --royal-blue: 228 66% 30%; /* Deep Navy precisely from user image */
+    --royal-light: 228 66% 45%;
+    --royal-dark: 228 66% 20%;
+    --orange-accent: 25 100% 50%; /* Vibrant Orange restored */
+    --orange-glow: 25 100% 50%;
     --text-muted: 215.4 16.3% 46.9%;
   }
 
@@ -80,8 +83,9 @@ All colors MUST be HSL.
     /* Custom portfolio colors - Dark */
     --navy-dark: 215 28% 10%;
     --navy-card: 217 25% 14%;
-    --orange-accent: 24.6 95% 53.1%;
-    --orange-glow: 24.6 95% 53.1%;
+    --royal-blue: 228 66% 40%; /* Deeper blue for dark mode */
+    --orange-accent: 25 100% 55%; 
+    --orange-glow: 25 100% 55%;
     --text-muted: 215 20% 65%;
   }
 
@@ -109,16 +113,20 @@ All colors MUST be HSL.
   }
 
   ::-webkit-scrollbar-thumb {
-    @apply bg-blue-900/50 rounded-full hover:bg-blue-900;
+    background: hsl(var(--royal-blue) / 0.5);
+    @apply rounded-full;
+    &:hover {
+      background: hsl(var(--royal-blue));
+    }
   }
 
   /* Selection Color */
   ::selection {
-    @apply bg-orange-500/30 text-orange-600;
+    @apply bg-royal/30 text-royal;
   }
 
   .dark ::selection {
-    @apply bg-orange-500/30 text-orange-400;
+    @apply bg-royal/30 text-royal;
   }
 }
 
@@ -128,7 +136,13 @@ All colors MUST be HSL.
   }
 
   .card-glow {
-    @apply border border-blue-500/10 hover:border-blue-900/50 transition-all duration-300 shadow-sm hover:shadow-md bg-card;
+    border-color: hsl(var(--royal-blue) / 0.1);
+    @apply border transition-all duration-300 shadow-sm bg-card;
+    &:hover {
+      border-color: hsl(var(--royal-blue));
+      box-shadow: 0 10px 30px -10px hsl(var(--royal-blue) / 0.2);
+      transform: translateY(-2px);
+    }
   }
 
   .animate-marquee {
@@ -186,7 +200,7 @@ All colors MUST be HSL.
   .typing-cursor::after {
     content: '|';
     animation: blink 1s step-start infinite;
-    @apply text-orange-500 ml-1;
+    @apply text-royal ml-1;
   }
 
   @keyframes blink {

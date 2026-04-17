@@ -45,7 +45,17 @@ const About = () => {
     }
   ];
 
-  const education = [
+  type Education = {
+    degree: string;
+    institution: string;
+    period: string;
+    location: string;
+    board?: string;
+    grade?: string;
+    activities?: string;
+  };
+
+  const education: Education[] = [
     {
       degree: "Bachelor of Engineering, Computer Science Engineering",
       institution: "New Horizon College of Engineering",
@@ -56,7 +66,6 @@ const About = () => {
       degree: "Senior Secondary (XII), PCM",
       institution: "Park Mount Public School",
       board: "Central Board of Secondary Education",
-      grade: "Grade: A",
       period: "Mar 2020 - April 2022",
       location: "Patna, India",
       activities: "Captain of Cricket team"
@@ -65,7 +74,6 @@ const About = () => {
       degree: "Matric (X)",
       institution: "Nezamia Public School",
       board: "Central Board of Secondary Education",
-      grade: "Grade: B",
       period: "Mar 2020",
       location: "Patna, India",
       activities: "Drawing",
@@ -76,6 +84,11 @@ const About = () => {
     <div className="min-h-screen bg-background">
       <Navigation />
 
+      {/* Background blobs to match Home page atmosphere */}
+      <div className="fixed top-0 right-0 w-[500px] h-[500px] bg-royal/5 rounded-full blur-[100px] -z-10 pointer-events-none" />
+      <div className="fixed bottom-0 left-0 w-[300px] h-[300px] bg-royal/5 rounded-full blur-[100px] -z-10 pointer-events-none" />
+
+
       <main className="container mx-auto px-4 pt-24 md:pt-32 pb-20">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-16">
           {/* Left Column - Skills */}
@@ -83,10 +96,10 @@ const About = () => {
             {skills.map((skill) => (
               <div
                 key={skill.title}
-                className="flex gap-3 md:gap-4 p-4 md:p-6 bg-card rounded-lg border border-blue-500/20 hover:border-blue-900/50 transition-all"
+                className="flex gap-3 md:gap-4 p-4 md:p-6 bg-card rounded-lg border border-blue-500/10 hover:border-royal transition-all hover:shadow-xl hover:shadow-royal/5"
               >
                 <div className="flex-shrink-0">
-                  <div className="w-10 h-10 md:w-12 md:h-12 rounded-lg bg-orange-500/10 flex items-center justify-center">
+                  <div className="w-10 h-10 md:w-12 md:h-12 rounded-lg bg-orange-500/10 border border-orange-500/20 flex items-center justify-center">
                     <skill.icon className="w-5 h-5 md:w-6 md:h-6 text-orange-500" />
                   </div>
                 </div>
@@ -109,7 +122,7 @@ const About = () => {
 
             <div className="space-y-4 md:space-y-6">
               <div className="flex items-center gap-2">
-                <div className="w-8 h-8 md:w-10 md:h-10 rounded-lg bg-orange-500/10 flex items-center justify-center">
+                <div className="w-8 h-8 md:w-10 md:h-10 rounded-lg bg-orange-500/10 border border-orange-500/20 flex items-center justify-center">
                   <BookOpen className="w-4 h-4 md:w-6 md:h-6 text-orange-500" />
                 </div>
                 <h3 className="text-2xl md:text-3xl font-bold text-foreground">Education</h3>
@@ -135,22 +148,22 @@ const About = () => {
             </div>
 
             <div className="grid grid-cols-3 gap-3 md:gap-6">
-              <div className="text-center p-4 md:p-6 bg-card rounded-lg border border-blue-500/20 hover:border-blue-900/50 transition-all card-glow">
+              <div className="text-center p-4 md:p-6 bg-card rounded-lg border border-royal/10 hover:border-royal transition-all card-glow">
                 <div className="text-2xl md:text-4xl font-bold mb-1 md:mb-2">
                   <AnimatedCounter end={11} />
                   <span className="text-orange-500">+</span>
                 </div>
                 <p className="text-xs md:text-sm text-muted-foreground">Projects Completed</p>
               </div>
-              <div className="text-center p-4 md:p-6 bg-card rounded-lg border border-blue-500/20 hover:border-blue-900/50 transition-all card-glow">
-                <div className="text-2xl md:text-4xl font-bold mb-1 md:mb-2">
+              <div className="text-center p-4 md:p-6 bg-card rounded-lg border border-royal/10 hover:border-royal transition-all card-glow">
+                <div className="text-2xl md:text-4xl font-bold mb-1 md:mb-2 text-foreground">
                   <AnimatedCounter end={12} />
                   <span className="text-orange-500">+</span>
                 </div>
                 <p className="text-xs md:text-sm text-muted-foreground">Certifications</p>
               </div>
-              <div className="text-center p-4 md:p-6 bg-card rounded-lg border border-blue-500/20 hover:border-blue-900/50 transition-all card-glow">
-                <div className="text-2xl md:text-4xl font-bold mb-1 md:mb-2">
+              <div className="text-center p-4 md:p-6 bg-card rounded-lg border border-royal/10 hover:border-royal transition-all card-glow">
+                <div className="text-2xl md:text-4xl font-bold mb-1 md:mb-2 text-foreground">
                   <AnimatedCounter end={2} />
                   <span className="text-orange-500">+</span>
                 </div>

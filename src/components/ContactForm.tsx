@@ -46,7 +46,7 @@ const ContactForm = () => {
                             name="name"
                             placeholder="Your name"
                             required
-                            className="bg-background border-blue-500/20 focus:border-orange-500"
+                            className="bg-background border-blue-500/20 focus:border-royal"
                         />
                     </div>
                     <div className="space-y-2">
@@ -57,7 +57,7 @@ const ContactForm = () => {
                             name="email"
                             placeholder="Your email"
                             required
-                            className="bg-background border-blue-500/20 focus:border-orange-500"
+                            className="bg-background border-blue-500/20 focus:border-royal"
                         />
                     </div>
                 </div>
@@ -69,7 +69,7 @@ const ContactForm = () => {
                         name="_subject"
                         placeholder="What is this regarding?"
                         required
-                        className="bg-background border-blue-500/20 focus:border-orange-500"
+                        className="bg-background border-blue-500/20 focus:border-royal"
                     />
                 </div>
 
@@ -80,7 +80,7 @@ const ContactForm = () => {
                         name="message"
                         placeholder="Your message here..."
                         required
-                        className="min-h-[120px] bg-background border-blue-500/20 focus:border-orange-500"
+                        className="min-h-[120px] bg-background border-blue-500/20 focus:border-royal"
                     />
                 </div>
 
