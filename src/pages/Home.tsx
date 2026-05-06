@@ -13,7 +13,19 @@ const Home = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-background overflow-hidden relative">
+    <div className="min-h-screen overflow-hidden relative isolate">
+      {/* Background Image with Faded Edges */}
+      <div 
+        className="absolute inset-0 w-full h-full -z-20 opacity-10 pointer-events-none"
+        style={{
+          // backgroundImage: "url('/se-bg.png')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          maskImage: "radial-gradient(circle at center, black 10%, transparent 85%)",
+          WebkitMaskImage: "radial-gradient(circle at center, black 10%, transparent 85%)"
+        }}
+      />
+      
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-orange-500/5 rounded-full blur-[100px] -z-10 animate-fade-in-up delay-500"></div>
       <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-royal/5 rounded-full blur-[100px] -z-10 animate-fade-in-up delay-500"></div>
 

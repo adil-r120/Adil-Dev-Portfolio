@@ -12,7 +12,6 @@ type Project = {
   category: string;
   link?: string;
   github?: string;
-  featured?: boolean;
 };
 
 const Projects = () => {
@@ -26,7 +25,6 @@ const Projects = () => {
       image: "/project-images/crm.webp",
       date: "Feb 2026 – Mar 2026",
       category: "Full Stack",
-      featured: true,
       tags: ["React", "TypeScript", "Node.js", "SQLite", "Tailwind CSS", "CRM"],
       link: "https://future-fs-02-crm.vercel.app",
     },
@@ -37,7 +35,6 @@ const Projects = () => {
       image: "/project-images/salespulse.webp",
       date: "Nov 2025 – Present",
       category: "AI/ML",
-      featured: true,
       tags: ["React", "Python", "REST API", "TypeScript", "LLM", "AI/ML", "Tailwind CSS"],
       link: "https://salespulse.vercel.app/",
     },
@@ -48,7 +45,6 @@ const Projects = () => {
       image: "/project-images/snatix.webp",
       date: "Jan 2025 – Oct 2025",
       category: "Full Stack",
-      featured: true,
       tags: ["HTML", "TypeScript", "JavaScript", "MySQL", "Photography"],
       link: "https://snatix.vercel.app/",
     },
@@ -145,7 +141,6 @@ const Projects = () => {
 
   const stats = [
     { icon: <Layers className="w-5 h-5 text-royal" />, label: "Total Projects", value: `${projects.length}+` },
-    { icon: <Star className="w-5 h-5 text-yellow-400" />, label: "Featured", value: `${projects.filter((p) => p.featured).length}` },
     { icon: <Code2 className="w-5 h-5 text-blue-400" />, label: "Tech Stacks", value: "10+" },
   ];
 
@@ -174,11 +169,11 @@ const Projects = () => {
         </header>
 
         {/* ───── Stats ───── */}
-        <div className="grid grid-cols-3 gap-4 mb-10 max-w-xl mx-auto">
+        <div className="flex justify-center flex-wrap gap-4 mb-10 max-w-xl mx-auto">
           {stats.map((s, i) => (
             <div
               key={i}
-              className="flex flex-col items-center gap-1.5 p-4 rounded-xl border border-border bg-card text-center"
+              className="flex flex-col items-center gap-1.5 p-4 rounded-xl border border-border bg-card text-center min-w-[140px]"
             >
               {s.icon}
               <span className="text-2xl font-bold">{s.value}</span>
@@ -232,13 +227,7 @@ const Projects = () => {
                   </a>
                 )}
 
-                {/* Featured badge */}
-                {project.featured && (
-                  <div className="absolute top-2 left-2 flex items-center gap-1 px-2 py-0.5 rounded-full bg-yellow-500/90 text-black text-[0.65rem] font-bold">
-                    <Star className="w-3 h-3" />
-                    Featured
-                  </div>
-                )}
+
 
                 {/* Category badge */}
                 <div className="absolute top-2 right-2 px-2 py-0.5 rounded-full bg-background/80 backdrop-blur-sm text-[0.65rem] font-medium text-muted-foreground border border-border">
