@@ -38,10 +38,10 @@ const Experiences = () => {
     {
       title: "Volunteer – Technical Team",
       company: "New Horizon College of Engineering",
-      period: "Oct 2025 – Present",
+      period: "Oct 2025",
       location: "Bengaluru, Karnataka, India",
-      type: "Volunteer",
-      badge: "Recognition Certificate",
+      type: "National Level 48-Hour Hackathon",
+      badge: "Volunteer Certificate",
       description:
         "Volunteered as a Technical Team Member during the National Level 48-Hour Hackathon organized under Silver Spectrum Techfest 2025 by the Departments of CSE and AIML.",
       highlights: [
@@ -59,12 +59,28 @@ const Experiences = () => {
       ],
       link: "/certificates/hack_v.pdf",
     },
+    {
+      title: "Quantum_X26",
+      company: "New Horizon College of Engineering",
+      period: "March 2026",
+      location: "Bengaluru, Karnataka, India",
+      type: "National Level Technical Fest",
+      badge: "Volunteer Certificate",
+      description:
+        "Volunteered in the Quantum_X26 organized by the Department of Computer Science and Engineering at NHCE. Worked in a team to support the event.",
+      highlights: [
+        "Collaborated with a cross-functional team to support the event.",
+      ],
+      skills: ["Team Collaboration", "Event Support", "Communication Skills", "Responsibility"],
+      link: "/certificates/Quantum_x.pdf",
+    }
   ];
 
   const typeColors: Record<string, string> = {
     Internship: "bg-blue-500/10 text-blue-500 border border-blue-500/20",
     Volunteer: "bg-purple-500/10 text-purple-400 border border-purple-500/20",
     Freelance: "bg-green-500/10 text-green-500 border border-green-500/20",
+    Competition: "bg-yellow-500/10 text-yellow-500 border border-yellow-500/20",
   };
 
   return (
@@ -91,8 +107,8 @@ const Experiences = () => {
             </p>
             <div className="w-16 md:w-24 h-1 bg-royal mx-auto rounded-full mt-6 mb-8" />
             <a
-              href="/certificates/MD-ADIL-RAZA-Resume.pdf"
-              download="MD-ADIL-RAZA-Resume.pdf"
+              href="/certificates/AR-resume.pdf"
+              download="AR-resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-royal hover:bg-royal/90 text-white font-semibold text-sm md:text-base shadow-lg shadow-royal/30 transition-all hover:scale-105 hover:shadow-royal/50"
@@ -105,7 +121,7 @@ const Experiences = () => {
           {/* ───── Stats Row ───── */}
           <div className="grid grid-cols-3 gap-4 mb-14">
             {[
-              { icon: <Briefcase className="w-5 h-5 text-royal" />, label: "Experiences", value: "2+" },
+              { icon: <Briefcase className="w-5 h-5 text-royal" />, label: "Experiences", value: "3+" },
               { icon: <Star className="w-5 h-5 text-yellow-400" />, label: "Certificates", value: "2" },
               { icon: <TrendingUp className="w-5 h-5 text-green-400" />, label: "Skills Used", value: "12+" },
             ].map((stat, i) => (

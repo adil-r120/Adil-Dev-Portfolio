@@ -63,13 +63,13 @@ const Contact = () => {
             <div className="bg-card p-6 md:p-8 rounded-lg border border-blue-500/20 hover:border-blue-900/50 transition-all hover:shadow-md space-y-4">
               <h2 className="text-xl font-bold">Professional Summary</h2>
               <p className="text-base text-muted-foreground leading-relaxed">
-                Computer Science Engineering student passionate about AI, software development, and full-stack development.Experienced in building applications using React, NodeJS, Java, Python and MySQL. Strong interest in solving real-world problems and learning new technologies.
+                I'm a Computer Science Engineering student with foundation in full-stack development, AI, and software engineering. I have successfully developed and deployed projects involving backend systems, web applications, and machine learning models using Java, Python, React, Node.js, and MySQL. With hands-on experience in hackathons, academic projects, and as a technical team member, I am a quick learner and problem-solver, and continuously expand my technical expertise to deliver impactful solutions.
               </p>
 
               <div className="pt-4">
                 <a
-                  href="/certificates/MD-ADIL-RAZA-Resume.pdf"
-                  download="MD-ADIL-RAZA-Resume.pdf"
+                  href="/certificates/AR-resume.pdf"
+                  download="AR-resume.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 px-6 py-3 bg-blue-900 text-white rounded-lg hover:bg-blue-800 transition-colors font-medium text-sm w-full sm:w-auto justify-center"

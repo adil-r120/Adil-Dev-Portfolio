@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Navigation from "@/components/Navigation";
 import {
-  Calendar, IdCard, ExternalLink, BookOpen, Code2, Database,
+  Calendar, IdCard, ExternalLink, BookOpen, Code, Code2, Database,
   Cloud, Brain, Globe, Trophy, Award, Filter, ArrowUpRight,
 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
@@ -60,13 +60,22 @@ const Certifications = () => {
       category: "Cloud",
     },
     {
-      title: "Google Cloud Arcade Facilitator",
-      issuer: "Google",
-      issuerIcon: <span className="text-xl">🌐</span>,
-      issued: "Apr 2025",
-      skills: ["Google Cloud Platform (GCP)"],
-      link: "https://www.cloudskillsboost.google/public_profiles/66042bf4-1de9-4045-9c85-de693b5d7287/badges/14604966",
+      title: "Cloud Computing and Distributed Systems",
+      issuer: "NPTEL, IIT Kanpur",
+      issuerIcon: <Cloud className="w-5 h-5 text-royal" />,
+      issued: "Mar 2026",
+      skills: ["Cloud Computing", "Distributed Systems"],
+      link: "/certificates/cloud2.pdf",
       category: "Cloud",
+    },
+    {
+      title: "R Programming",
+      issuer: "Infosys Springboard",
+      issuerIcon: <Code className="w-5 h-5 text-purple-500" />,
+      issued: "May 2026",
+      skills: ["R Programming"],
+      link: "/certificates/R-programming.pdf",
+      category: "Programming",
     },
     {
       title: "DBMS — Master Fundamental & Advanced Concepts",
@@ -163,7 +172,7 @@ const Certifications = () => {
     },
   ];
 
-  const filters = ["All", "Cloud", "Data", "Development"];
+  const filters = ["All", "Cloud", "Data", "Programming", "Development"];
 
   const filtered =
     activeFilter === "All"
@@ -180,6 +189,7 @@ const Certifications = () => {
     Cloud: "bg-sky-500/10 text-sky-400 border-sky-500/20",
     Data: "bg-purple-500/10 text-purple-400 border-purple-500/20",
     Development: "bg-green-500/10 text-green-400 border-green-500/20",
+    Programming: "bg-amber-500/10 text-amber-400 border-amber-500/20",
   };
 
   return (
@@ -227,8 +237,8 @@ const Certifications = () => {
               key={f}
               onClick={() => setActiveFilter(f)}
               className={`flex items-center gap-1.5 px-4 py-1.5 rounded-full text-sm font-medium transition-all border ${activeFilter === f
-                  ? "bg-royal text-white border-royal shadow-md shadow-royal/30"
-                  : "bg-transparent text-muted-foreground border-border hover:border-royal hover:text-royal font-medium"
+                ? "bg-royal text-white border-royal shadow-md shadow-royal/30"
+                : "bg-transparent text-muted-foreground border-border hover:border-royal hover:text-royal font-medium"
                 }`}
             >
               {f === "All" && <Filter className="w-3.5 h-3.5" />}

@@ -54,8 +54,8 @@ const Home = () => {
                 </Button>
               </a>
               <a
-                href="/certificates/MD-ADIL-RAZA-Resume.pdf"
-                download="MD-ADIL-RAZA-Resume.pdf"
+                href="/certificates/AR-resume.pdf"
+                download="AR-resume.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
               >
