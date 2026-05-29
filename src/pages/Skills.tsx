@@ -1,6 +1,7 @@
 import Navigation from "@/components/Navigation";
 import { Badge } from "@/components/ui/badge";
 import { Code2, Database, Cloud, Globe, BookOpen, Languages, Monitor, Code, FileText, Terminal, Server, ExternalLink, Award, Layers } from "lucide-react";
+import { useTranslation } from 'react-i18next';
 
 // Define the type for skills with proficiency
 type Skill = {
@@ -23,106 +24,85 @@ type Course = {
 };
 
 const Skills = () => {
+  const { t } = useTranslation();
   const skillCategories: SkillCategory[] = [
     {
-      title: "Programming Languages",
-      icon: "💻",
-      skills: [
-        { name: "Python", proficiency: 70 },
-        { name: "Java", proficiency: 70 },
-        { name: "C++", proficiency: 65 },
-        { name: "C", proficiency: 70 },
-        { name: "JavaScript", proficiency: 50 },
-        { name: "SQL", proficiency: 85 },
-        { name: "XML", proficiency: 70 }
-      ]
-    },
-    {
-      title: "Web Technologies",
+      title: "Development",
       icon: "🌐",
       skills: [
-        { name: "HTML", proficiency: 90 },
-        { name: "CSS", proficiency: 65 },
-        { name: "JavaScript", proficiency: 60 },
-        { name: "React", proficiency: 85 },
-        { name: "REST APIs", proficiency: 60 }
+        { name: "HTML ", proficiency: 92 },
+        { name: "CSS", proficiency: 92 },
+        { name: "Tailwind CSS", proficiency: 80 },
+        { name: "Node.js", proficiency: 75 },
+        { name: "TypeScript", proficiency: 82 },
+        { name: "REST APIs", proficiency: 80 }
       ]
     },
     {
-      title: "Database",
+      title: "Programming",
+      icon: "💻",
+      skills: [
+        { name: "Java", proficiency: 70 },
+        { name: "Python", proficiency: 70 },
+        { name: "JavaScript", proficiency: 60 },
+        { name: "C", proficiency: 70 },
+        { name: "C++", proficiency: 65 },
+        { name: "R", proficiency: 85 },
+      ]
+    },
+    {
+      title: "Data Analytics",
+      icon: "📈",
+      skills: [
+        { name: "Tableau", proficiency: 85 },
+        { name: "Power BI", proficiency: 75 },
+        { name: "Excel", proficiency: 90 },
+      ]
+    },
+    {
+      title: "Databases",
       icon: "🗄️",
       skills: [
-        { name: "SQL", proficiency: 85 },
         { name: "MySQL", proficiency: 80 },
-        { name: "DBMS", proficiency: 80 }
+        { name: "MongoDB", proficiency: 75 }
       ]
     },
     {
-      title: "Cloud & Tools",
+      title: "Cloud",
       icon: "☁️",
       skills: [
         { name: "AWS", proficiency: 40 },
-        { name: "Cloud Computing", proficiency: 55 },
-        { name: "Google Cloud Platform (GCP)", proficiency: 65 },
-        { name: "Figma", proficiency: 100 },
+        { name: "Google Cloud", proficiency: 65 }
+      ]
+    },
+    {
+      title: "Tools",
+      icon: "🛠️",
+      skills: [
+        { name: "Git", proficiency: 80 },
         { name: "GitHub", proficiency: 80 },
-        { name: "Linux", proficiency: 65 }
+        { name: "VS Code", proficiency: 90 },
+        { name: "Code-Editor", proficiency: 90 }
       ]
     },
     {
-      title: "AI & Data Science",
-      icon: "🤖",
+      title: "Other",
+      icon: "🌟",
       skills: [
-        { name: "Artificial Intelligence (AI)", proficiency: 75 },
-        { name: "Data Science", proficiency: 65 },
-        { name: "Python for data science", proficiency: 60 }
+        { name: "Data Analytics", proficiency: 75 },
+        { name: "Vibe Coding", proficiency: 100 },
+        { name: "Problem Solving", proficiency: 85 },
+        { name: "API Integration", proficiency: 80 },
+        { name: "Responsive Design", proficiency: 90 },
+        { name: "Database Management", proficiency: 80 }
       ]
-    },
-    {
-      title: "Software Development",
-      icon: "⚙️",
-      skills: [
-        { name: "Object-Oriented Programming (OOP)", proficiency: 65 },
-        { name: "Software Development", proficiency: 80 },
-        { name: "Java Frameworks", proficiency: 70 }
-      ]
-    },
-    {
-      title: "Design & UX",
-      icon: "🎨",
-      skills: [
-        { name: "UI/UX design", proficiency: 95 },
-        { name: "Wireframing", proficiency: 100 },
-        { name: "Figma (Software)", proficiency: 100 },
-        { name: "Prototyping", proficiency: 100 }
-      ]
-    },
-    {
-      title: "Concepts",
-      icon: "📚",
-      skills: [
-        { name: "Data Structures & Algorithms", proficiency: 55 },
-        { name: "OOPs", proficiency: 65 },
-        { name: "DBMS", proficiency: 85 },
-        { name: "Operating Systems", proficiency: 60 }
-      ]
-    },
-    {
-      title: "Languages",
-      icon: "🗣️",
-      skills: [
-        { name: "English", proficiency: 80 },
-        { name: "Hindi", proficiency: 100 },
-        { name: "Urdu", proficiency: 90 }
-      ]
-    },
-
+    }
   ];
 
   const courses: Course[] = [
     {
-      title: "Cloud Computing",
-      institution: "IIT Kharagpur",
+      title: "Cloud Architecture Design and Security",
+      institution: "IIT Kanpur",
       icon: <Cloud className="w-5 h-5 text-orange-500" />,
       link: "https://swayam.gov.in/mycourses",
     },
@@ -159,9 +139,10 @@ const Skills = () => {
             <Layers className="w-3.5 h-3.5" />
             My Toolkit
           </div>
-          <h1 className="text-3xl md:text-5xl font-bold mb-4 md:mb-6">Technical Skills</h1>
+          <h1 className="text-3xl md:text-5xl font-bold mb-4 md:mb-6">Technical Skills & Expertise</h1>
           <p className="text-base md:text-xl text-muted-foreground">
-            A specialized overview of the languages, frameworks, and tools I use to build robust digital solutions.
+            {t('A specialized overview of the languages, frameworks, and tools I use to build robust digital solutions.')} 
+            {/* {t('skillsOverview')} */}
           </p>
           <div className="w-16 md:w-24 h-1 bg-orange-500 mx-auto rounded-full mt-6" />
         </header>
@@ -175,16 +156,13 @@ const Skills = () => {
             >
               <div className="flex items-center gap-4 mb-4 md:mb-6">
                 <div className="w-10 h-10 md:w-12 md:h-12 flex items-center justify-center rounded-xl bg-orange-500/10 border border-orange-500/20 transition-transform group-hover:scale-110">
-                  {index === 0 && <Code2 className="w-5 h-5 md:w-6 md:h-6 text-orange-500" />}
-                  {index === 1 && <Globe className="w-5 h-5 md:w-6 md:h-6 text-orange-500" />}
+                  {index === 0 && <Globe className="w-5 h-5 md:w-6 md:h-6 text-orange-500" />}
+                  {index === 1 && <Code2 className="w-5 h-5 md:w-6 md:h-6 text-orange-500" />}
                   {index === 2 && <Database className="w-5 h-5 md:w-6 md:h-6 text-orange-500" />}
                   {index === 3 && <Cloud className="w-5 h-5 md:w-6 md:h-6 text-orange-500" />}
-                  {index === 4 && <div className="text-orange-500 text-sm md:text-lg">🤖</div>}
-                  {index === 5 && <div className="text-orange-500 text-sm md:text-lg">⚙️</div>}
-                  {index === 6 && <div className="text-orange-500 text-sm md:text-lg">🎨</div>}
-                  {index === 7 && <BookOpen className="w-5 h-5 md:w-6 md:h-6 text-orange-500" />}
-                  {index === 8 && <Languages className="w-5 h-5 md:w-6 md:h-6 text-orange-500" />}
-                  {!([0, 1, 2, 3, 4, 5, 6, 7, 8].includes(index)) && <Code2 className="w-5 h-5 md:w-6 md:h-6 text-orange-500" />}
+                  {index === 4 && <Terminal className="w-5 h-5 md:w-6 md:h-6 text-orange-500" />}
+                  {index === 5 && <Award className="w-5 h-5 md:w-6 md:h-6 text-orange-500" />}
+                  {!([0, 1, 2, 3, 4, 5].includes(index)) && <Code2 className="w-5 h-5 md:w-6 md:h-6 text-orange-500" />}
                 </div>
                 <h2 className="text-lg md:text-2xl font-bold">{category.title}</h2>
               </div>

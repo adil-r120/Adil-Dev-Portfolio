@@ -27,16 +27,30 @@ type Hackathon = {
   link?: string;
 };
 
-const Certifications = () => {
-  const [activeFilter, setActiveFilter] = useState("All");
-
-  const certifications: Certification[] = [
+export const certifications: Certification[] = [
+    {
+      title: "Python for Machine Learning",
+      issuer: " EduPyramids, SINE, IIT Bombay",
+      issuerIcon: <Brain className="w-5 h-5 text-purple-500" />,
+      issued: "2026",
+      skills: ["Python", "Machine Learning", "Scikit-Learn"],
+      link: "/certificates/python for Ml.pdf",
+      category: "Data Science",
+    },
+    {
+      title: "Data Analysis with Python",
+      issuer: "IBM",
+      issuerIcon: <span className="text-xl">📊</span>,
+      issued: "2026",
+      skills: ["Data Analysis", "Python", "Pandas", "NumPy", "Matplotlib"],
+      link: "https://courses.cognitiveclass.ai/certificates/3ff24e57353b4eae9619c6a6670b0528",
+      category: "Data Science",
+    },
     {
       title: "Cloud Computing",
       issuer: "NPTEL, IIT Kharagpur",
       issuerIcon: <Cloud className="w-5 h-5 text-sky-500" />,
       issued: "Oct 2025",
-      credentialId: "NPTEL25CS107S252601106",
       skills: ["Cloud Computing"],
       link: "/certificates/NPTEL.pdf",
       category: "Cloud",
@@ -151,7 +165,7 @@ const Certifications = () => {
     },
   ];
 
-  const hackathons: Hackathon[] = [
+  export const hackathons: Hackathon[] = [
     {
       title: "Quantum_X Hackathon 2025",
       description:
@@ -171,6 +185,9 @@ const Certifications = () => {
       link: "/certificates/pixel.jpeg",
     },
   ];
+
+const Certifications = () => {
+  const [activeFilter, setActiveFilter] = useState("All");
 
   const filters = ["All", "Cloud", "Data", "Programming", "Development"];
 

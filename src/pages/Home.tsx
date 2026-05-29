@@ -49,7 +49,7 @@ const Home = () => {
             </h2>
 
             <p className="text-base md:text-xl text-muted-foreground max-w-lg leading-relaxed delay-100 animate-fade-in-up">
-              Full Stack Enthusiast | Passionate About AI, Web Development & Cloud Computing
+              Full Stack Developer | Passionate About AI, Web Development & AWS
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 pt-4 delay-200 animate-fade-in-up">

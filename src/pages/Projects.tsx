@@ -14,10 +14,27 @@ type Project = {
   github?: string;
 };
 
-const Projects = () => {
-  const [activeFilter, setActiveFilter] = useState("All");
-
-  const projects: Project[] = [
+export const projects: Project[] = [
+    {
+      title: "CyberShield X",
+      description:
+        "A sophisticated phishing detection and security monitoring platform. It leverages a hybrid approach combining Machine Learning (Random Forest), rule-based heuristics, and real-time behavioral analysis to provide explainable risk scoring for suspicious URLs.",
+      image: "/project-images/cybershield.png",
+      date: "2026",
+      category: "Cyber Security",
+      tags: ["Security", "React", "Node.js", "Python", "ML", "MySQL"],
+      link: "https://github.com/adil-r120/CyberShield-X",
+    },
+    {
+      title: "GYANIBABA (AI Chatbot)",
+      description:
+        "A production-ready AI chatbot with ChatGPT-4 level intelligence, custom knowledge base (RAG), and beautiful modern UI, designed to assist users with general queries, technical support, and automated responses.",
+      image: "/project-images/gyanibaba.png",
+      date: "2026",
+      category: "AI/ML",
+      tags: ["AI/ML", "Groq", "LLM", "Python", "React"],
+      link: "https://github.com/adil-r120/GAYANIBABA",
+    },
     {
       title: "Client Lead Management System",
       description:
@@ -131,6 +148,9 @@ const Projects = () => {
       link: "https://tic-tac-toe-game-demo.vercel.app/",
     },
   ];
+
+const Projects = () => {
+  const [activeFilter, setActiveFilter] = useState("All");
 
   const filters = ["All", "Full Stack", "AI/ML", "Design", "Frontend"];
 
