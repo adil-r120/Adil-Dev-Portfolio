@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Navigation from "@/components/Navigation";
 import { Badge } from "@/components/ui/badge";
-import { Calendar, ExternalLink, Github, Layers, Star, ArrowUpRight, Code2 } from "lucide-react";
+import { Calendar, ExternalLink, Github, Layers, Star, ArrowUpRight, Code2, BookOpen, ScrollText } from "lucide-react";
 
 type Project = {
   title: string;
@@ -12,6 +12,15 @@ type Project = {
   category: string;
   link?: string;
   github?: string;
+};
+
+type Paper = {
+  title: string;
+  projectRef: string;
+  description: string;
+  date: string;
+  link: string;
+  tags: string[];
 };
 
 export const projects: Project[] = [
@@ -149,6 +158,18 @@ export const projects: Project[] = [
     },
   ];
 
+const papers: Paper[] = [
+  {
+    title: "Research Paper: Work in Progress",
+    projectRef: "Smart-Infra: AI Infrastructure & Monitoring System",
+    description:
+      "I am currently writing a comprehensive research paper based on this project. It will detail the core methodologies, architecture, and findings. Check back soon for the published version!",
+    date: "In Progress",
+    link: "#", // Add your link here when ready
+    tags: ["Research", "Drafting", "Coming Soon"],
+  },
+];
+
 const Projects = () => {
   const [activeFilter, setActiveFilter] = useState("All");
 
@@ -161,6 +182,7 @@ const Projects = () => {
 
   const stats = [
     { icon: <Layers className="w-5 h-5 text-royal" />, label: "Total Projects", value: `${projects.length}+` },
+    { icon: <ScrollText className="w-5 h-5 text-orange-500" />, label: "Research Papers(In Progress)", value: papers.length.toString() },
     { icon: <Code2 className="w-5 h-5 text-blue-400" />, label: "Tech Stacks", value: "10+" },
   ];
 
@@ -181,9 +203,9 @@ const Projects = () => {
             <Layers className="w-3.5 h-3.5" />
             My Work
           </div>
-          <h1 className="text-3xl md:text-5xl font-bold mb-4">Projects</h1>
+          <h1 className="text-3xl md:text-5xl font-bold mb-4">Projects & Research</h1>
           <p className="text-base md:text-xl text-muted-foreground">
-            A collection of projects I've built from full-stack apps to creative UI experiments.
+            A collection of projects I've built and my academic research work.
           </p>
           <div className="w-16 md:w-24 h-1 bg-royal mx-auto rounded-full mt-6" />
         </header>
@@ -309,6 +331,76 @@ const Projects = () => {
               </div>
             </div>
           ))}
+        </div>
+
+        {/* ───── Research Papers Section ───── */}
+        <div className="mt-24 md:mt-32 max-w-5xl mx-auto">
+          <div className="flex items-center gap-3 mb-8">
+            <div className="w-10 h-10 rounded-lg bg-royal/10 flex items-center justify-center border border-royal/20">
+              <ScrollText className="w-5 h-5 text-royal" />
+            </div>
+            <h2 className="text-2xl md:text-4xl font-bold">Research & Publications</h2>
+          </div>
+          
+          <div className="flex flex-col gap-6">
+            {papers.map((paper, idx) => (
+              <div 
+                key={idx} 
+                className="bg-card rounded-2xl border border-border hover:border-royal transition-all duration-300 p-6 md:p-8 flex flex-col md:flex-row gap-6 hover:shadow-xl hover:shadow-royal/10 group"
+              >
+                <div className="flex-1 space-y-4">
+                  <div className="flex flex-wrap items-center gap-3">
+                    <h3 className="text-xl md:text-2xl font-bold text-foreground group-hover:text-royal transition-colors">
+                      {paper.title}
+                    </h3>
+                    <div className="px-3 py-1 text-[0.65rem] md:text-xs font-semibold rounded-full bg-orange-500/10 text-orange-500 border border-orange-500/20">
+                      Based on: {paper.projectRef}
+                    </div>
+                  </div>
+                  
+                  <p className="text-sm md:text-base text-muted-foreground leading-relaxed">
+                    {paper.description}
+                  </p>
+
+                  <div className="flex items-center gap-2 pt-2 text-xs text-muted-foreground">
+                    <Calendar className="w-4 h-4 text-royal" />
+                    <span>Published: {paper.date}</span>
+                  </div>
+
+                  <div className="flex flex-wrap gap-2 pt-2">
+                    {paper.tags.map((tag) => (
+                      <Badge
+                        key={tag}
+                        variant="secondary"
+                        className="text-xs bg-royal/5 text-royal border border-royal/10 px-2 py-0.5"
+                      >
+                        {tag}
+                      </Badge>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="flex md:flex-col items-center justify-center md:border-l border-border/50 md:pl-8 mt-4 md:mt-0">
+                  {paper.link !== "#" ? (
+                    <a
+                      href={paper.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-royal to-blue-600 text-white font-medium hover:shadow-lg hover:shadow-royal/30 transition-all hover:-translate-y-0.5 w-full md:w-auto justify-center"
+                    >
+                      <BookOpen className="w-4 h-4" />
+                      Read Paper
+                    </a>
+                  ) : (
+                    <div className="flex items-center gap-2 px-6 py-3 rounded-xl bg-card border border-border text-muted-foreground font-medium w-full md:w-auto justify-center cursor-not-allowed">
+                      <BookOpen className="w-4 h-4 opacity-50" />
+                      Coming Soon
+                    </div>
+                  )}
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
 
       </main>
