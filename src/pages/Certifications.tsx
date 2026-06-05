@@ -1,213 +1,35 @@
 import { useState } from "react";
+import { certifications, hackathons } from "@/data/portfolioData";
 import Navigation from "@/components/Navigation";
 import {
-  Calendar, IdCard, ExternalLink, BookOpen, Code, Code2, Database,
-  Cloud, Brain, Globe, Trophy, Award, Filter, ArrowUpRight,
+  Calendar, IdCard, ExternalLink, BookOpen, Trophy, Award, Filter, ArrowUpRight,
 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 
-type Certification = {
-  title: string;
-  issuer: string;
-  issuerIcon: React.ReactNode;
-  issued?: string;
-  credentialId?: string;
-  skills?: string[];
-  link?: string;
-  category: string;
+
+
+const filters = ["All", "Cloud", "Data", "Programming", "Development"];
+
+const stats = [
+  { icon: <Award className="w-5 h-5 text-royal" />, label: "Certifications", value: `${certifications.length}` },
+  { icon: <Trophy className="w-5 h-5 text-yellow-400" />, label: "Hackathons", value: `${hackathons.length}` },
+  { icon: <BookOpen className="w-5 h-5 text-blue-400" />, label: "Issuers", value: "8+" },
+];
+
+const categoryColor: Record<string, string> = {
+  Cloud: "bg-sky-500/10 text-sky-400 border-sky-500/20",
+  Data: "bg-purple-500/10 text-purple-400 border-purple-500/20",
+  Development: "bg-green-500/10 text-green-400 border-green-500/20",
+  Programming: "bg-amber-500/10 text-amber-400 border-amber-500/20",
 };
-
-type Hackathon = {
-  title: string;
-  description: string;
-  image: string;
-  date: string;
-  tags?: string[];
-  position?: string;
-  link?: string;
-};
-
-export const certifications: Certification[] = [
-    {
-      title: "Python for Machine Learning",
-      issuer: " EduPyramids, SINE, IIT Bombay",
-      issuerIcon: <Brain className="w-5 h-5 text-purple-500" />,
-      issued: "2026",
-      skills: ["Python", "Machine Learning", "Scikit-Learn"],
-      link: "/certificates/python for Ml.pdf",
-      category: "Data Science",
-    },
-    {
-      title: "Data Analysis with Python",
-      issuer: "IBM",
-      issuerIcon: <span className="text-xl">📊</span>,
-      issued: "2026",
-      skills: ["Data Analysis", "Python", "Pandas", "NumPy", "Matplotlib"],
-      link: "https://courses.cognitiveclass.ai/certificates/3ff24e57353b4eae9619c6a6670b0528",
-      category: "Data Science",
-    },
-    {
-      title: "Cloud Computing",
-      issuer: "NPTEL, IIT Kharagpur",
-      issuerIcon: <Cloud className="w-5 h-5 text-sky-500" />,
-      issued: "Oct 2025",
-      skills: ["Cloud Computing"],
-      link: "/certificates/NPTEL.pdf",
-      category: "Cloud",
-    },
-    {
-      title: "AWS Cloud Practitioner Essentials",
-      issuer: "Amazon Web Services (AWS)",
-      issuerIcon: <span className="text-xl">🟠</span>,
-      issued: "Jul 2025",
-      skills: ["Amazon Web Services (AWS)"],
-      link: "/certificates/awsa.pdf",
-      category: "Cloud",
-    },
-    {
-      title: "AWS SimuLearn: Cloud Computing Essentials",
-      issuer: "Amazon Web Services (AWS)",
-      issuerIcon: <Cloud className="w-5 h-5 text-royal" />,
-      issued: "Jul 2025",
-      skills: ["Cloud Computing"],
-      link: "/certificates/aws training.pdf",
-      category: "Cloud",
-    },
-    {
-      title: "Cloud Computing and Distributed Systems",
-      issuer: "NPTEL, IIT Kanpur",
-      issuerIcon: <Cloud className="w-5 h-5 text-royal" />,
-      issued: "Mar 2026",
-      skills: ["Cloud Computing", "Distributed Systems"],
-      link: "/certificates/cloud2.pdf",
-      category: "Cloud",
-    },
-    {
-      title: "R Programming",
-      issuer: "Infosys Springboard",
-      issuerIcon: <Code className="w-5 h-5 text-purple-500" />,
-      issued: "May 2026",
-      skills: ["R Programming"],
-      link: "/certificates/R-programming.pdf",
-      category: "Programming",
-    },
-    {
-      title: "DBMS — Master Fundamental & Advanced Concepts",
-      issuer: "Scaler",
-      issuerIcon: <Database className="w-5 h-5 text-purple-500" />,
-      issued: "Oct 2025",
-      skills: ["Database Management System (DBMS)"],
-      link: "/certificates/DBMS.png",
-      category: "Data",
-    },
-    {
-      title: "SQL Bootcamp",
-      issuer: "LetsUpgrade",
-      issuerIcon: <Database className="w-5 h-5 text-orange-500" />,
-      issued: "Sep 2025",
-      skills: ["SQL"],
-      link: "/certificates/sql.pdf",
-      category: "Data",
-    },
-    {
-      title: "Python 101 for Data Science",
-      issuer: "Cognitive Class",
-      issuerIcon: <span className="text-xl">🐍</span>,
-      issued: "Jun 2024",
-      skills: ["Python for Data Science"],
-      link: "/certificates/PYTHON2.pdf",
-      category: "Data",
-    },
-    {
-      title: "Data Science 101",
-      issuer: "Cognitive Class",
-      issuerIcon: <Brain className="w-5 h-5 text-blue-500" />,
-      issued: "May 2024",
-      skills: ["Data Science"],
-      link: "/certificates/IBM.a.pdf",
-      category: "Data",
-    },
-    {
-      title: "Python for Data Science",
-      issuer: "IBM",
-      issuerIcon: <Code2 className="w-5 h-5 text-blue-600" />,
-      issued: "May 2024",
-      skills: ["Python for Data Science"],
-      link: "/certificates/Python_for_Data_Science_Badge.pdf",
-      category: "Data",
-    },
-    {
-      title: "Symposium on Data for Public Good",
-      issuer: "Indian Institute of Science (IISc)",
-      issuerIcon: <Brain className="w-5 h-5 text-emerald-500" />,
-      issued: "Oct 2025",
-      skills: ["Python", "Data Science", "Cloud Computing"],
-      link: "/certificates/iisc.pdf",
-      category: "Data",
-    },
-    {
-      title: "Git Training",
-      issuer: "EduPyramids, SINE, IIT Bombay",
-      issuerIcon: <span className="text-xl">🐙</span>,
-      issued: "Nov 2025",
-      skills: ["Git"],
-      link: "/certificates/git.pdf",
-      category: "Development",
-    },
-    {
-      title: "HTML",
-      issuer: "Great Learning",
-      issuerIcon: <Globe className="w-5 h-5 text-red-500" />,
-      issued: "Aug 2024",
-      skills: ["HTML"],
-      link: "/certificates/html.jpg",
-      category: "Development",
-    },
-  ];
-
-  export const hackathons: Hackathon[] = [
-    {
-      title: "Quantum_X Hackathon 2025",
-      description:
-        "A 24-hour hackathon organized by the NHCE Computer Science department. Our team developed a real-time infrastructure monitoring application under tight deadlines.",
-      image: "/project-images/hackathon-quantumx.png",
-      date: "10–12 April 2025",
-      tags: ["Team Collaboration", "Problem Solving", "Real-time App"],
-      link: "/certificates/hackathon.png",
-    },
-    {
-      title: "Pixel Pursuit Event 2024",
-      description:
-        "A competitive design and development event organized by the Mobile Development Club at NHCE campus. Focused on UI/UX creativity and rapid prototyping.",
-      image: "/project-images/hackathon-pixel.png",
-      date: "19 November 2024",
-      tags: ["UI/UX", "Rapid Prototyping", "Mobile Dev"],
-      link: "/certificates/pixel.jpeg",
-    },
-  ];
 
 const Certifications = () => {
   const [activeFilter, setActiveFilter] = useState("All");
-
-  const filters = ["All", "Cloud", "Data", "Programming", "Development"];
 
   const filtered =
     activeFilter === "All"
       ? certifications
       : certifications.filter((c) => c.category === activeFilter);
-
-  const stats = [
-    { icon: <Award className="w-5 h-5 text-royal" />, label: "Certifications", value: `${certifications.length}` },
-    { icon: <Trophy className="w-5 h-5 text-yellow-400" />, label: "Hackathons", value: `${hackathons.length}` },
-    { icon: <BookOpen className="w-5 h-5 text-blue-400" />, label: "Issuers", value: "8+" },
-  ];
-
-  const categoryColor: Record<string, string> = {
-    Cloud: "bg-sky-500/10 text-sky-400 border-sky-500/20",
-    Data: "bg-purple-500/10 text-purple-400 border-purple-500/20",
-    Development: "bg-green-500/10 text-green-400 border-green-500/20",
-    Programming: "bg-amber-500/10 text-amber-400 border-amber-500/20",
-  };
 
   return (
     <div className="min-h-screen bg-background flex flex-col">
@@ -235,9 +57,9 @@ const Certifications = () => {
 
         {/* ───── Stats ───── */}
         <div className="grid grid-cols-3 gap-4 mb-10 max-w-xl mx-auto">
-          {stats.map((s, i) => (
+          {stats.map((s) => (
             <div
-              key={i}
+              key={s.label}
               className="flex flex-col items-center gap-1.5 p-4 rounded-xl border border-border bg-card text-center"
             >
               {s.icon}
@@ -252,6 +74,7 @@ const Certifications = () => {
           {filters.map((f) => (
             <button
               key={f}
+              type="button"
               onClick={() => setActiveFilter(f)}
               className={`flex items-center gap-1.5 px-4 py-1.5 rounded-full text-sm font-medium transition-all border ${activeFilter === f
                 ? "bg-royal text-white border-royal shadow-md shadow-royal/30"
@@ -266,9 +89,9 @@ const Certifications = () => {
 
         {/* ───── Certification Cards ───── */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 max-w-7xl mx-auto mb-20">
-          {filtered.map((cert, index) => (
+          {filtered.map((cert) => (
             <div
-              key={index}
+              key={cert.title}
               className="bg-card p-5 rounded-2xl border border-border hover:border-royal transition-all duration-300 hover:shadow-lg hover:shadow-royal/10 hover:-translate-y-0.5 group flex flex-col gap-4"
             >
               {/* Top row */}

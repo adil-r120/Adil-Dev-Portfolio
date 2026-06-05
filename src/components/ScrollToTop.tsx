@@ -3,6 +3,14 @@ import { useLocation } from "react-router-dom";
 import { ArrowUp } from "lucide-react";
 import { Button } from "./ui/button";
 
+// Scroll to top
+const scrollToTop = () => {
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+    });
+};
+
 const ScrollToTop = () => {
     const { pathname } = useLocation();
     const [isVisible, setIsVisible] = useState(false);
@@ -21,16 +29,10 @@ const ScrollToTop = () => {
         }
     };
 
-    // Scroll to top
-    const scrollToTop = () => {
-        window.scrollTo({
-            top: 0,
-            behavior: "smooth",
-        });
-    };
+
 
     useEffect(() => {
-        window.addEventListener("scroll", toggleVisibility);
+        window.addEventListener("scroll", toggleVisibility, { passive: true });
         return () => {
             window.removeEventListener("scroll", toggleVisibility);
         };

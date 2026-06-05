@@ -32,7 +32,7 @@ const ContactForm = () => {
                 target="_blank" // Opens in new tab so user stays on portfolio
             >
                 {/* Honeypot for spam protection */}
-                <input type="text" name="_honey" style={{ display: "none" }} />
+                <input type="text" name="_honey" style={{ display: "none" }} aria-label="honeypot" />
                 {/* Disable captcha for cleaner flow (optional) */}
                 <input type="hidden" name="_captcha" value="false" />
                 {/* Success page (optional, defaults to FormSubmit page) */}

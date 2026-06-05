@@ -4,13 +4,14 @@ import { Download } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import { useState, useEffect } from "react"; // Added useState and useEffect
 
+const skills = [
+  "React", "TypeScript", "Node.js", "Python", "Java", "SQL", "MySQL",
+  "Git & GitHub", "AWS", "Google Cloud", "Figma", "REST APIs",
+  "AI / ML", "Data Science", "Linux", "HTML & CSS", "C++", "DBMS",
+  "UI/UX Design", "Cloud Computing", "OOP", "Tailwind CSS", "C", "XML",
+];
+
 const Home = () => {
-  const skills = [
-    "React", "TypeScript", "Node.js", "Python", "Java", "SQL", "MySQL",
-    "Git & GitHub", "AWS", "Google Cloud", "Figma", "REST APIs",
-    "AI / ML", "Data Science", "Linux", "HTML & CSS", "C++", "DBMS",
-    "UI/UX Design", "Cloud Computing", "OOP", "Tailwind CSS", "C", "XML",
-  ];
 
   return (
     <div className="min-h-screen overflow-hidden relative isolate">
@@ -111,7 +112,7 @@ const Home = () => {
             <div className="flex gap-3 animate-marquee">
               {[...skills, ...skills].map((skill, index) => (
                 <span
-                  key={index}
+                  key={`${skill}-${index}`}
                   className="whitespace-nowrap text-sm px-4 py-1.5 rounded-full border border-border text-muted-foreground bg-card hover:border-royal hover:text-royal transition-colors cursor-default"
                 >
                   {skill}

@@ -3,29 +3,30 @@ import { Mail, Phone, Linkedin, Github, Download } from "lucide-react";
 import Footer from "@/components/Footer";
 import ContactForm from "../components/ContactForm";
 
+const contactMethods = [
+  {
+    icon: Mail,
+    label: "mdadilraza510@gmail.com",
+    href: "mailto:mdadilraza510@gmail.com"
+  },
+  {
+    icon: Phone,
+    label: "6203662085",
+    href: "tel:6203662085"
+  },
+  {
+    icon: Linkedin,
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/in/mdadilraza-dev/"
+  },
+  {
+    icon: Github,
+    label: "GitHub",
+    href: "https://github.com/adil-r120"
+  },
+];
+
 const Contact = () => {
-  const contactMethods = [
-    {
-      icon: Mail,
-      label: "mdadilraza510@gmail.com",
-      href: "mailto:mdadilraza510@gmail.com"
-    },
-    {
-      icon: Phone,
-      label: "6203662085",
-      href: "tel:6203662085"
-    },
-    {
-      icon: Linkedin,
-      label: "LinkedIn",
-      href: "https://www.linkedin.com/in/mdadilraza-dev/"
-    },
-    {
-      icon: Github,
-      label: "GitHub",
-      href: "https://github.com/adil-r120"
-    },
-  ];
 
   return (
     <div className="min-h-screen bg-background flex flex-col">

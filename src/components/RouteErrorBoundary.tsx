@@ -37,6 +37,7 @@ class RouteErrorBoundary extends Component<Props, State> {
             </p>
           </div>
           <button 
+            type="button"
             onClick={() => window.location.reload()}
             className="px-6 py-2.5 bg-blue-600 text-white hover:bg-blue-700 rounded-md font-medium transition-colors"
           >

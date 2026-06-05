@@ -3,6 +3,16 @@ import { useTheme } from "next-themes";
 import { Moon, Sun, Menu, X, Linkedin } from "lucide-react";
 import { useState, useEffect } from "react";
 
+const navLinks = [
+  { path: "/", label: "Home" },
+  { path: "/about", label: "About" },
+  { path: "/skills", label: "Skills" },
+  { path: "/experiences", label: "Experiences" },
+  { path: "/projects", label: "Projects" },
+  { path: "/certifications", label: "Certifications" },
+  { path: "/contact", label: "Contact" },
+];
+
 const Navigation = () => {
   const location = useLocation();
   const { theme, setTheme } = useTheme();
@@ -26,19 +36,9 @@ const Navigation = () => {
       setScrolled(window.scrollY > 10);
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-
-  const navLinks = [
-    { path: "/", label: "Home" },
-    { path: "/about", label: "About" },
-    { path: "/skills", label: "Skills" },
-    { path: "/experiences", label: "Experiences" },
-    { path: "/projects", label: "Projects" },
-    { path: "/certifications", label: "Certifications" },
-    { path: "/contact", label: "Contact" },
-  ];
 
   return (
     <nav
@@ -79,6 +79,7 @@ const Navigation = () => {
             <Linkedin className="w-5 h-5" />
           </a>
           <button
+            type="button"
             onClick={toggleTheme}
             className="p-2 rounded-full bg-blue-900/10 text-blue-900 dark:text-blue-400 hover:bg-blue-900/20 transition-colors"
             aria-label="Toggle theme"
@@ -89,6 +90,7 @@ const Navigation = () => {
 
         {/* Mobile Menu Button */}
         <button
+          type="button"
           onClick={toggleMenu}
           className="md:hidden p-2 rounded-md text-foreground/80 hover:text-orange-500 focus:outline-none"
           aria-label="Toggle menu"
@@ -125,6 +127,7 @@ const Navigation = () => {
               <span>LinkedIn</span>
             </a>
             <button
+              type="button"
               onClick={() => {
                 toggleTheme();
                 setIsMenuOpen(false);

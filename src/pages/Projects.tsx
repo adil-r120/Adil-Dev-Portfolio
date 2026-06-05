@@ -1,18 +1,8 @@
 import { useState } from "react";
+import { projects } from "@/data/portfolioData";
 import Navigation from "@/components/Navigation";
 import { Badge } from "@/components/ui/badge";
 import { Calendar, ExternalLink, Github, Layers, Star, ArrowUpRight, Code2, BookOpen, ScrollText } from "lucide-react";
-
-type Project = {
-  title: string;
-  description: string;
-  image: string;
-  date: string;
-  tags: string[];
-  category: string;
-  link?: string;
-  github?: string;
-};
 
 type Paper = {
   title: string;
@@ -23,140 +13,6 @@ type Paper = {
   tags: string[];
 };
 
-export const projects: Project[] = [
-    {
-      title: "CyberShield X",
-      description:
-        "A sophisticated phishing detection and security monitoring platform. It leverages a hybrid approach combining Machine Learning (Random Forest), rule-based heuristics, and real-time behavioral analysis to provide explainable risk scoring for suspicious URLs.",
-      image: "/project-images/cybershield.png",
-      date: "2026",
-      category: "Cyber Security",
-      tags: ["Security", "React", "Node.js", "Python", "ML", "MySQL"],
-      link: "https://github.com/adil-r120/CyberShield-X",
-    },
-    {
-      title: "GYANIBABA (AI Chatbot)",
-      description:
-        "A production-ready AI chatbot with ChatGPT-4 level intelligence, custom knowledge base (RAG), and beautiful modern UI, designed to assist users with general queries, technical support, and automated responses.",
-      image: "/project-images/gyanibaba.png",
-      date: "2026",
-      category: "AI/ML",
-      tags: ["AI/ML", "Groq", "LLM", "Python", "React"],
-      link: "https://github.com/adil-r120/GAYANIBABA",
-    },
-    {
-      title: "Client Lead Management System",
-      description:
-        "A Mini CRM built with React.js, Node.js, Express & SQLite. Supports full CRUD operations, lead status tracking, and backend API integration.",
-      image: "/project-images/crm.webp",
-      date: "Feb 2026 – Mar 2026",
-      category: "Full Stack",
-      tags: ["React", "TypeScript", "Node.js", "SQLite", "Tailwind CSS", "CRM"],
-      link: "https://future-fs-02-crm.vercel.app",
-    },
-    {
-      title: "SalesPulse: Data Analytics Dashboard",
-      description:
-        "AI-powered sales dashboard with real-time stock market integration, predictive analytics, and an intelligent chatbot assistant.",
-      image: "/project-images/salespulse.webp",
-      date: "Nov 2025 – Present",
-      category: "AI/ML",
-      tags: ["React", "Python", "REST API", "TypeScript", "LLM", "AI/ML", "Tailwind CSS"],
-      link: "https://salespulse.vercel.app/",
-    },
-    {
-      title: "Snatix – Photography Website",
-      description:
-        "Full-stack photography portfolio allowing photographers to showcase their work, manage galleries, and connect with clients through a modern interface.",
-      image: "/project-images/snatix.webp",
-      date: "Jan 2025 – Oct 2025",
-      category: "Full Stack",
-      tags: ["HTML", "TypeScript", "JavaScript", "MySQL", "Photography"],
-      link: "https://snatix.vercel.app/",
-    },
-    {
-      title: "Local Business Website",
-      description:
-        "Responsive website for a local business using React.js focused on modern UI, mobile responsiveness, and improved online visibility.",
-      image: "/project-images/local-business.webp",
-      date: "Feb 2026 – Mar 2026",
-      category: "Full Stack",
-      tags: ["React", "TypeScript", "Tailwind CSS", "Responsive Design", "UI/UX"],
-      link: "https://future-fs-03-b-b.vercel.app",
-    },
-    {
-      title: "E-commerce Design",
-      description:
-        "Full-featured Air Jordan e-commerce website design wireframes, prototype & user flows built in Figma with login, cart, and payment screens.",
-      image: "/project-images/ecommerce.webp",
-      date: "Mar 2025 – Apr 2025",
-      category: "Design",
-      tags: ["Figma", "UI/UX Design", "WireFrame", "Prototype"],
-      link: "https://github.com/adil-r120/E-Commerce-Website-Design",
-      github: "https://github.com/adil-r120/E-Commerce-Website-Design",
-    },
-    {
-      title: "Personal Expense Tracker",
-      description:
-        "Productivity app for managing personal finances with real-time tracking, category breakdowns, and Java + React.js + MySQL stack.",
-      image: "/project-images/expense-tracker.webp",
-      date: "Sep 2024 – Jan 2025",
-      category: "Full Stack",
-      tags: ["Java", "React.js", "MySQL", "REST API"],
-      link: "https://github.com/adil-r120/Personal-Expense-Tracker",
-      github: "https://github.com/adil-r120/Personal-Expense-Tracker",
-    },
-    {
-      title: "Real-time Weather Detector",
-      description:
-        "Weather application providing real-time weather info, forecasts, and location detection through REST API integration.",
-      image: "/project-images/weather.webp",
-      date: "Sep 2023 – Jan 2024",
-      category: "Frontend",
-      tags: ["HTML", "CSS", "JavaScript", "REST API"],
-      link: "https://weather-dekho-app.vercel.app/",
-    },
-    {
-      title: "Portfolio Website",
-      description:
-        "Responsive personal portfolio showcasing projects and skills with modern design, dark mode, and smooth animations.",
-      image: "/project-images/portfolio.webp",
-      date: "Dec 2023 – Jan 2024",
-      category: "Frontend",
-      tags: ["React", "Tailwind CSS", "Node.js"],
-      link: "https://adil-dev-portfolio.vercel.app/",
-    },
-    {
-      title: "Amazon Clone",
-      description:
-        "Frontend-only Amazon UI clone built with HTML & CSS replicates the layout, navbar, product grid, and footer of the Amazon homepage.",
-      image: "/project-images/amazon.webp",
-      date: "Aug 2024 – Sep 2024",
-      category: "Frontend",
-      tags: ["HTML", "CSS"],
-      link: "https://amazon-clone-146.vercel.app/",
-    },
-    {
-      title: "Zepto Clone",
-      description:
-        "Frontend UI clone of the Zepto grocery delivery platform elegant, responsive layout crafted entirely with HTML & CSS.",
-      image: "/project-images/zepto.webp",
-      date: "Feb 2024 – Mar 2024",
-      category: "Frontend",
-      tags: ["HTML", "CSS"],
-      link: "https://zepto-clone-sigma.vercel.app/zepto.html",
-    },
-    {
-      title: "Tic Tac Toe Game",
-      description:
-        "Classic Tic Tac Toe with a clean, interactive UI two-player mode, win detection, and score tracking.",
-      image: "/project-images/tictactoe.webp",
-      date: "Feb 2024 – Jun 2024",
-      category: "Frontend",
-      tags: ["HTML", "CSS", "JavaScript"],
-      link: "https://tic-tac-toe-game-demo.vercel.app/",
-    },
-  ];
 
 const papers: Paper[] = [
   {
@@ -170,21 +26,21 @@ const papers: Paper[] = [
   },
 ];
 
+const filters = ["All", "Full Stack", "AI/ML", "Design", "Frontend"];
+
+const stats = [
+  { icon: <Layers className="w-5 h-5 text-royal" />, label: "Total Projects", value: `${projects.length}+` },
+  { icon: <ScrollText className="w-5 h-5 text-orange-500" />, label: "Research Papers(In Progress)", value: papers.length.toString() },
+  { icon: <Code2 className="w-5 h-5 text-blue-400" />, label: "Tech Stacks", value: "10+" },
+];
+
 const Projects = () => {
   const [activeFilter, setActiveFilter] = useState("All");
-
-  const filters = ["All", "Full Stack", "AI/ML", "Design", "Frontend"];
 
   const filtered =
     activeFilter === "All"
       ? projects
       : projects.filter((p) => p.category === activeFilter);
-
-  const stats = [
-    { icon: <Layers className="w-5 h-5 text-royal" />, label: "Total Projects", value: `${projects.length}+` },
-    { icon: <ScrollText className="w-5 h-5 text-orange-500" />, label: "Research Papers(In Progress)", value: papers.length.toString() },
-    { icon: <Code2 className="w-5 h-5 text-blue-400" />, label: "Tech Stacks", value: "10+" },
-  ];
 
   return (
     <div className="min-h-screen bg-background flex flex-col">
@@ -212,9 +68,9 @@ const Projects = () => {
 
         {/* ───── Stats ───── */}
         <div className="flex justify-center flex-wrap gap-4 mb-10 max-w-xl mx-auto">
-          {stats.map((s, i) => (
+          {stats.map((s) => (
             <div
-              key={i}
+              key={s.label}
               className="flex flex-col items-center gap-1.5 p-4 rounded-xl border border-border bg-card text-center min-w-[140px]"
             >
               {s.icon}
@@ -229,6 +85,7 @@ const Projects = () => {
           {filters.map((f) => (
             <button
               key={f}
+              type="button"
               onClick={() => setActiveFilter(f)}
               className={`px-4 py-1.5 rounded-full text-sm font-medium transition-all border ${activeFilter === f
                   ? "bg-royal text-white border-royal shadow-md shadow-royal/30"
@@ -343,9 +200,9 @@ const Projects = () => {
           </div>
           
           <div className="flex flex-col gap-6">
-            {papers.map((paper, idx) => (
+            {papers.map((paper) => (
               <div 
-                key={idx} 
+                key={paper.title} 
                 className="bg-card rounded-2xl border border-border hover:border-royal transition-all duration-300 p-6 md:p-8 flex flex-col md:flex-row gap-6 hover:shadow-xl hover:shadow-royal/10 group"
               >
                 <div className="flex-1 space-y-4">

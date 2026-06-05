@@ -23,106 +23,109 @@ type Course = {
   link: string;
 };
 
+// Progress bar component
+const ProgressBar = ({ proficiency }: { proficiency: number }) => (
+  <div className="w-40 bg-gray-200 rounded-full h-2 ml-2 flex-shrink-0">
+    <div
+      className="bg-orange-500 h-2 rounded-full"
+      style={{ width: `${proficiency}%` }}
+    ></div>
+  </div>
+);
+
+const skillCategories: SkillCategory[] = [
+  {
+    title: "Development",
+    icon: "🌐",
+    skills: [
+      { name: "HTML ", proficiency: 92 },
+      { name: "CSS", proficiency: 92 },
+      { name: "Tailwind CSS", proficiency: 80 },
+      { name: "Node.js", proficiency: 75 },
+      { name: "TypeScript", proficiency: 82 },
+      { name: "REST APIs", proficiency: 80 }
+    ]
+  },
+  {
+    title: "Programming",
+    icon: "💻",
+    skills: [
+      { name: "Java", proficiency: 70 },
+      { name: "Python", proficiency: 70 },
+      { name: "JavaScript", proficiency: 60 },
+      { name: "C", proficiency: 70 },
+      { name: "C++", proficiency: 65 },
+      { name: "R", proficiency: 85 },
+    ]
+  },
+  {
+    title: "Data Analytics",
+    icon: "📈",
+    skills: [
+      { name: "Tableau", proficiency: 85 },
+      { name: "Power BI", proficiency: 75 },
+      { name: "Excel", proficiency: 90 },
+    ]
+  },
+  {
+    title: "Databases",
+    icon: "🗄️",
+    skills: [
+      { name: "MySQL", proficiency: 80 },
+      { name: "MongoDB", proficiency: 75 }
+    ]
+  },
+  {
+    title: "Cloud",
+    icon: "☁️",
+    skills: [
+      { name: "AWS", proficiency: 40 },
+      { name: "Google Cloud", proficiency: 65 }
+    ]
+  },
+  {
+    title: "Tools",
+    icon: "🛠️",
+    skills: [
+      { name: "Git", proficiency: 80 },
+      { name: "GitHub", proficiency: 80 },
+      { name: "VS Code", proficiency: 90 },
+      { name: "Code-Editor", proficiency: 90 }
+    ]
+  },
+  {
+    title: "Other",
+    icon: "🌟",
+    skills: [
+      { name: "Data Analytics", proficiency: 75 },
+      { name: "Vibe Coding", proficiency: 100 },
+      { name: "Problem Solving", proficiency: 85 },
+      { name: "API Integration", proficiency: 80 },
+      { name: "Responsive Design", proficiency: 90 },
+      { name: "Database Management", proficiency: 80 }
+    ]
+  }
+];
+
+const courses: Course[] = [
+  {
+    title: "Cloud Architecture Design and Security",
+    institution: "IIT Kanpur",
+    icon: <Cloud className="w-5 h-5 text-orange-500" />,
+    link: "https://swayam.gov.in/mycourses",
+  },
+  {
+    title: "Data Structure and Algorithm",
+    institution: "PW Skills",
+    icon: <Code2 className="w-5 h-5 text-orange-500" />,
+    link: "https://youtu.be/RJ733wzbNoA?si=ew1VgCZ2d1d_sohR",
+  },
+];
+
 const Skills = () => {
   const { t } = useTranslation();
-  const skillCategories: SkillCategory[] = [
-    {
-      title: "Development",
-      icon: "🌐",
-      skills: [
-        { name: "HTML ", proficiency: 92 },
-        { name: "CSS", proficiency: 92 },
-        { name: "Tailwind CSS", proficiency: 80 },
-        { name: "Node.js", proficiency: 75 },
-        { name: "TypeScript", proficiency: 82 },
-        { name: "REST APIs", proficiency: 80 }
-      ]
-    },
-    {
-      title: "Programming",
-      icon: "💻",
-      skills: [
-        { name: "Java", proficiency: 70 },
-        { name: "Python", proficiency: 70 },
-        { name: "JavaScript", proficiency: 60 },
-        { name: "C", proficiency: 70 },
-        { name: "C++", proficiency: 65 },
-        { name: "R", proficiency: 85 },
-      ]
-    },
-    {
-      title: "Data Analytics",
-      icon: "📈",
-      skills: [
-        { name: "Tableau", proficiency: 85 },
-        { name: "Power BI", proficiency: 75 },
-        { name: "Excel", proficiency: 90 },
-      ]
-    },
-    {
-      title: "Databases",
-      icon: "🗄️",
-      skills: [
-        { name: "MySQL", proficiency: 80 },
-        { name: "MongoDB", proficiency: 75 }
-      ]
-    },
-    {
-      title: "Cloud",
-      icon: "☁️",
-      skills: [
-        { name: "AWS", proficiency: 40 },
-        { name: "Google Cloud", proficiency: 65 }
-      ]
-    },
-    {
-      title: "Tools",
-      icon: "🛠️",
-      skills: [
-        { name: "Git", proficiency: 80 },
-        { name: "GitHub", proficiency: 80 },
-        { name: "VS Code", proficiency: 90 },
-        { name: "Code-Editor", proficiency: 90 }
-      ]
-    },
-    {
-      title: "Other",
-      icon: "🌟",
-      skills: [
-        { name: "Data Analytics", proficiency: 75 },
-        { name: "Vibe Coding", proficiency: 100 },
-        { name: "Problem Solving", proficiency: 85 },
-        { name: "API Integration", proficiency: 80 },
-        { name: "Responsive Design", proficiency: 90 },
-        { name: "Database Management", proficiency: 80 }
-      ]
-    }
-  ];
 
-  const courses: Course[] = [
-    {
-      title: "Cloud Architecture Design and Security",
-      institution: "IIT Kanpur",
-      icon: <Cloud className="w-5 h-5 text-orange-500" />,
-      link: "https://swayam.gov.in/mycourses",
-    },
-    {
-      title: "Data Structure and Algorithm",
-      institution: "PW Skills",
-      icon: <Code2 className="w-5 h-5 text-orange-500" />,
-      link: "https://youtu.be/RJ733wzbNoA?si=ew1VgCZ2d1d_sohR",
-    },
-  ];
 
-  // Progress bar component
-  const ProgressBar = ({ proficiency }: { proficiency: number }) => (
-    <div className="w-40 bg-gray-200 rounded-full h-2 ml-2 flex-shrink-0">
-      <div
-        className="bg-orange-500 h-2 rounded-full"
-        style={{ width: `${proficiency}%` }}
-      ></div>
-    </div>
-  );
 
   return (
     <div className="min-h-screen bg-background relative selection:bg-orange-500/30 selection:text-orange-500">

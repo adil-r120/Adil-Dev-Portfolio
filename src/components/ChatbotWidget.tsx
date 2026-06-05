@@ -2,40 +2,12 @@ import { useState, useRef, useEffect } from "react";
 import { MessageCircle, X, Send, Bot, Loader2, Trash2, Sparkles } from "lucide-react";
 
 type Message = {
+    id: string;
     role: "user" | "assistant";
     content: string;
 };
 
-const SYSTEM_PROMPT = `You are a friendly AI assistant on MD Adil Raza's portfolio website. Answer questions about Adil naturally and professionally. Be concise — 2 to 3 sentences maximum. Do not use headers, section labels, or bullet points unless listing more than 3 items. Never reveal percentages, internal scores, or raw data. If you don't know something, say so politely and suggest visiting the portfolio.
 
-Adil is an aspiring Software Engineer and Full Stack Developer from Bangalore, India, currently pursuing B.E. in Computer Science at New Horizon College of Engineering (2023–2027).
-
-Contact: LinkedIn — linkedin.com/in/mdadilraza-dev | GitHub — github.com/adil-r120 | Portfolio — adil-dev-portfolio.vercel.app
-
-Education: B.E. CSE at NHCE Bangalore (2023–2027). Senior Secondary (PCM, Grade A) at Park Mount Public School Patna. Matric (Grade B) at Nezamia Public School Patna.
-
-Skills: React, TypeScript, Node.js, Python, Java, C++, SQL, MySQL, HTML, CSS, REST APIs, Figma, AWS, Google Cloud, Git, Linux, AI/Data Science, UI/UX Design.
-
-Projects (11 total):
-- Client Lead Management System (Mini CRM) — React, Node.js, SQLite | future-fs-02-crm.vercel.app
-- Local Business Website — React, Tailwind | future-fs-03-b-b.vercel.app
-- SalesPulse (AI Sales Dashboard) — React, Python, LLM, Socket.io | salespulse.vercel.app
-- E-commerce Design (Air Jordan) — Figma prototype
-- Personal Expense Tracker — Java, React, MySQL
-- Portfolio Website — adil-dev-portfolio.vercel.app
-- Real-time Weather Detector — weather-dekho-app.vercel.app
-- Tic Tac Toe, Amazon Clone, Zepto Clone — HTML/CSS/JS
-- Snatix Photography Website — HTML, TypeScript, MySQL | snatix.vercel.app
-
-Experience:
-- Full Stack Web Developer Intern at Future Interns (Feb–Mar 2026, Remote) — built CRM, web apps, APIs
-- Volunteer Technical Team at NHCE (Oct 2025–Present) — 48-Hour National Hackathon (Silver Spectrum Techfest 2025)
-
-Certifications (12): Git (IIT Bombay), Cloud Computing (NPTEL/IIT Kharagpur), DBMS (Scaler), IISc Data Symposium, SQL Bootcamp, AWS Cloud Practitioner Essentials, AWS SimuLearn, Google Cloud Arcade, HTML (Great Learning), Python 101 & Data Science 101 (Cognitive Class), Python for Data Science (IBM).
-
-Hackathons: Quantum_X 2025 (NHCE, 24-hour), Pixel Pursuit 2024 (Mobile Dev Club, NHCE).
-
-Coding Platforms: CodeChef (adil_r120), LeetCode (adil_r120), HackerRank (mdadilraza510), GeeksforGeeks (mdadilraza510).`;
 
 const SUGGESTIONS = [
     "What projects has Adil built?",
@@ -45,6 +17,7 @@ const SUGGESTIONS = [
 ];
 
 const INITIAL_MESSAGE: Message = {
+    id: "init",
     role: "assistant",
     content: "👋 Hi! I'm Adil's AI assistant. Ask me anything about his projects, skills, or experience!",
 };
@@ -54,7 +27,7 @@ const TypingDots = () => (
         {[0, 1, 2].map((i) => (
             <span
                 key={i}
-                className="w-2 h-2 rounded-full bg-muted-foreground/50 animate-bounce"
+                className="w-2 h-2 rounded-full bg-muted-foreground/50 animate-pulse"
                 style={{ animationDelay: `${i * 0.15}s`, animationDuration: "0.8s" }}
             />
         ))}
@@ -63,26 +36,30 @@ const TypingDots = () => (
 
 const URL_REGEX = /(https?:\/\/[^\s]+|[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}(?:\/[^\s]*)?)/g;
 
-const renderMessageContent = (text: string) => {
+const MessageContent = ({ text }: { text: string }) => {
     const parts = text.split(URL_REGEX);
-    return parts.map((part, i) => {
-        if (URL_REGEX.test(part)) {
-            URL_REGEX.lastIndex = 0;
-            const href = part.startsWith("http") ? part : `https://${part}`;
-            return (
-                <a
-                    key={i}
-                    href={href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="underline underline-offset-2 opacity-90 hover:opacity-100 break-all"
-                >
-                    {part}
-                </a>
-            );
-        }
-        return <span key={i}>{part}</span>;
-    });
+    return (
+        <>
+            {parts.map((part, i) => {
+                if (URL_REGEX.test(part)) {
+                    URL_REGEX.lastIndex = 0;
+                    const href = part.startsWith("http") ? part : `https://${part}`;
+                    return (
+                        <a
+                            key={`${part}-${i}`}
+                            href={href}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="underline underline-offset-2 opacity-90 hover:opacity-100 break-all"
+                        >
+                            {part}
+                        </a>
+                    );
+                }
+                return <span key={`${part}-${i}`}>{part}</span>;
+            })}
+        </>
+    );
 };
 
 const ChatbotWidget = () => {
@@ -90,21 +67,25 @@ const ChatbotWidget = () => {
     const [messages, setMessages] = useState<Message[]>([INITIAL_MESSAGE]);
     const [input, setInput] = useState("");
     const [isLoading, setIsLoading] = useState(false);
-    const [hasNewMessage, setHasNewMessage] = useState(false);
+    const hasNewMessageRef = useRef(false);
     const messagesEndRef = useRef<HTMLDivElement>(null);
     const inputRef = useRef<HTMLInputElement>(null);
 
-    const apiKey = import.meta.env.VITE_GROQ_API_KEY as string;
+
 
     useEffect(() => {
         messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
     }, [messages, isLoading]);
 
     useEffect(() => {
+        let timeoutId: NodeJS.Timeout;
         if (isOpen) {
-            setHasNewMessage(false);
-            setTimeout(() => inputRef.current?.focus(), 300);
+            hasNewMessageRef.current = false;
+            timeoutId = setTimeout(() => inputRef.current?.focus(), 300);
         }
+        return () => {
+            if (timeoutId) clearTimeout(timeoutId);
+        };
     }, [isOpen]);
 
     const sendMessage = async (text?: string) => {
@@ -112,43 +93,23 @@ const ChatbotWidget = () => {
         if (!userMessage || isLoading) return;
 
         setInput("");
-        setMessages((prev) => [...prev, { role: "user", content: userMessage }]);
+        setMessages((prev) => [...prev, { id: Date.now().toString(), role: "user", content: userMessage }]);
         setIsLoading(true);
 
         try {
-            if (!apiKey) {
-                setMessages((prev) => [
-                    ...prev,
-                    {
-                        role: "assistant",
-                        content: "⚠️ Chatbot is not configured properly. \n\n" +
-                            "If you are seeing this on a **deployed site (Vercel)**, please add `VITE_GROQ_API_KEY` to your Environment Variables in the Vercel dashboard. \n\n" +
-                            "If you are running **locally**, ensure `VITE_GROQ_API_KEY` is in your `.env` file and restart your terminal."
-                    },
-                ]);
-                return;
-            }
+            const history = messages.slice(1).map((m) => ({
+                role: m.role === "user" ? "user" : "assistant",
+                content: m.content,
+            }));
 
-            const chatMessages = [
-                { role: "system", content: SYSTEM_PROMPT },
-                ...messages.slice(1).map((m) => ({
-                    role: m.role === "user" ? "user" : "assistant",
-                    content: m.content,
-                })),
-                { role: "user", content: userMessage },
-            ];
-
-            const res = await fetch("https://api.groq.com/openai/v1/chat/completions", {
+            const res = await fetch("/api/chat", {
                 method: "POST",
                 headers: {
-                    "Authorization": `Bearer ${apiKey}`,
                     "Content-Type": "application/json",
                 },
                 body: JSON.stringify({
-                    model: "llama-3.1-8b-instant",
-                    messages: chatMessages,
-                    max_tokens: 512,
-                    temperature: 0.7,
+                    userMessage,
+                    history,
                 }),
             });
 
@@ -156,14 +117,13 @@ const ChatbotWidget = () => {
             if (!res.ok) throw new Error(JSON.stringify(data));
             const reply: string = data.choices?.[0]?.message?.content ?? "Sorry, I couldn't generate a response.";
 
-            setMessages((prev) => [...prev, { role: "assistant", content: reply }]);
-            if (!isOpen) setHasNewMessage(true);
+            setMessages((prev) => [...prev, { id: (Date.now() + 1).toString(), role: "assistant", content: reply }]);
         } catch (err) {
             const errMsg = err instanceof Error ? err.message : String(err);
             console.error("Chatbot error:", err);
             setMessages((prev) => [
                 ...prev,
-                { role: "assistant", content: `⚠️ Error: ${errMsg}` },
+                { id: (Date.now() + 1).toString(), role: "assistant", content: `⚠️ Error: ${errMsg}` },
             ]);
         } finally {
             setIsLoading(false);
@@ -200,6 +160,7 @@ const ChatbotWidget = () => {
                         </div>
                         <div className="flex items-center gap-0.5">
                             <button
+                                type="button"
                                 onClick={clearChat}
                                 className="p-1.5 rounded-full hover:bg-white/20 transition-colors"
                                 aria-label="Clear chat"
@@ -207,6 +168,7 @@ const ChatbotWidget = () => {
                                 <Trash2 className="w-3 h-3" />
                             </button>
                             <button
+                                type="button"
                                 onClick={() => setIsOpen(false)}
                                 className="p-1.5 rounded-full hover:bg-white/20 transition-colors"
                                 aria-label="Close chat"
@@ -218,9 +180,9 @@ const ChatbotWidget = () => {
 
                     {/* Messages */}
                     <div className="flex-1 overflow-y-auto p-3 space-y-3 min-h-0 max-h-[250px]">
-                        {messages.map((msg, i) => (
+                        {messages.map((msg) => (
                             <div
-                                key={i}
+                                key={msg.id}
                                 className={`flex gap-2 animate-in fade-in slide-in-from-bottom-2 duration-200 ${msg.role === "user" ? "justify-end" : "justify-start"}`}
                             >
                                 {msg.role === "assistant" && (
@@ -234,7 +196,7 @@ const ChatbotWidget = () => {
                                         : "bg-muted text-foreground rounded-bl-sm border border-border/40"
                                         }`}
                                 >
-                                    {renderMessageContent(msg.content)}
+                                    <MessageContent text={msg.content} />
                                 </div>
                             </div>
                         ))}
@@ -256,6 +218,7 @@ const ChatbotWidget = () => {
                                 {SUGGESTIONS.map((s) => (
                                     <button
                                         key={s}
+                                        type="button"
                                         onClick={() => sendMessage(s)}
                                         className="text-xs px-2.5 py-1 rounded-full border border-blue-500/30 text-blue-900 dark:text-blue-300 hover:bg-blue-500/10 hover:border-blue-500/60 transition-colors text-left"
                                     >
@@ -277,10 +240,12 @@ const ChatbotWidget = () => {
                             onChange={(e) => setInput(e.target.value)}
                             onKeyDown={handleKeyDown}
                             placeholder="Ask me anything..."
+                            aria-label="Chatbot input"
                             disabled={isLoading}
                             className="flex-1 text-sm bg-muted rounded-xl px-3 py-2 outline-none focus:ring-2 focus:ring-blue-500/50 placeholder:text-muted-foreground disabled:opacity-60"
                         />
                         <button
+                            type="button"
                             onClick={() => sendMessage()}
                             disabled={!input.trim() || isLoading}
                             className="p-2 rounded-xl bg-blue-900 hover:bg-blue-800 text-white transition-all duration-200 disabled:opacity-40 disabled:cursor-not-allowed hover:scale-105 active:scale-95"
@@ -295,6 +260,7 @@ const ChatbotWidget = () => {
             {/* Toggle Button & Label */}
             <div className={`fixed bottom-8 right-6 z-50 flex flex-col items-center gap-2 group transition-all duration-300 ${isOpen ? "opacity-0 pointer-events-none scale-0" : "opacity-100 scale-100"}`}>
                 <button
+                    type="button"
                     onClick={() => setIsOpen((prev) => !prev)}
                     className="w-12 h-12 rounded-full shadow-lg transition-all duration-300 flex items-center justify-center hover:scale-110 active:scale-95 bg-blue-900 shadow-blue-900/40 overflow-hidden"
                     aria-label="Toggle AI chat"
@@ -314,6 +280,7 @@ const ChatbotWidget = () => {
 
             {isOpen && (
                 <button
+                    type="button"
                     onClick={() => setIsOpen(false)}
                     className="fixed bottom-8 right-6 z-50 w-12 h-12 rounded-full shadow-lg transition-all duration-300 flex items-center justify-center hover:scale-110 active:scale-95 bg-blue-800 hover:bg-blue-700 shadow-blue-900/30 text-white animate-in zoom-in"
                     aria-label="Close AI chat"

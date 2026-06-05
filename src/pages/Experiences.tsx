@@ -15,73 +15,74 @@ type Experience = {
   badge?: string; // e.g. "Certificate Awarded"
 };
 
-const Experiences = () => {
-  const experiences: Experience[] = [
-    {
-      title: "Full Stack Web Developer",
-      company: "Future Interns",
-      period: "Feb 2026 – Mar 2026",
-      location: "Remote",
-      type: "Internship",
-      badge: "Certificate Awarded",
-      description:
-        "Successfully completed an intensive internship in Full Stack Web Development. Developed dynamic and responsive web applications using frontend technologies like HTML, React, and JavaScript alongside backend integration.",
-      highlights: [
-        "Built and deployed 3 full-stack applications during the internship tenure.",
-        "Implemented RESTful API integration and authentication systems using JWT.",
-        "Handled database design and CRUD operations with SQLite.",
-        "Maintained clean version-controlled codebase using Git & GitHub.",
-      ],
-      skills: ["React", "Tailwind CSS", "TypeScript", "Node.js", "SQLite", "Git", "GitHub"],
-      link: "/certificates/MD ADIL RAZA Internship Certificate.pdf",
-    },
-    {
-      title: "Volunteer – Technical Team",
-      company: "New Horizon College of Engineering",
-      period: "Oct 2025",
-      location: "Bengaluru, Karnataka, India",
-      type: "National Level 48-Hour Hackathon",
-      badge: "Volunteer Certificate",
-      description:
-        "Volunteered as a Technical Team Member during the National Level 48-Hour Hackathon organized under Silver Spectrum Techfest 2025 by the Departments of CSE and AIML.",
-      highlights: [
-        "Supported 20+ participant teams with live technical troubleshooting and GitHub deployment.",
-        "Coordinated closely with mentors and faculty for smooth event operations.",
-        "Managed system setup and project presentation logistics during the 48-hour event.",
-        "Developed strong real-time problem-solving and leadership skills under pressure.",
-      ],
-      skills: [
-        "Team Collaboration",
-        "Technical Event Management",
-        "Communication Skills",
-        "Participant Assistance",
-        "Leadership & Responsibility",
-      ],
-      link: "/certificates/hack_v.pdf",
-    },
-    {
-      title: "Quantum_X26",
-      company: "New Horizon College of Engineering",
-      period: "March 2026",
-      location: "Bengaluru, Karnataka, India",
-      type: "National Level Technical Fest",
-      badge: "Volunteer Certificate",
-      description:
-        "Volunteered in the Quantum_X26 organized by the Department of Computer Science and Engineering at NHCE. Worked in a team to support the event.",
-      highlights: [
-        "Collaborated with a cross-functional team to support the event.",
-      ],
-      skills: ["Team Collaboration", "Event Support", "Communication Skills", "Responsibility"],
-      link: "/certificates/Quantum_x.pdf",
-    }
-  ];
+const experiences: Experience[] = [
+  {
+    title: "Full Stack Web Developer",
+    company: "Future Interns",
+    period: "Feb 2026 – Mar 2026",
+    location: "Remote",
+    type: "Internship",
+    badge: "Certificate Awarded",
+    description:
+      "Successfully completed an intensive internship in Full Stack Web Development. Developed dynamic and responsive web applications using frontend technologies like HTML, React, and JavaScript alongside backend integration.",
+    highlights: [
+      "Built and deployed 3 full-stack applications during the internship tenure.",
+      "Implemented RESTful API integration and authentication systems using JWT.",
+      "Handled database design and CRUD operations with SQLite.",
+      "Maintained clean version-controlled codebase using Git & GitHub.",
+    ],
+    skills: ["React", "Tailwind CSS", "TypeScript", "Node.js", "SQLite", "Git", "GitHub"],
+    link: "/certificates/MD ADIL RAZA Internship Certificate.pdf",
+  },
+  {
+    title: "Volunteer – Technical Team",
+    company: "New Horizon College of Engineering",
+    period: "Oct 2025",
+    location: "Bengaluru, Karnataka, India",
+    type: "National Level 48-Hour Hackathon",
+    badge: "Volunteer Certificate",
+    description:
+      "Volunteered as a Technical Team Member during the National Level 48-Hour Hackathon organized under Silver Spectrum Techfest 2025 by the Departments of CSE and AIML.",
+    highlights: [
+      "Supported 20+ participant teams with live technical troubleshooting and GitHub deployment.",
+      "Coordinated closely with mentors and faculty for smooth event operations.",
+      "Managed system setup and project presentation logistics during the 48-hour event.",
+      "Developed strong real-time problem-solving and leadership skills under pressure.",
+    ],
+    skills: [
+      "Team Collaboration",
+      "Technical Event Management",
+      "Communication Skills",
+      "Participant Assistance",
+      "Leadership & Responsibility",
+    ],
+    link: "/certificates/hack_v.pdf",
+  },
+  {
+    title: "Quantum_X26",
+    company: "New Horizon College of Engineering",
+    period: "March 2026",
+    location: "Bengaluru, Karnataka, India",
+    type: "National Level Technical Fest",
+    badge: "Volunteer Certificate",
+    description:
+      "Volunteered in the Quantum_X26 organized by the Department of Computer Science and Engineering at NHCE. Worked in a team to support the event.",
+    highlights: [
+      "Collaborated with a cross-functional team to support the event.",
+    ],
+    skills: ["Team Collaboration", "Event Support", "Communication Skills", "Responsibility"],
+    link: "/certificates/Quantum_x.pdf",
+  }
+];
 
-  const typeColors: Record<string, string> = {
-    Internship: "bg-blue-500/10 text-blue-500 border border-blue-500/20",
-    Volunteer: "bg-purple-500/10 text-purple-400 border border-purple-500/20",
-    Freelance: "bg-green-500/10 text-green-500 border border-green-500/20",
-    Competition: "bg-yellow-500/10 text-yellow-500 border border-yellow-500/20",
-  };
+const typeColors: Record<string, string> = {
+  Internship: "bg-blue-500/10 text-blue-500 border border-blue-500/20",
+  Volunteer: "bg-purple-500/10 text-purple-400 border border-purple-500/20",
+  Freelance: "bg-green-500/10 text-green-500 border border-green-500/20",
+  Competition: "bg-yellow-500/10 text-yellow-500 border border-yellow-500/20",
+};
+
+const Experiences = () => {
 
   return (
     <div className="min-h-screen bg-background flex flex-col">
@@ -124,9 +125,9 @@ const Experiences = () => {
               { icon: <Briefcase className="w-5 h-5 text-royal" />, label: "Experiences", value: "3+" },
               { icon: <Star className="w-5 h-5 text-yellow-400" />, label: "Certificates", value: "2" },
               { icon: <TrendingUp className="w-5 h-5 text-green-400" />, label: "Skills Used", value: "12+" },
-            ].map((stat, i) => (
+            ].map((stat) => (
               <div
-                key={i}
+                key={stat.label}
                 className="flex flex-col items-center gap-1.5 p-4 rounded-xl border border-border bg-card text-center"
               >
                 {stat.icon}
@@ -143,7 +144,7 @@ const Experiences = () => {
 
             <div className="space-y-10">
               {experiences.map((exp, index) => (
-                <div key={index} className="relative flex gap-6 group">
+                <div key={exp.title} className="relative flex gap-6 group">
 
                   {/* Timeline dot */}
                   <div className="hidden md:flex flex-col items-center shrink-0">

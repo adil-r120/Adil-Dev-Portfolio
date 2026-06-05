@@ -1,86 +1,88 @@
 import { useState, useEffect } from "react";
 import Navigation from "@/components/Navigation";
 import { Code2, Palette, Cloud, Brain, BookOpen } from "lucide-react";
-import { projects } from "./Projects";
-import { certifications, hackathons } from "./Certifications";
+import { projects, certifications, hackathons } from "@/data/portfolioData";
 
 const AnimatedCounter = ({ end, duration = 2000 }: { end: number; duration?: number }) => {
   const [count, setCount] = useState(0);
 
   useEffect(() => {
     let startTimestamp: number | null = null;
+    let frameId: number;
     const step = (timestamp: number) => {
       if (!startTimestamp) startTimestamp = timestamp;
       const progress = Math.min((timestamp - startTimestamp) / duration, 1);
       setCount(Math.floor(progress * end));
       if (progress < 1) {
-        window.requestAnimationFrame(step);
+        frameId = window.requestAnimationFrame(step);
       }
     };
-    window.requestAnimationFrame(step);
+    frameId = window.requestAnimationFrame(step);
+    return () => window.cancelAnimationFrame(frameId);
   }, [end, duration]);
 
   return <>{count}</>;
 };
 
+const skills = [
+  {
+    icon: Code2,
+    title: "Web Development",
+    description: "Building responsive and interactive web applications using modern frameworks like React, HTML, CSS, and JavaScript."
+  },
+  {
+    icon: Palette,
+    title: "UI/UX Design",
+    description: "Creating intuitive and visually appealing user interfaces using Figma with focus on user experience."
+  },
+  {
+    icon: Cloud,
+    title: "Cloud Computing",
+    description: "Working with AWS cloud services and implementing cloud-based solutions for scalable applications."
+  },
+  {
+    icon: Brain,
+    title: "Data Science & AI",
+    description: "Leveraging Python for data analysis and exploring AI technologies to solve real-world problems."
+  }
+];
+
+type Education = {
+  degree: string;
+  institution: string;
+  period: string;
+  location: string;
+  board?: string;
+  grade?: string;
+  activities?: string;
+};
+
+const education: Education[] = [
+  {
+    degree: "Bachelor of Engineering, Computer Science Engineering",
+    institution: "New Horizon College of Engineering",
+    period: "Aug 2023 - Aug 2027",
+    location: "Bangalore, India"
+  },
+  {
+    degree: "Senior Secondary (XII), PCM",
+    institution: "Park Mount Public School",
+    board: "Central Board of Secondary Education",
+    period: "Mar 2020 - April 2022",
+    location: "Patna, India",
+    activities: "Captain of Cricket team"
+  },
+  {
+    degree: "Matric (X)",
+    institution: "Nezamia Public School",
+    board: "Central Board of Secondary Education",
+    period: "Mar 2020",
+    location: "Patna, India",
+    activities: "Drawing",
+  }
+];
+
 const About = () => {
-  const skills = [
-    {
-      icon: Code2,
-      title: "Web Development",
-      description: "Building responsive and interactive web applications using modern frameworks like React, HTML, CSS, and JavaScript."
-    },
-    {
-      icon: Palette,
-      title: "UI/UX Design",
-      description: "Creating intuitive and visually appealing user interfaces using Figma with focus on user experience."
-    },
-    {
-      icon: Cloud,
-      title: "Cloud Computing",
-      description: "Working with AWS cloud services and implementing cloud-based solutions for scalable applications."
-    },
-    {
-      icon: Brain,
-      title: "Data Science & AI",
-      description: "Leveraging Python for data analysis and exploring AI technologies to solve real-world problems."
-    }
-  ];
-
-  type Education = {
-    degree: string;
-    institution: string;
-    period: string;
-    location: string;
-    board?: string;
-    grade?: string;
-    activities?: string;
-  };
-
-  const education: Education[] = [
-    {
-      degree: "Bachelor of Engineering, Computer Science Engineering",
-      institution: "New Horizon College of Engineering",
-      period: "Aug 2023 - Aug 2027",
-      location: "Bangalore, India"
-    },
-    {
-      degree: "Senior Secondary (XII), PCM",
-      institution: "Park Mount Public School",
-      board: "Central Board of Secondary Education",
-      period: "Mar 2020 - April 2022",
-      location: "Patna, India",
-      activities: "Captain of Cricket team"
-    },
-    {
-      degree: "Matric (X)",
-      institution: "Nezamia Public School",
-      board: "Central Board of Secondary Education",
-      period: "Mar 2020",
-      location: "Patna, India",
-      activities: "Drawing",
-    }
-  ];
 
   return (
     <div className="min-h-screen bg-background">
@@ -130,8 +132,8 @@ const About = () => {
                 <h3 className="text-2xl md:text-3xl font-bold text-foreground">Education</h3>
               </div>
 
-              {education.map((edu, index) => (
-                <div key={index} className="bg-card p-4 md:p-6 rounded-lg border border-blue-500/20 hover:border-blue-900/50 transition-all card-glow">
+              {education.map((edu) => (
+                <div key={edu.degree} className="bg-card p-4 md:p-6 rounded-lg border border-blue-500/20 hover:border-blue-900/50 transition-all card-glow">
                   <h4 className="text-base md:text-lg font-semibold mb-1 md:mb-2">{edu.degree}</h4>
                   <p className="text-sm text-muted-foreground mb-1">{edu.institution}</p>
                   {edu.board && <p className="text-xs md:text-sm text-muted-foreground mb-1">{edu.board}</p>}
