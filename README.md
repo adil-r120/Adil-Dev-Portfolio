@@ -1,4 +1,4 @@
-# MD Adil Raza — Full Stack Developer Portfolio
+# MD Adil Raza — Portfolio
 
 [![Live Demo](https://img.shields.io/badge/Live_Demo-Vercel-black?style=flat-square&logo=vercel)](https://adil-dev-portfolio.vercel.app/)
 [![React](https://img.shields.io/badge/React-20232A?style=flat-square&logo=react&logoColor=61DAFB)](#)
