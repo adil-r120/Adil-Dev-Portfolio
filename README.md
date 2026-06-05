@@ -1,169 +1,96 @@
-# My Portfolio
+# MD Adil Raza — Full Stack Developer Portfolio
 
-Welcome to my personal portfolio website! This is a modern, responsive portfolio built with React, TypeScript, and Tailwind CSS to showcase my skills, projects, and experience as an aspiring Software Engineer.
+[![Live Demo](https://img.shields.io/badge/Live_Demo-Vercel-black?style=flat-square&logo=vercel)](https://adil-dev-portfolio.vercel.app/)
+[![React](https://img.shields.io/badge/React-20232A?style=flat-square&logo=react&logoColor=61DAFB)](#)
+[![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=flat-square&logo=typescript&logoColor=white)](#)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=flat-square&logo=tailwind-css&logoColor=white)](#)
+[![React Doctor](https://img.shields.io/badge/React_Doctor-100%2F100-brightgreen?style=flat-square)](#)
 
-## 🚀 Live Demo
+A highly optimized, modern personal portfolio built with React, TypeScript, and Tailwind CSS. Featuring a custom AI Chatbot powered by Groq Llama-3.1 and Upstash Redis.
 
-[![Portfolio Website](https://img.shields.io/badge/Portfolio-Visit%20Live%20Site-orange)](https://my-portfolio.dev/projects/1c0b82d4-88c7-4d7c-b7c5-ccb66843e572)
+## Overview
 
-## 📋 Table of Contents
+This repository contains the source code for my personal portfolio website. Designed with a focus on performance, clean architecture, and modern aesthetics, it serves as a comprehensive showcase of my journey as a Software Engineer. 
 
-- [About](#about)
-- [Features](#features)
-- [Technologies Used](#technologies-used)
-- [Project Structure](#project-structure)
-- [Screenshots](#screenshots)
-- [Getting Started](#getting-started)
-  - [Prerequisites](#prerequisites)
-  - [Installation](#installation)
-  - [Development](#development)
-- [Deployment](#deployment)
-- [Project Pages](#project-pages)
-- [Author](#author)
-- [License](#license)
+The application is completely responsive, highly interactive, and maintained with enterprise-grade CI/CD pipelines to ensure perfect code health.
 
-## About
+## Key Features
 
-👤This portfolio website showcases my journey as an aspiring Software Engineer. It includes information about my education, technical skills, projects, certifications, and ways to contact me. The website is designed with a modern UI and responsive layout to provide an optimal viewing experience across all devices.
+- **Intelligent AI Chatbot**: A deeply integrated, natural conversational agent powered by the lightning-fast Groq API (Llama-3.1) to answer questions about my background dynamically. Chat history is securely persisted using Upstash Serverless Redis.
+- **Enterprise Code Quality**: Maintained at a perfect `100/100` health score via automated React Doctor CI pipelines running on GitHub Actions.
+- **Premium UI/UX**: Built with shadcn/ui and Tailwind CSS featuring a fully responsive layout, smooth micro-animations, and a seamless Dark/Light mode toggle.
+- **Blazing Fast**: Bootstrapped with Vite and deployed globally on Vercel's Edge Network for instant load times.
 
-## Features
+## Tech Stack
 
-- 🎨 Modern, responsive design with Tailwind CSS
-- ⚛️ Built with React and TypeScript for type safety
-- 🌙 Dark/light mode support
-- 📱 Fully responsive for all device sizes
-- 🚀 Fast loading with Vite
-- 🧭 Navigation between different sections
-- 📄 Downloadable resume
-- 🌐 Multi-page application with React Router
+### Core Technologies
+- Frontend: React 18, TypeScript, Vite
+- Styling: Tailwind CSS, shadcn/ui, Framer Motion
+- Routing: React Router DOM v6
 
-## Technologies Used
+### Backend & AI Architecture
+- LLM Inference: Groq API (Llama-3.1-8b-instant)
+- Database: Upstash Serverless Redis (KV)
+- Deployment: Vercel Serverless Functions (`/api/chat.js`)
 
-This project is built with:
+### Tooling & CI
+- Linter/Static Analysis: React Doctor
+- CI/CD: GitHub Actions, Vercel
 
-- [Vite](https://vitejs.dev/) - Next generation frontend tooling
-- [React](https://reactjs.org/) - A JavaScript library for building user interfaces
-- [TypeScript](https://www.typescriptlang.org/) - Typed JavaScript at any scale
-- [Tailwind CSS](https://tailwindcss.com/) - A utility-first CSS framework
-- [shadcn/ui](https://ui.shadcn.com/) - Re-usable components built with Radix UI and Tailwind CSS
-- [React Router](https://reactrouter.com/) - Declarative routing for React
-- [Lucide React](https://lucide.dev/) - Beautiful & consistent icons
+## Local Development
 
-## Project Structure
+To run this project on your local machine, follow these steps:
 
-```
-src/
-├── components/
-│   ├── ui/           # Reusable UI components from shadcn/ui
-│   ├── Navigation.tsx # Navigation bar component
-│   └── Footer.tsx     # Footer component
-├── pages/
-│   ├── Home.tsx       # Home page
-│   ├── About.tsx      # About me page
-│   ├── Skills.tsx     # Technical skills page
-│   ├── Projects.tsx   # Projects showcase
-│   ├── Certifications.tsx # Certifications and courses
-│   ├── Contact.tsx    # Contact information
-│   └── NotFound.tsx   # 404 page
-├── App.tsx            # Main application component
-└── main.tsx           # Application entry point
-```
-
-## Screenshots
-
-### Home Page
-![Home Page](/public/homepage.png)
-
-### About Page
-![About Page](/public/about.png)
-
-### Skills Page
-![Skills Page](/public/skills.png)
-
-### Projects Page
-![Projects Page](/public/projects.png)
-
-### Certifications Page
-![Certifications Page](/public/certifications.png)
-
-### Contact Page
-![Contact Page](/public/contact.png)
-
-## Getting Started
-
-Follow these instructions to get a copy of the project up and running on your local machine.
-
-### Prerequisites
-
-- Node.js (version 16 or higher)
-- npm or yarn
-
-### Installation
-
-1. Clone the repository:
-
+### 1. Clone the Repository
 ```bash
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+git clone https://github.com/adil-r120/Adil-Dev-Portfolio.git
+cd Adil-Dev-Portfolio
 ```
 
-2. Install dependencies:
-
+### 2. Install Dependencies
 ```bash
-# Step 3: Install the necessary dependencies.
 npm install
 ```
 
-### Development
+### 3. Environment Variables
+Create a `.env` file in the root directory and add your API keys (required for the Chatbot to function locally):
+```env
+GROQ_API_KEY=your_groq_api_key_here
+UPSTASH_REDIS_REST_URL=your_upstash_url_here
+UPSTASH_REDIS_REST_TOKEN=your_upstash_token_here
+```
 
-To start the development server:
-
+### 4. Start the Development Server
 ```bash
-# Step 4: Start the development server with auto-reloading and an instant preview.
 npm run dev
 ```
+Navigate to `http://localhost:5173` in your browser.
 
-The application will be available at `http://localhost:5173`.
+## Project Structure
 
-## Deployment
-
-To build the project for production:
-
-```bash
-npm run build
+```text
+src/
+├── components/
+│   ├── ui/               # Reusable atomic components (shadcn)
+│   ├── ChatbotWidget.tsx # AI Chat interface
+│   └── Navigation.tsx    # Responsive navbar
+├── pages/
+│   ├── Home.tsx          # Landing page
+│   ├── Projects.tsx      # Project showcase
+│   └── Skills.tsx        # Technical proficiencies
+├── App.tsx               # Main routing component
+└── main.tsx              # Application entry point
+api/
+└── chat.js               # Vercel Serverless Function (Backend API)
 ```
 
-To preview the production build locally:
+## Contact
 
-```bash
-npm run preview
-```
+Feel free to reach out if you'd like to collaborate, discuss tech, or just say hi!
 
-## Project Pages
-
-1. **Home** - Introduction and overview with skills marquee
-2. **About** - Detailed information about me, education, and core competencies
-3. **Skills** - Comprehensive list of technical skills with proficiency indicators
-4. **Projects** - Showcase of personal and academic projects with descriptions
-5. **Certifications** - List of certifications and courses completed
-6. **Contact** - Ways to get in touch with me and professional summary
-
-## Author
-
-**MD ADIL RAZA**
-
-- Email: [mdadilraza510@gmail.com](mailto:mdadilraza510@gmail.com)
-- Phone: +91 6203662085
-- LinkedIn: [linkedin.com/in/mdadilraza-dev](https://www.linkedin.com/in/mdadilraza-dev/)
-- GitHub: [github.com/adil-r120](https://github.com/adil-r120)
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+- **Email**: mdadilraza510@gmail.com
+- **LinkedIn**: [linkedin.com/in/mdadilraza-dev](https://www.linkedin.com/in/mdadilraza-dev/)
+- **GitHub**: [github.com/adil-r120](https://github.com/adil-r120)
 
 ---
-
-<p align="center">Made with ❤️ by MD ADIL RAZA</p>
+*Designed and engineered by MD Adil Raza*
