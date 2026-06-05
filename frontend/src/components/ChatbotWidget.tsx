@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import { MessageCircle, X, Send, Bot, Loader2, Trash2, Sparkles } from "lucide-react";
+import { projects, certifications } from "@/data/portfolioData";
 
 type Message = {
     id: string;
@@ -102,6 +103,11 @@ const ChatbotWidget = () => {
                 content: m.content,
             }));
 
+            const portfolioContext = `Projects (${projects.length} total):
+${projects.map(p => `- ${p.title} — ${p.tags.join(", ")} | ${p.link || p.github || ""}`).join('\n')}
+
+Certifications (${certifications.length}): ${certifications.map(c => c.title).join(', ')}.`;
+
             const res = await fetch("/api/chat", {
                 method: "POST",
                 headers: {
@@ -110,6 +116,7 @@ const ChatbotWidget = () => {
                 body: JSON.stringify({
                     userMessage,
                     history,
+                    portfolioContext,
                 }),
             });
 

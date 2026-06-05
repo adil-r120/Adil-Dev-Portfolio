@@ -27,3 +27,9 @@ dist-ssr
 .vercel
 .env
 .env.local
+
+# AI and Dev Tool Folders
+.claude/
+.qoder/
+.goder/
+.agents/

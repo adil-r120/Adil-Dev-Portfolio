@@ -3,15 +3,15 @@ import { defineConfig } from "vitest/config";
 import react from "@vitejs/plugin-react-swc";
 import path from "path";
 
-// Keep React Doctor from flagging the Vercel Serverless Function as an unused file
-if (false) {
-  // @ts-ignore - It's a plain JS file without types
-  import("./api/chat.js");
-}
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  root: path.resolve(__dirname, "./frontend"),
   base: "./",
+  build: {
+    outDir: "../dist",
+    emptyOutDir: true,
+  },
   server: {
     host: true,
     port: 8080,
@@ -20,12 +20,12 @@ export default defineConfig({
   plugins: [react()],
   resolve: {
     alias: {
-      "@": path.resolve(__dirname, "./src"),
+      "@": path.resolve(__dirname, "./frontend/src"),
     },
   },
   test: {
     globals: true,
     environment: "jsdom",
-    setupFiles: "./src/setupTests.ts",
+    setupFiles: path.resolve(__dirname, "./frontend/src/setupTests.ts"),
   },
 });

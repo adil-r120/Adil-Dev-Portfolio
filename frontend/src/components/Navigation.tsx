@@ -1,6 +1,6 @@
 import { Link, useLocation } from "react-router-dom";
 import { useTheme } from "next-themes";
-import { Moon, Sun, Menu, X, Linkedin } from "lucide-react";
+import { Moon, Sun, Menu, X, Linkedin, Github } from "lucide-react";
 import { useState, useEffect } from "react";
 
 const navLinks = [
@@ -78,6 +78,16 @@ const Navigation = () => {
           >
             <Linkedin className="w-5 h-5" />
           </a>
+          <a
+            href="https://github.com/adil-r120"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="GitHub Profile"
+            className="p-2 rounded-full bg-blue-900/10 text-blue-900 dark:text-blue-400 hover:bg-blue-900/20 transition-colors"
+          >
+            <Github className="w-5 h-5" />
+          </a>
+
           <button
             type="button"
             onClick={toggleTheme}
@@ -126,6 +136,17 @@ const Navigation = () => {
               <Linkedin className="w-5 h-5" />
               <span>LinkedIn</span>
             </a>
+            <a
+              href="https://github.com/adil-r120"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 px-4 py-2 rounded-md text-base text-foreground/80 hover:text-blue-600 hover:bg-blue-500/5"
+              onClick={closeMenu}
+            >
+              <Github className="w-5 h-5" />
+              <span>GitHub</span>
+            </a>
+
             <button
               type="button"
               onClick={() => {

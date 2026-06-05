@@ -19,7 +19,7 @@ export default async function handler(req) {
 
   try {
     const body = await req.json();
-    const { userMessage, history } = body;
+    const { userMessage, history, portfolioContext } = body;
     const apiKey = process.env.GROQ_API_KEY;
 
     if (!apiKey) {
@@ -39,22 +39,11 @@ Education: B.E. CSE at NHCE Bangalore (2023–2027). Senior Secondary (PCM, Grad
 
 Skills: React, TypeScript, Node.js, Python, Java, C++, SQL, MySQL, HTML, CSS, REST APIs, Figma, AWS, Google Cloud, Git, Linux, AI/Data Science, UI/UX Design.
 
-Projects (11 total):
-- Client Lead Management System (Mini CRM) — React, Node.js, SQLite | future-fs-02-crm.vercel.app
-- Local Business Website — React, Tailwind | future-fs-03-b-b.vercel.app
-- SalesPulse (AI Sales Dashboard) — React, Python, LLM, Socket.io | salespulse.vercel.app
-- E-commerce Design (Air Jordan) — Figma prototype
-- Personal Expense Tracker — Java, React, MySQL
-- Portfolio Website — adil-dev-portfolio.vercel.app
-- Real-time Weather Detector — weather-dekho-app.vercel.app
-- Tic Tac Toe, Amazon Clone, Zepto Clone — HTML/CSS/JS
-- Snatix Photography Website — HTML, TypeScript, MySQL | snatix.vercel.app
+${portfolioContext || ""}
 
 Experience:
 - Full Stack Web Developer Intern at Future Interns (Feb–Mar 2026, Remote) — built CRM, web apps, APIs
 - Volunteer Technical Team at NHCE (Oct 2025–Present) — 48-Hour National Hackathon (Silver Spectrum Techfest 2025)
-
-Certifications (12): Git (IIT Bombay), Cloud Computing (NPTEL/IIT Kharagpur), DBMS (Scaler), IISc Data Symposium, SQL Bootcamp, AWS Cloud Practitioner Essentials, AWS SimuLearn, Google Cloud Arcade, HTML (Great Learning), Python 101 & Data Science 101 (Cognitive Class), Python for Data Science (IBM).
 
 Hackathons: Quantum_X 2025 (NHCE, 24-hour), Pixel Pursuit 2024 (Mobile Dev Club, NHCE).
 

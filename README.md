@@ -69,17 +69,18 @@ Navigate to `http://localhost:5173` in your browser.
 ## Project Structure
 
 ```text
-src/
-├── components/
-│   ├── ui/               # Reusable atomic components (shadcn)
-│   ├── ChatbotWidget.tsx # AI Chat interface
-│   └── Navigation.tsx    # Responsive navbar
-├── pages/
-│   ├── Home.tsx          # Landing page
-│   ├── Projects.tsx      # Project showcase
-│   └── Skills.tsx        # Technical proficiencies
-├── App.tsx               # Main routing component
-└── main.tsx              # Application entry point
+frontend/
+└── src/
+    ├── components/
+    │   ├── ui/               # Reusable atomic components (shadcn)
+    │   ├── ChatbotWidget.tsx # AI Chat interface
+    │   └── Navigation.tsx    # Responsive navbar
+    ├── pages/
+    │   ├── Home.tsx          # Landing page
+    │   ├── Projects.tsx      # Project showcase
+    │   └── Skills.tsx        # Technical proficiencies
+    ├── App.tsx               # Main routing component
+    └── main.tsx              # Application entry point
 api/
 └── chat.js               # Vercel Serverless Function (Backend API)
 ```
