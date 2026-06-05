@@ -38,7 +38,7 @@ export const projects: Project[] = [
       title: "CyberShield X",
       description:
         "A sophisticated phishing detection and security monitoring platform. It leverages a hybrid approach combining Machine Learning (Random Forest), rule-based heuristics, and real-time behavioral analysis to provide explainable risk scoring for suspicious URLs.",
-      image: "/project-images/cybershield.png",
+      image: "/project-images/cybershield.webp",
       date: "2026",
       category: "Cyber Security",
       tags: ["Security", "React", "Node.js", "Python", "ML", "MySQL"],
@@ -48,7 +48,7 @@ export const projects: Project[] = [
       title: "GYANIBABA (AI Chatbot)",
       description:
         "A production-ready AI chatbot with ChatGPT-4 level intelligence, custom knowledge base (RAG), and beautiful modern UI, designed to assist users with general queries, technical support, and automated responses.",
-      image: "/project-images/gyanibaba.png",
+      image: "/project-images/gyanibaba.webp",
       date: "2026",
       category: "AI/ML",
       tags: ["AI/ML", "Groq", "LLM", "Python", "React"],
@@ -238,7 +238,7 @@ export const certifications: Certification[] = [
       issuerIcon: <Database className="w-5 h-5 text-purple-500" />,
       issued: "Oct 2025",
       skills: ["Database Management System (DBMS)"],
-      link: "/certificates/DBMS.png",
+      link: "/certificates/DBMS.webp",
       category: "Data",
     },
     {
@@ -301,7 +301,7 @@ export const certifications: Certification[] = [
       issuerIcon: <Globe className="w-5 h-5 text-red-500" />,
       issued: "Aug 2024",
       skills: ["HTML"],
-      link: "/certificates/html.jpg",
+      link: "/certificates/html.webp",
       category: "Development",
     },
   ];
@@ -311,18 +311,18 @@ export const hackathons: Hackathon[] = [
       title: "Quantum_X Hackathon 2025",
       description:
         "A 24-hour hackathon organized by the NHCE Computer Science department. Our team developed a real-time infrastructure monitoring application under tight deadlines.",
-      image: "/project-images/hackathon-quantumx.png",
+      image: "/project-images/hackathon-quantumx.webp",
       date: "10–12 April 2025",
       tags: ["Team Collaboration", "Problem Solving", "Real-time App"],
-      link: "/certificates/hackathon.png",
+      link: "/certificates/hackathon.webp",
     },
     {
       title: "Pixel Pursuit Event 2024",
       description:
         "A competitive design and development event organized by the Mobile Development Club at NHCE campus. Focused on UI/UX creativity and rapid prototyping.",
-      image: "/project-images/hackathon-pixel.png",
+      image: "/project-images/hackathon-pixel.webp",
       date: "19 November 2024",
       tags: ["UI/UX", "Rapid Prototyping", "Mobile Dev"],
-      link: "/certificates/pixel.jpeg",
+      link: "/certificates/pixel.webp",
     },
   ];

@@ -149,7 +149,7 @@ const ChatbotWidget = () => {
                     {/* Header */}
                     <div className="flex items-center gap-2 px-3 py-3 bg-gradient-to-r from-blue-900 to-blue-800 text-white shrink-0">
                         <div className="w-8 h-8 rounded-full overflow-hidden bg-white/20 flex items-center justify-center shrink-0 border border-white/10">
-                            <img src="/chatbot-logo.png" alt="Bot Logo" className="w-full h-full object-cover hover:scale-110 transition-transform duration-500" />
+                            <img src="/chatbot-logo.webp" alt="Bot Logo" loading="lazy" className="w-full h-full object-cover hover:scale-110 transition-transform duration-500" />
                         </div>
                         <div className="flex-1 min-w-0">
                             <p className="font-semibold text-sm leading-tight text-white">Adil's AI</p>
@@ -266,7 +266,7 @@ const ChatbotWidget = () => {
                     aria-label="Toggle AI chat"
                 >
                     <img
-                        src="/chatbot-logo.png"
+                        src="/chatbot-logo.webp"
                         alt="Chatbot Toggle"
                         className="w-full h-full object-cover transition-transform duration-500"
                     />

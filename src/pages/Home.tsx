@@ -19,7 +19,7 @@ const Home = () => {
       <div 
         className="absolute inset-0 w-full h-full -z-20 opacity-10 pointer-events-none"
         style={{
-          // backgroundImage: "url('/se-bg.png')",
+          // backgroundImage: "url('/se-bg.webp')",
           backgroundSize: "cover",
           backgroundPosition: "center",
           maskImage: "radial-gradient(circle at center, black 10%, transparent 85%)",
@@ -92,7 +92,7 @@ const Home = () => {
               
               <div className="relative w-72 h-72 md:w-96 md:h-96 rounded-full border-4 border-royal overflow-hidden shadow-[0_0_50px_rgba(29,65,175,0.3)] transition-all duration-500 hover:scale-[1.02]">
                 <img
-                  src="/p2.png"
+                  src="/p2.webp"
                   alt="AR"
                   className="w-full h-full object-cover object-center"
                 />
