@@ -40,6 +40,7 @@ const skillCategories: SkillCategory[] = [
     skills: [
       { name: "HTML ", proficiency: 92 },
       { name: "CSS", proficiency: 92 },
+      { name: "React", proficiency: 80 },
       { name: "Tailwind CSS", proficiency: 80 },
       { name: "Node.js", proficiency: 75 },
       { name: "TypeScript", proficiency: 82 },
@@ -54,8 +55,6 @@ const skillCategories: SkillCategory[] = [
       { name: "Python", proficiency: 70 },
       { name: "JavaScript", proficiency: 60 },
       { name: "C", proficiency: 70 },
-      { name: "C++", proficiency: 65 },
-      { name: "R", proficiency: 85 },
     ]
   },
   {
@@ -72,6 +71,7 @@ const skillCategories: SkillCategory[] = [
     icon: "🗄️",
     skills: [
       { name: "MySQL", proficiency: 80 },
+      { name: "NoSQL", proficiency: 70 },
       { name: "MongoDB", proficiency: 75 }
     ]
   },

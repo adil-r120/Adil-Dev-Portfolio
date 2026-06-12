@@ -279,8 +279,8 @@ Certifications (${certifications.length}): ${certifications.map(c => c.title).jo
                     />
                 </button>
 
-                {/* Text below button, shown on hover */}
-                <span className="text-[10px] font-bold text-blue-900 dark:text-blue-400 uppercase tracking-widest opacity-0 group-hover:opacity-100 group-focus-within:opacity-100 transition-opacity duration-300 select-none">
+                {/* Text below button */}
+                <span className="text-[10px] font-bold text-blue-900 dark:text-blue-400 uppercase tracking-widest select-none">
                     Ask me
                 </span>
             </div>
