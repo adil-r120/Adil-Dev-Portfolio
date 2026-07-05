@@ -67,8 +67,8 @@ const Home = () => {
                 </Button>
               </a>
               <a
-                href="/certificates/AR-resume.pdf"
-                download="AR-resume.pdf"
+                href="/certificates/MD_ADIL_RAZA_Resume_2026.pdf"
+                download="MD_ADIL_RAZA_Resume_2026.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
               >

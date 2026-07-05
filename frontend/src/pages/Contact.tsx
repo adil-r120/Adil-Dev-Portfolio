@@ -69,8 +69,8 @@ const Contact = () => {
 
               <div className="pt-4">
                 <a
-                  href="/certificates/AR-resume.pdf"
-                  download="AR-resume.pdf"
+                  href="/certificates/MD_ADIL_RAZA_Resume_2026.pdf"
+                  download="MD_ADIL_RAZA_Resume_2026.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 px-6 py-3 bg-blue-900 text-white rounded-lg hover:bg-blue-800 transition-colors font-medium text-sm w-full sm:w-auto justify-center"

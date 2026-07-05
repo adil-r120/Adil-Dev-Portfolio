@@ -108,8 +108,8 @@ const Experiences = () => {
             </p>
             <div className="w-16 md:w-24 h-1 bg-royal mx-auto rounded-full mt-6 mb-8" />
             <a
-              href="/certificates/AR-resume.pdf"
-              download="AR-resume.pdf"
+              href="/certificates/MD_ADIL_RAZA_Resume_2026.pdf"
+              download="MD_ADIL_RAZA_Resume_2026.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-royal hover:bg-royal/90 text-white font-semibold text-sm md:text-base shadow-lg shadow-royal/30 transition-all hover:scale-105 hover:shadow-royal/50"
