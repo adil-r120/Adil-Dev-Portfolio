@@ -17,6 +17,11 @@ The application is completely responsive, highly interactive, and maintained wit
 ## Key Features
 
 - **Intelligent AI Chatbot**: A deeply integrated, natural conversational agent powered by the lightning-fast Groq API (Llama-3.1) to answer questions about my background dynamically. Chat history is securely persisted using Upstash Serverless Redis.
+- **Mesmerizing 3D Visual Experience**: A suite of lightweight, high-performance 3D animations using vanilla HTML5 canvas and GPU-accelerated CSS 3D transforms:
+  - **Dynamic Parallax Hero & Extruded 3D Text**: Hero sections shift independently tracking cursor coordinates, coupled with dynamic reactive 3D extruded lettering shadows.
+  - **Constellation Backdrop**: A global 3D particle constellation field that orbits slowly in space and responds to mouse tracking depth.
+  - **3D Skill Globe**: An interactive tag cloud sphere in the Skills toolkit that visitors can spin, drag, and interact with.
+  - **Tactile Card Hover Tilts**: 3D perspective rotation and glassmorphic reflection glare on project and credential cards.
 - **Dynamic Credential Verification**: A dedicated credentials panel showcasing verified certifications and hackathon participation, categorized and directly viewable.
 - **Career & Education Timeline**: An interactive timeline showing educational background, internship, and professional experiences.
 - **Enterprise Code Quality**: Maintained at a perfect `100/100` health score via automated React Doctor CI pipelines running on GitHub Actions.

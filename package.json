@@ -36,10 +36,12 @@
     "tailwindcss-animate": "^1.0.7"
   },
   "reactDoctor": {
-    "ignore": [
-      "api/**",
-      "frontend/src/main.tsx"
-    ]
+    "ignore": {
+      "files": [
+        "api/**",
+        "frontend/src/main.tsx"
+      ]
+    }
   },
   "devDependencies": {
     "@eslint/js": "^9.32.0",

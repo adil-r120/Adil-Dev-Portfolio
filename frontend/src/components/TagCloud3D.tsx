@@ -12,47 +12,51 @@ interface TagCloud3DProps {
   radius?: number;
 }
 
+const createUnitTags = (tags: string[]): Tag[] => {
+  const N = tags.length;
+  return tags.map((name, i) => {
+    const k = -1 + (2 * i + 1) / N;
+    const theta = Math.acos(k);
+    const phi = Math.sqrt(N * Math.PI) * theta;
+
+    return {
+      name,
+      x: Math.sin(theta) * Math.cos(phi),
+      y: Math.sin(theta) * Math.sin(phi),
+      z: Math.cos(theta),
+    };
+  });
+};
+
 export const TagCloud3D: React.FC<TagCloud3DProps> = ({ tags, radius = 220 }) => {
   const containerRef = useRef<HTMLDivElement>(null);
-  const [currentRadius, setCurrentRadius] = useState(radius);
-  const [renderedTags, setRenderedTags] = useState<Tag[]>([]);
-  const mouseRef = useRef({ x: 0, y: 0, active: false });
-  const rotationRef = useRef({ rx: 0.003, ry: 0.003 }); // initial slow rotation speeds
+  const [windowWidth, setWindowWidth] = useState(() => 
+    typeof window !== "undefined" ? window.innerWidth : 1000
+  );
+  
+  const [renderedTags, setRenderedTags] = useState<Tag[]>(() => createUnitTags(tags));
+  const [prevTags, setPrevTags] = useState(tags);
 
-  // Handle responsive radius resizing
+  // Sync state if tags prop changes
+  if (tags !== prevTags) {
+    setPrevTags(tags);
+    setRenderedTags(createUnitTags(tags));
+  }
+
+  const mouseRef = useRef({ x: 0, y: 0, active: false });
+  const rotationRef = useRef({ rx: 0.003, ry: 0.003 });
+
+  // Handle responsive radius resizing by updating windowWidth state
   useEffect(() => {
     const handleResize = () => {
-      const w = window.innerWidth;
-      if (w < 640) {
-        setCurrentRadius(120);
-      } else if (w < 1024) {
-        setCurrentRadius(170);
-      } else {
-        setCurrentRadius(radius);
-      }
+      setWindowWidth(window.innerWidth);
     };
-    handleResize();
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
-  }, [radius]);
+  }, []);
 
-  // Fibonacci Sphere placement for tags
-  useEffect(() => {
-    const N = tags.length;
-    const initialTags: Tag[] = tags.map((name, i) => {
-      const k = -1 + (2 * i + 1) / N;
-      const theta = Math.acos(k);
-      const phi = Math.sqrt(N * Math.PI) * theta;
-
-      return {
-        name,
-        x: currentRadius * Math.sin(theta) * Math.cos(phi),
-        y: currentRadius * Math.sin(theta) * Math.sin(phi),
-        z: currentRadius * Math.cos(theta),
-      };
-    });
-    setRenderedTags(initialTags);
-  }, [tags, currentRadius]);
+  // Compute radius directly during render based on windowWidth and the radius prop
+  const currentRadius = windowWidth < 640 ? 120 : windowWidth < 1024 ? 170 : radius;
 
   useEffect(() => {
     let animationId: number;
@@ -63,11 +67,9 @@ export const TagCloud3D: React.FC<TagCloud3DProps> = ({ tags, radius = 220 }) =>
       const cx = rect.left + rect.width / 2;
       const cy = rect.top + rect.height / 2;
 
-      // Mouse offset normalized from center (-1 to 1)
       const mx = (e.clientX - cx) / (rect.width / 2);
       const my = (e.clientY - cy) / (rect.height / 2);
 
-      // Set target rotation speeds based on mouse position
       rotationRef.current.ry = mx * 0.012;
       rotationRef.current.rx = -my * 0.012;
       mouseRef.current.active = true;
@@ -84,7 +86,6 @@ export const TagCloud3D: React.FC<TagCloud3DProps> = ({ tags, radius = 220 }) =>
     }
 
     const animate = () => {
-      // Drift back to slow constant spin if mouse is not active
       if (!mouseRef.current.active) {
         rotationRef.current.rx += (0.0015 - rotationRef.current.rx) * 0.04;
         rotationRef.current.ry += (0.0015 - rotationRef.current.ry) * 0.04;
@@ -113,7 +114,7 @@ export const TagCloud3D: React.FC<TagCloud3DProps> = ({ tags, radius = 220 }) =>
       animationId = requestAnimationFrame(animate);
     };
 
-    animate();
+    animationId = requestAnimationFrame(animate);
 
     return () => {
       cancelAnimationFrame(animationId);
@@ -137,13 +138,17 @@ export const TagCloud3D: React.FC<TagCloud3DProps> = ({ tags, radius = 220 }) =>
       }}
     >
       {renderedTags.map((tag, idx) => {
-        // Perspective projection
-        const scale = focalLength / (focalLength - tag.z);
-        const alpha = (tag.z + currentRadius) / (2 * currentRadius); // 0 to 1 based on depth
-        const opacity = 0.2 + 0.8 * alpha; // map to 0.2 - 1.0
-        const zIndex = Math.round(tag.z + currentRadius);
+        // Project unit coordinates to currentRadius space
+        const tagX = tag.x * currentRadius;
+        const tagY = tag.y * currentRadius;
+        const tagZ = tag.z * currentRadius;
 
-        // Highlight custom tags based on key interests
+        // Perspective projection
+        const scale = focalLength / (focalLength - tagZ);
+        const alpha = (tagZ + currentRadius) / (2 * currentRadius);
+        const opacity = 0.2 + 0.8 * alpha;
+        const zIndex = Math.round(tagZ + currentRadius);
+
         const isCore = ["React", "TypeScript", "Node.js", "Python", "Google Cloud", "AWS", "AI / ML"].includes(tag.name);
 
         return (
@@ -155,7 +160,7 @@ export const TagCloud3D: React.FC<TagCloud3DProps> = ({ tags, radius = 220 }) =>
                 : "bg-royal/5 text-royal/90 border-royal/20 hover:bg-royal hover:text-white hover:border-royal"
             }`}
             style={{
-              transform: `translate3d(${tag.x}px, ${tag.y}px, ${tag.z}px) scale(${scale})`,
+              transform: `translate3d(${tagX}px, ${tagY}px, ${tagZ}px) scale(${scale})`,
               opacity,
               zIndex,
               transformOrigin: "center center",
