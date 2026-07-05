@@ -6,7 +6,7 @@
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=flat-square&logo=tailwind-css&logoColor=white)](#)
 [![React Doctor](https://img.shields.io/badge/React_Doctor-100%2F100-brightgreen?style=flat-square)](#)
 
-A highly optimized, modern personal portfolio built with React, TypeScript, and Tailwind CSS. Featuring a custom AI Chatbot powered by Groq Llama-3.1 and Upstash Redis.
+A highly optimized, modern personal portfolio built with React, TypeScript, and Tailwind CSS. Featuring a custom AI Chatbot powered by Groq Llama-3.1 and Upstash Redis, alongside interactive pages showcasing projects, skills, career timeline, and verified certifications.
 
 ## Overview
 
@@ -17,6 +17,8 @@ The application is completely responsive, highly interactive, and maintained wit
 ## Key Features
 
 - **Intelligent AI Chatbot**: A deeply integrated, natural conversational agent powered by the lightning-fast Groq API (Llama-3.1) to answer questions about my background dynamically. Chat history is securely persisted using Upstash Serverless Redis.
+- **Dynamic Credential Verification**: A dedicated credentials panel showcasing verified certifications and hackathon participation, categorized and directly viewable.
+- **Career & Education Timeline**: An interactive timeline showing educational background, internship, and professional experiences.
 - **Enterprise Code Quality**: Maintained at a perfect `100/100` health score via automated React Doctor CI pipelines running on GitHub Actions.
 - **Premium UI/UX**: Built with shadcn/ui and Tailwind CSS featuring a fully responsive layout, smooth micro-animations, and a seamless Dark/Light mode toggle.
 - **Blazing Fast**: Bootstrapped with Vite and deployed globally on Vercel's Edge Network for instant load times.
@@ -75,10 +77,17 @@ frontend/
     │   ├── ui/               # Reusable atomic components (shadcn)
     │   ├── ChatbotWidget.tsx # AI Chat interface
     │   └── Navigation.tsx    # Responsive navbar
+    ├── data/
+    │   └── portfolioData.tsx # Single source of truth for projects, certifications, experiences, and skills
     ├── pages/
     │   ├── Home.tsx          # Landing page
-    │   ├── Projects.tsx      # Project showcase
-    │   └── Skills.tsx        # Technical proficiencies
+    │   ├── About.tsx         # Detailed profile & bio page
+    │   ├── Experiences.tsx   # Professional career timeline
+    │   ├── Skills.tsx        # Technical skills & expertise
+    │   ├── Projects.tsx      # Interactive project portfolio
+    │   ├── Certifications.tsx # Verified credentials & hackathons
+    │   ├── Contact.tsx       # Message form & social links
+    │   └── NotFound.tsx      # Custom 404 page
     ├── App.tsx               # Main routing component
     └── main.tsx              # Application entry point
 api/

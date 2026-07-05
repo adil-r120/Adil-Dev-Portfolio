@@ -170,6 +170,24 @@ export const projects: Project[] = [
 
 export const certifications: Certification[] = [
     {
+      title: "Software Engineering Job Simulation",
+      issuer: "JP Morgan Chase & Co",
+      issuerIcon: <Code className="w-5 h-5 text-blue-500" />,
+      issued: "Jul 2026",
+      skills: ["Project Setup", "Kafka Integration", "H2 Integration", "REST API"],
+      link: "/certificates/jpmorgan.pdf",
+      category: "Development",
+    },
+    {
+      title: "Data Analytics Job Simulation",
+      issuer: "Deloitte",
+      issuerIcon: <Database className="w-5 h-5 text-purple-500" />,
+      issued: "Jun 2026",
+      skills: ["Data Analysis", "Forensic Technology"],
+      link: "/certificates/Data Analytics deloitte.pdf",
+      category: "Data",
+    },
+    {
       title: "Python for Machine Learning",
       issuer: " EduPyramids, SINE, IIT Bombay",
       issuerIcon: <Brain className="w-5 h-5 text-purple-500" />,
