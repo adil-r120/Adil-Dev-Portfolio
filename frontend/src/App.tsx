@@ -24,6 +24,7 @@ const NotFound = lazy(() => import("./pages/NotFound"));
 import ScrollToTop from "@/components/ScrollToTop";
 import { Analytics } from "@vercel/analytics/react";
 import ChatbotWidget from "@/components/ChatbotWidget";
+import ParticleBackground from "@/components/ParticleBackground";
 
 const queryClient = new QueryClient();
 
@@ -50,6 +51,7 @@ const App = () => (
   <QueryClientProvider client={queryClient}>
     <ThemeProvider defaultTheme="light" storageKey="vite-ui-theme" attribute="class">
       <TooltipProvider>
+        <ParticleBackground />
         <Toaster />
         <Sonner />
         <BrowserRouter>

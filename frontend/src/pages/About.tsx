@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import Navigation from "@/components/Navigation";
 import { Code2, Palette, Cloud, Brain, BookOpen } from "lucide-react";
 import { projects, certifications, hackathons } from "@/data/portfolioData";
+import ScrollReveal3D from "@/components/ScrollReveal3D";
 
 const AnimatedCounter = ({ end, duration = 2000 }: { end: number; duration?: number }) => {
   const [count, setCount] = useState(0);
@@ -98,20 +99,21 @@ const About = () => {
           {/* Left Column - Skills */}
           <div className="space-y-4 md:space-y-6">
             {skills.map((skill) => (
-              <div
-                key={skill.title}
-                className="flex gap-3 md:gap-4 p-4 md:p-6 bg-card rounded-lg border border-blue-500/10 hover:border-royal transition-all hover:shadow-xl hover:shadow-royal/5"
-              >
-                <div className="flex-shrink-0">
-                  <div className="w-10 h-10 md:w-12 md:h-12 rounded-lg bg-orange-500/10 border border-orange-500/20 flex items-center justify-center">
-                    <skill.icon className="w-5 h-5 md:w-6 md:h-6 text-orange-500" />
+              <ScrollReveal3D key={skill.title}>
+                <div
+                  className="flex gap-3 md:gap-4 p-4 md:p-6 bg-card rounded-lg border border-blue-500/10 hover:border-royal transition-all hover:shadow-xl hover:shadow-royal/5"
+                >
+                  <div className="flex-shrink-0">
+                    <div className="w-10 h-10 md:w-12 md:h-12 rounded-lg bg-orange-500/10 border border-orange-500/20 flex items-center justify-center">
+                      <skill.icon className="w-5 h-5 md:w-6 md:h-6 text-orange-500" />
+                    </div>
+                  </div>
+                  <div>
+                    <h3 className="text-lg md:text-xl font-bold mb-1 md:mb-2">{skill.title}</h3>
+                    <p className="text-sm md:text-muted-foreground">{skill.description}</p>
                   </div>
                 </div>
-                <div>
-                  <h3 className="text-lg md:text-xl font-bold mb-1 md:mb-2">{skill.title}</h3>
-                  <p className="text-sm md:text-muted-foreground">{skill.description}</p>
-                </div>
-              </div>
+              </ScrollReveal3D>
             ))}
           </div>
 
@@ -133,21 +135,23 @@ const About = () => {
               </div>
 
               {education.map((edu) => (
-                <div key={edu.degree} className="bg-card p-4 md:p-6 rounded-lg border border-blue-500/20 hover:border-blue-900/50 transition-all card-glow">
-                  <h4 className="text-base md:text-lg font-semibold mb-1 md:mb-2">{edu.degree}</h4>
-                  <p className="text-sm text-muted-foreground mb-1">{edu.institution}</p>
-                  {edu.board && <p className="text-xs md:text-sm text-muted-foreground mb-1">{edu.board}</p>}
-                  <p className="text-xs md:text-sm text-muted-foreground mb-1">{edu.period}</p>
-                  {edu.grade && <p className="text-xs md:text-sm text-muted-foreground mb-1">{edu.grade}</p>}
-                  <p className="text-xs md:text-sm text-muted-foreground flex items-center gap-1 md:gap-2">
-                    📍 {edu.location}
-                  </p>
-                  {edu.activities && (
-                    <p className="text-xs md:text-sm text-muted-foreground mt-1 md:mt-2">
-                      <span className="font-medium">Activities:</span> {edu.activities}
+                <ScrollReveal3D key={edu.degree}>
+                  <div className="bg-card p-4 md:p-6 rounded-lg border border-blue-500/20 hover:border-blue-900/50 transition-all card-glow">
+                    <h4 className="text-base md:text-lg font-semibold mb-1 md:mb-2">{edu.degree}</h4>
+                    <p className="text-sm text-muted-foreground mb-1">{edu.institution}</p>
+                    {edu.board && <p className="text-xs md:text-sm text-muted-foreground mb-1">{edu.board}</p>}
+                    <p className="text-xs md:text-sm text-muted-foreground mb-1">{edu.period}</p>
+                    {edu.grade && <p className="text-xs md:text-sm text-muted-foreground mb-1">{edu.grade}</p>}
+                    <p className="text-xs md:text-sm text-muted-foreground flex items-center gap-1 md:gap-2">
+                      📍 {edu.location}
                     </p>
-                  )}
-                </div>
+                    {edu.activities && (
+                      <p className="text-xs md:text-sm text-muted-foreground mt-1 md:mt-2">
+                        <span className="font-medium">Activities:</span> {edu.activities}
+                      </p>
+                    )}
+                  </div>
+                </ScrollReveal3D>
               ))}
             </div>
 

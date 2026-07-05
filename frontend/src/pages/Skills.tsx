@@ -2,6 +2,7 @@ import Navigation from "@/components/Navigation";
 import { Badge } from "@/components/ui/badge";
 import { Code2, Database, Cloud, Globe, BookOpen, Languages, Monitor, Code, FileText, Terminal, Server, ExternalLink, Award, Layers } from "lucide-react";
 import { useTranslation } from 'react-i18next';
+import TagCloud3D from "@/components/TagCloud3D";
 
 // Define the type for skills with proficiency
 type Skill = {
@@ -124,8 +125,11 @@ const courses: Course[] = [
 
 const Skills = () => {
   const { t } = useTranslation();
-
-
+  
+  // Extract all unique skills to display in the 3D Globe
+  const allSkillNames = Array.from(
+    new Set(skillCategories.flatMap((category) => category.skills.map((s) => s.name.trim())))
+  );
 
   return (
     <div className="min-h-screen bg-background relative selection:bg-orange-500/30 selection:text-orange-500">
@@ -149,6 +153,19 @@ const Skills = () => {
           </p>
           <div className="w-16 md:w-24 h-1 bg-orange-500 mx-auto rounded-full mt-6" />
         </header>
+
+        {/* ───── 3D Interactive Skill Globe ───── */}
+        <section className="flex flex-col items-center justify-center mb-16 md:mb-24 overflow-visible">
+          <div className="text-center max-w-xl mx-auto mb-8 animate-fade-in-up">
+            <h2 className="text-xl md:text-2xl font-bold mb-2">Interactive Skill Sphere</h2>
+            <p className="text-xs md:text-sm text-muted-foreground">
+              Hover over or drag across the globe to rotate and interact with my core tech stack.
+            </p>
+          </div>
+          <div className="relative z-10 w-full flex justify-center items-center py-6 min-h-[320px] animate-fade-in-up" style={{ animationDelay: "150ms" }}>
+            <TagCloud3D tags={allSkillNames} />
+          </div>
+        </section>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 max-w-6xl mx-auto">
           {skillCategories.map((category, index) => (

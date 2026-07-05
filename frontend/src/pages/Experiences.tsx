@@ -1,5 +1,6 @@
 import Navigation from "@/components/Navigation";
 import { Calendar, MapPin, ExternalLink, Download, Briefcase, Star, CheckCircle2, TrendingUp } from "lucide-react";
+import ScrollReveal3D from "@/components/ScrollReveal3D";
 
 // Define the type for experiences
 type Experience = {
@@ -144,95 +145,97 @@ const Experiences = () => {
 
             <div className="space-y-10">
               {experiences.map((exp, index) => (
-                <div key={exp.title} className="relative flex gap-6 group">
+                <ScrollReveal3D key={exp.title}>
+                  <div className="relative flex gap-6 group">
 
-                  {/* Timeline dot */}
-                  <div className="hidden md:flex flex-col items-center shrink-0">
-                    <div className="w-12 h-12 rounded-full bg-card border-2 border-orange-500 flex items-center justify-center text-orange-500 font-bold text-sm z-10 shadow-md shadow-orange-500/20 group-hover:bg-orange-500 group-hover:text-white transition-all duration-300">
-                      {index + 1}
+                    {/* Timeline dot */}
+                    <div className="hidden md:flex flex-col items-center shrink-0">
+                      <div className="w-12 h-12 rounded-full bg-card border-2 border-orange-500 flex items-center justify-center text-orange-500 font-bold text-sm z-10 shadow-md shadow-orange-500/20 group-hover:bg-orange-500 group-hover:text-white transition-all duration-300">
+                        {index + 1}
+                      </div>
                     </div>
-                  </div>
 
-                  {/* Card */}
-                  <div className="flex-1 bg-card p-6 md:p-8 rounded-2xl border border-border hover:border-royal transition-all duration-300 hover:shadow-lg hover:shadow-royal/10 hover:-translate-y-0.5">
+                    {/* Card */}
+                    <div className="flex-1 bg-card p-6 md:p-8 rounded-2xl border border-border hover:border-royal transition-all duration-300 hover:shadow-lg hover:shadow-royal/10 hover:-translate-y-0.5">
 
-                    {/* Top Row */}
-                    <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3 mb-4">
-                      <div className="flex-1">
-                        <div className="flex flex-wrap items-center gap-2 mb-1">
-                          <span className={`text-xs font-medium px-2.5 py-0.5 rounded-full ${typeColors[exp.type] ?? "bg-gray-500/10 text-gray-400"}`}>
-                            {exp.type}
-                          </span>
-                          {exp.badge && (
-                            <span className="text-xs font-medium px-2.5 py-0.5 rounded-full bg-yellow-500/10 text-yellow-500 border border-yellow-500/20 flex items-center gap-1">
-                              <Star className="w-3 h-3" />
-                              {exp.badge}
+                      {/* Top Row */}
+                      <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3 mb-4">
+                        <div className="flex-1">
+                          <div className="flex flex-wrap items-center gap-2 mb-1">
+                            <span className={`text-xs font-medium px-2.5 py-0.5 rounded-full ${typeColors[exp.type] ?? "bg-gray-500/10 text-gray-400"}`}>
+                              {exp.type}
                             </span>
-                          )}
+                            {exp.badge && (
+                              <span className="text-xs font-medium px-2.5 py-0.5 rounded-full bg-yellow-500/10 text-yellow-500 border border-yellow-500/20 flex items-center gap-1">
+                                <Star className="w-3 h-3" />
+                                {exp.badge}
+                              </span>
+                            )}
+                          </div>
+                          <h2 className="text-xl md:text-2xl font-bold mt-1">{exp.title}</h2>
+                          <h3 className="text-base md:text-lg text-orange-500 font-medium mt-0.5">{exp.company}</h3>
                         </div>
-                        <h2 className="text-xl md:text-2xl font-bold mt-1">{exp.title}</h2>
-                        <h3 className="text-base md:text-lg text-orange-500 font-medium mt-0.5">{exp.company}</h3>
+
+                        {exp.link && (
+                          <a
+                            href={exp.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-lg border border-royal/30 text-royal hover:bg-royal/10 transition-colors shrink-0 self-start font-medium"
+                          >
+                            <ExternalLink className="w-3.5 h-3.5" />
+                            View Certificate
+                          </a>
+                        )}
                       </div>
 
-                      {exp.link && (
-                        <a
-                          href={exp.link}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-lg border border-royal/30 text-royal hover:bg-royal/10 transition-colors shrink-0 self-start font-medium"
-                        >
-                          <ExternalLink className="w-3.5 h-3.5" />
-                          View Certificate
-                        </a>
-                      )}
-                    </div>
+                      {/* Meta */}
+                      <div className="flex flex-wrap items-center gap-4 mb-4 text-sm text-muted-foreground">
+                        <span className="flex items-center gap-1.5">
+                          <Calendar className="w-3.5 h-3.5 text-royal" />
+                          {exp.period}
+                        </span>
+                        <span className="flex items-center gap-1.5">
+                          <MapPin className="w-3.5 h-3.5 text-royal" />
+                          {exp.location}
+                        </span>
+                      </div>
 
-                    {/* Meta */}
-                    <div className="flex flex-wrap items-center gap-4 mb-4 text-sm text-muted-foreground">
-                      <span className="flex items-center gap-1.5">
-                        <Calendar className="w-3.5 h-3.5 text-royal" />
-                        {exp.period}
-                      </span>
-                      <span className="flex items-center gap-1.5">
-                        <MapPin className="w-3.5 h-3.5 text-royal" />
-                        {exp.location}
-                      </span>
-                    </div>
+                      {/* Description */}
+                      <p className="text-sm md:text-base text-muted-foreground leading-relaxed mb-5">
+                        {exp.description}
+                      </p>
 
-                    {/* Description */}
-                    <p className="text-sm md:text-base text-muted-foreground leading-relaxed mb-5">
-                      {exp.description}
-                    </p>
+                      {/* Key Highlights */}
+                      <div className="mb-5">
+                        <p className="text-xs uppercase tracking-widest text-royal font-semibold mb-3">Key Highlights</p>
+                        <ul className="space-y-2">
+                          {exp.highlights.map((h, hi) => (
+                            <li key={hi} className="flex items-start gap-2 text-sm text-muted-foreground">
+                              <CheckCircle2 className="w-4 h-4 text-green-500 shrink-0 mt-0.5" />
+                              {h}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
 
-                    {/* Key Highlights */}
-                    <div className="mb-5">
-                      <p className="text-xs uppercase tracking-widest text-royal font-semibold mb-3">Key Highlights</p>
-                      <ul className="space-y-2">
-                        {exp.highlights.map((h, hi) => (
-                          <li key={hi} className="flex items-start gap-2 text-sm text-muted-foreground">
-                            <CheckCircle2 className="w-4 h-4 text-green-500 shrink-0 mt-0.5" />
-                            {h}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-
-                    {/* Skills */}
-                    <div>
-                      <p className="text-xs uppercase tracking-widest text-muted-foreground font-semibold mb-2">Skills</p>
-                      <div className="flex flex-wrap gap-2">
-                        {exp.skills.map((skill, si) => (
-                          <span
-                            key={si}
-                            className="px-3 py-1 bg-orange-500/10 text-orange-500 text-xs rounded-full border border-orange-500/20"
-                          >
-                            {skill}
-                          </span>
-                        ))}
+                      {/* Skills */}
+                      <div>
+                        <p className="text-xs uppercase tracking-widest text-muted-foreground font-semibold mb-2">Skills</p>
+                        <div className="flex flex-wrap gap-2">
+                          {exp.skills.map((skill, si) => (
+                            <span
+                              key={si}
+                              className="px-3 py-1 bg-orange-500/10 text-orange-500 text-xs rounded-full border border-orange-500/20"
+                            >
+                              {skill}
+                            </span>
+                          ))}
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
+                </ScrollReveal3D>
               ))}
             </div>
           </div>
