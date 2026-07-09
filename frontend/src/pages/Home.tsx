@@ -4,6 +4,8 @@ import { Download } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import { useState, useEffect } from "react";
 import TiltCard from "@/components/TiltCard";
+import { ParticleBurst } from "@/components/ParticleBurst";
+import { InteractiveParticles } from "@/components/InteractiveParticles";
 
 const skills = [
   "React", "TypeScript", "Node.js", "Python", "Java", "SQL", "MySQL",
@@ -31,7 +33,7 @@ const Home = () => {
   return (
     <div className="min-h-screen overflow-hidden relative isolate">
       {/* Background Image with Faded Edges */}
-      <div 
+      <div
         className="absolute inset-0 w-full h-full -z-20 opacity-10 pointer-events-none"
         style={{
           // backgroundImage: "url('/se-bg.webp')",
@@ -41,26 +43,29 @@ const Home = () => {
           WebkitMaskImage: "radial-gradient(circle at center, black 10%, transparent 85%)"
         }}
       />
-      
-      <div 
+
+      <div
         className="absolute top-0 right-0 w-[500px] h-[500px] bg-orange-500/5 rounded-full blur-[100px] -z-10 transition-transform duration-300 ease-out"
         style={{ transform: `translate3d(${mouseOffset.x * -25}px, ${mouseOffset.y * -25}px, 0)` }}
       />
-      <div 
+      <div
         className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-royal/5 rounded-full blur-[100px] -z-10 transition-transform duration-300 ease-out"
         style={{ transform: `translate3d(${mouseOffset.x * 25}px, ${mouseOffset.y * 25}px, 0)` }}
       />
+
+      {/* Interactive Particles Background */}
+      <InteractiveParticles />
 
       <Navigation />
 
       <main className="container mx-auto px-4 pt-24 md:pt-32 pb-20">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
-          <div 
+          <div
             className="space-y-6 md:space-y-8 animate-fade-in-up transition-transform duration-300 ease-out"
             style={{ transform: `translate3d(${mouseOffset.x * -12}px, ${mouseOffset.y * -12}px, 0)` }}
           >
             <div className="space-y-4">
-              <h1 
+              <h1
                 className="text-4xl md:text-6xl font-bold select-none transition-[text-shadow] duration-250 ease-out"
                 style={{
                   textShadow: `${mouseOffset.x * -4}px ${mouseOffset.y * -4}px 0px rgba(249, 115, 22, 0.25), ${mouseOffset.x * -8}px ${mouseOffset.y * -8}px 0px rgba(249, 115, 22, 0.1)`
@@ -74,7 +79,7 @@ const Home = () => {
               </div>
             </div>
 
-            <h2 
+            <h2
               className="text-2xl md:text-4xl font-bold h-12 md:h-14 flex items-center select-none transition-[text-shadow] duration-250 ease-out"
               style={{
                 textShadow: `${mouseOffset.x * -3}px ${mouseOffset.y * -3}px 0px rgba(29, 65, 175, 0.2), ${mouseOffset.x * -6}px ${mouseOffset.y * -6}px 0px rgba(29, 65, 175, 0.1)`
@@ -92,33 +97,39 @@ const Home = () => {
                 href="https://github.com/adil-r120"
                 target="_blank"
                 rel="noopener noreferrer"
+                className="w-full sm:w-auto"
               >
-                <Button
-                  size="lg"
-                  className="bg-blue-900 hover:bg-blue-800 text-white w-full sm:w-auto shadow-lg shadow-blue-900/25 hover:shadow-blue-900/40 transition-all duration-300"
-                >
-                  Got a project?
-                </Button>
+                <ParticleBurst colorTheme="blue">
+                  <Button
+                    size="lg"
+                    className="bg-blue-900 hover:bg-blue-800 text-white w-full sm:w-auto shadow-lg shadow-blue-900/25 hover:shadow-blue-900/40 transition-all duration-300"
+                  >
+                    Got a project?
+                  </Button>
+                </ParticleBurst>
               </a>
               <a
                 href="/certificates/MD_ADIL_RAZA_Resume_2026.pdf"
                 download="MD_ADIL_RAZA_Resume_2026.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
+                className="w-full sm:w-auto"
               >
-                <Button
-                  size="lg"
-                  variant="outline"
-                  className="border-blue-900 text-blue-900 hover:bg-blue-900/10 w-full sm:w-auto backdrop-blur-sm"
-                >
-                  <Download className="mr-2 h-4 w-4" />
-                  My Resume
-                </Button>
+                <ParticleBurst colorTheme="orange">
+                  <Button
+                    size="lg"
+                    variant="outline"
+                    className="border-blue-900 text-blue-900 hover:bg-blue-900/10 w-full sm:w-auto backdrop-blur-sm"
+                  >
+                    <Download className="mr-2 h-4 w-4" />
+                    My Resume
+                  </Button>
+                </ParticleBurst>
               </a>
             </div>
           </div>
 
-          <div 
+          <div
             className="flex justify-center md:justify-end md:pr-24 transition-transform duration-300 ease-out"
             style={{ transform: `translate3d(${mouseOffset.x * 12}px, ${mouseOffset.y * 12}px, 0)` }}
           >
@@ -126,8 +137,8 @@ const Home = () => {
               {/* Intense Royal Blue Glow Layers */}
               <div className="absolute -inset-4 bg-royal/40 rounded-full blur-2xl animate-pulse -z-10" />
               <div className="absolute -bottom-10 -left-10 w-64 h-64 bg-royal/20 rounded-full blur-3xl -z-10" />
-              
-              <TiltCard 
+
+              <TiltCard
                 className="relative w-72 h-72 md:w-96 md:h-96 rounded-full border-4 border-royal overflow-hidden shadow-[0_0_50px_rgba(29,65,175,0.3)]"
                 maxTilt={15}
                 glareOpacity={0.15}

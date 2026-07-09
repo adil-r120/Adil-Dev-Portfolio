@@ -125,7 +125,7 @@ const courses: Course[] = [
 
 const Skills = () => {
   const { t } = useTranslation();
-  
+
   // Extract all unique skills to display in the 3D Globe
   const allSkillNames = Array.from(
     new Set(skillCategories.flatMap((category) => category.skills.map((s) => s.name.trim())))
@@ -148,7 +148,7 @@ const Skills = () => {
           </div>
           <h1 className="text-3xl md:text-5xl font-bold mb-4 md:mb-6">Technical Skills & Expertise</h1>
           <p className="text-base md:text-xl text-muted-foreground">
-            {t('A specialized overview of the languages, frameworks, and tools I use to build robust digital solutions.')} 
+            {t('A specialized overview of the languages, frameworks, and tools I use to build robust digital solutions.')}
             {/* {t('skillsOverview')} */}
           </p>
           <div className="w-16 md:w-24 h-1 bg-orange-500 mx-auto rounded-full mt-6" />
