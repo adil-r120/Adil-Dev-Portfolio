@@ -12,11 +12,30 @@ type Experience = {
   description: string;
   highlights: string[]; // key achievements / bullet points
   skills: string[];
-  link?: string;
+  link?: string; // Used for certificate
+  githubLink?: string;
+  liveLink?: string;
   badge?: string; // e.g. "Certificate Awarded"
 };
 
 const experiences: Experience[] = [
+  {
+    title: "Freelance",
+    company: "AS Global Institute of Safety & Management",
+    period: "Jul 2026",
+    location: "Remote",
+    type: "Client Project",
+    description:
+      "Built a production-ready EdTech institutional website by architecting a React 19 and Node.js monorepo with full TypeScript coverage for a real client.",
+    highlights: [
+      "Built a production-ready EdTech institutional website by architecting a React 19 and Node.js monorepo with full TypeScript coverage for a real client.",
+      "Implemented a centralized motion design system by adding accessibility-compliant, reduced-motion animations and scroll-linked parallax using Framer Motion.",
+      "Improved page performance by integrating skeleton screens and lazy loading, and managed client requirements through full deployment as sole developer.",
+    ],
+    skills: ["React 19", "TypeScript", "Vite", "Tailwind CSS v4", "Framer Motion", "Node.js"],
+    // githubLink: "https://github.com/adil-r120/AS-Global-Institute-of-Safety-Management",
+    liveLink: "https://asglobalindia.vercel.app/",
+  },
   {
     title: "Full Stack Web Developer",
     company: "Future Interns",
@@ -176,17 +195,41 @@ const Experiences = () => {
                           <h3 className="text-base md:text-lg text-orange-500 font-medium mt-0.5">{exp.company}</h3>
                         </div>
 
-                        {exp.link && (
-                          <a
-                            href={exp.link}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-lg border border-royal/30 text-royal hover:bg-royal/10 transition-colors shrink-0 self-start font-medium"
-                          >
-                            <ExternalLink className="w-3.5 h-3.5" />
-                            View Certificate
-                          </a>
-                        )}
+                        <div className="flex flex-wrap items-center gap-2 shrink-0 self-start">
+                          {exp.githubLink && (
+                            <a
+                              href={exp.githubLink}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-lg border border-royal/30 text-royal hover:bg-royal/10 transition-colors font-medium"
+                            >
+                              <ExternalLink className="w-3.5 h-3.5" />
+                              GitHub
+                            </a>
+                          )}
+                          {exp.liveLink && (
+                            <a
+                              href={exp.liveLink}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-lg border border-orange-500/30 text-orange-500 hover:bg-orange-500/10 transition-colors font-medium"
+                            >
+                              <ExternalLink className="w-3.5 h-3.5" />
+                              Live Demo
+                            </a>
+                          )}
+                          {exp.link && (
+                            <a
+                              href={exp.link}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-lg border border-royal/30 text-royal hover:bg-royal/10 transition-colors font-medium"
+                            >
+                              <ExternalLink className="w-3.5 h-3.5" />
+                              View Certificate
+                            </a>
+                          )}
+                        </div>
                       </div>
 
                       {/* Meta */}

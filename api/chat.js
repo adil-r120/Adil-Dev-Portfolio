@@ -42,6 +42,7 @@ Skills: React, TypeScript, Node.js, Python, Java, C++, SQL, MySQL, HTML, CSS, RE
 ${portfolioContext || ""}
 
 Experience:
+- Freelance Developer at AS Global Institute of Safety & Management (Jul 2026, Remote) — Built EdTech web app using React 19, TypeScript, Tailwind CSS v4, and Node.js.
 - Full Stack Web Developer Intern at Future Interns (Feb–Mar 2026, Remote) — built CRM, web apps, APIs
 - Volunteer Technical Team at NHCE (Oct 2025–Present) — 48-Hour National Hackathon (Silver Spectrum Techfest 2025)
 

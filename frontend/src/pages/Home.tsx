@@ -7,15 +7,29 @@ import TiltCard from "@/components/TiltCard";
 import { ParticleBurst } from "@/components/ParticleBurst";
 import { InteractiveParticles } from "@/components/InteractiveParticles";
 
-const skills = [
-  "React", "TypeScript", "Node.js", "Python", "Java", "SQL", "MySQL",
-  "Git & GitHub", "AWS", "Google Cloud", "Figma", "REST APIs",
+const skillsPart1 = [
+  "React", "TypeScript", "Node.js", "Python", "Java", "SQL",
+  "MySQL", "Git & GitHub", "AWS", "Google Cloud", "Figma", "REST APIs",
+];
+
+const skillsPart2 = [
   "AI / ML", "Data Science", "Linux", "HTML & CSS", "C++", "DBMS",
   "UI/UX Design", "Cloud Computing", "OOP", "Tailwind CSS", "C", "XML",
 ];
 
+const roles = [
+  "Full Stack Developer",
+  "Software Engineer",
+  "Cloud",
+  "AI/ML",
+];
+
 const Home = () => {
   const [mouseOffset, setMouseOffset] = useState({ x: 0, y: 0 });
+  const [text, setText] = useState("");
+  const [isDeleting, setIsDeleting] = useState(false);
+  const [loopNum, setLoopNum] = useState(0);
+  const [typingSpeed, setTypingSpeed] = useState(150);
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -29,6 +43,30 @@ const Home = () => {
     window.addEventListener("mousemove", handleMouseMove);
     return () => window.removeEventListener("mousemove", handleMouseMove);
   }, []);
+
+  useEffect(() => {
+    let ticker = setTimeout(() => {
+      const i = loopNum % roles.length;
+      const fullText = roles[i];
+
+      if (isDeleting) {
+        setText(fullText.substring(0, text.length - 1));
+        setTypingSpeed(50);
+      } else {
+        setText(fullText.substring(0, text.length + 1));
+        setTypingSpeed(150);
+      }
+
+      if (!isDeleting && text === fullText) {
+        setTimeout(() => setIsDeleting(true), 1500);
+      } else if (isDeleting && text === "") {
+        setIsDeleting(false);
+        setLoopNum(loopNum + 1);
+        setTypingSpeed(500);
+      }
+    }, typingSpeed);
+    return () => clearTimeout(ticker);
+  }, [text, isDeleting, loopNum, typingSpeed]);
 
   return (
     <div className="min-h-screen overflow-hidden relative isolate">
@@ -66,10 +104,7 @@ const Home = () => {
           >
             <div className="space-y-4">
               <h1
-                className="text-4xl md:text-6xl font-bold select-none transition-[text-shadow] duration-250 ease-out"
-                style={{
-                  textShadow: `${mouseOffset.x * -4}px ${mouseOffset.y * -4}px 0px rgba(249, 115, 22, 0.25), ${mouseOffset.x * -8}px ${mouseOffset.y * -8}px 0px rgba(249, 115, 22, 0.1)`
-                }}
+                className="text-4xl md:text-6xl font-bold select-none"
               >
                 Hello<span className="text-orange-500">..</span>
               </h1>
@@ -80,16 +115,13 @@ const Home = () => {
             </div>
 
             <h2
-              className="text-2xl md:text-4xl font-bold h-12 md:h-14 flex items-center select-none transition-[text-shadow] duration-250 ease-out"
-              style={{
-                textShadow: `${mouseOffset.x * -3}px ${mouseOffset.y * -3}px 0px rgba(29, 65, 175, 0.2), ${mouseOffset.x * -6}px ${mouseOffset.y * -6}px 0px rgba(29, 65, 175, 0.1)`
-              }}
+              className="text-2xl md:text-4xl font-bold h-12 md:h-14 flex items-center select-none"
             >
               Aspiring Software Engineer
             </h2>
 
-            <p className="text-base md:text-xl text-muted-foreground max-w-lg leading-relaxed delay-100 animate-fade-in-up">
-              Full Stack Developer | Passionate About AI, Web Development & AWS
+            <p className="text-xl md:text-2xl text-muted-foreground max-w-lg leading-relaxed delay-100 animate-fade-in-up font-medium h-8">
+              <span className="text-gradient typing-cursor">{text}</span>
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 pt-4 delay-200 animate-fade-in-up">
@@ -102,7 +134,7 @@ const Home = () => {
                 <ParticleBurst colorTheme="blue">
                   <Button
                     size="lg"
-                    className="bg-blue-900 hover:bg-blue-800 text-white w-full sm:w-auto shadow-lg shadow-blue-900/25 hover:shadow-blue-900/40 transition-all duration-300"
+                    className="bg-royal hover:bg-royal-dark text-white w-full sm:w-auto shadow-[0_0_15px_rgba(29,65,175,0.4)] hover:shadow-[0_0_25px_rgba(29,65,175,0.6)] transition-all duration-300 font-semibold"
                   >
                     Got a project?
                   </Button>
@@ -161,11 +193,21 @@ const Home = () => {
             {/* Fade edges */}
             <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none" />
             <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none" />
-            <div className="flex gap-3 animate-marquee">
-              {[...skills, ...skills].map((skill, index) => (
+            <div className="flex gap-3 animate-marquee mb-3">
+              {[...skillsPart1, ...skillsPart1, ...skillsPart1].map((skill, index) => (
                 <span
-                  key={`${skill}-${index}`}
-                  className="whitespace-nowrap text-sm px-4 py-1.5 rounded-full border border-border text-muted-foreground bg-card hover:border-royal hover:text-royal transition-colors cursor-default"
+                  key={`row1-${skill}-${index}`}
+                  className="whitespace-nowrap text-sm px-4 py-1.5 rounded-full border border-border text-muted-foreground bg-card hover:border-royal hover:text-royal hover:shadow-[0_0_10px_rgba(29,65,175,0.2)] transition-all cursor-default font-medium"
+                >
+                  {skill}
+                </span>
+              ))}
+            </div>
+            <div className="flex gap-3 animate-marquee-reverse">
+              {[...skillsPart2, ...skillsPart2, ...skillsPart2].map((skill, index) => (
+                <span
+                  key={`row2-${skill}-${index}`}
+                  className="whitespace-nowrap text-sm px-4 py-1.5 rounded-full border border-border text-muted-foreground bg-card hover:border-orange-500 hover:text-orange-500 hover:shadow-[0_0_10px_rgba(249,115,22,0.2)] transition-all cursor-default font-medium"
                 >
                   {skill}
                 </span>
