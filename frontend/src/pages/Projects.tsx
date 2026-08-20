@@ -3,7 +3,6 @@ import { projects } from "@/data/portfolioData";
 import Navigation from "@/components/Navigation";
 import { Badge } from "@/components/ui/badge";
 import ScrollReveal3D from "@/components/ScrollReveal3D";
-import TiltCard from "@/components/TiltCard";
 import { Calendar, ExternalLink, Github, Layers, Star, ArrowUpRight, Code2, BookOpen, ScrollText } from "lucide-react";
 
 type Paper = {
@@ -103,8 +102,8 @@ const Projects = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 max-w-7xl mx-auto">
           {filtered.map((project) => (
             <ScrollReveal3D key={project.title}>
-              <TiltCard
-                className="bg-card rounded-2xl border border-border hover:border-royal transition-all duration-300 overflow-hidden group flex flex-col hover:shadow-lg hover:shadow-royal/10 h-full"
+              <div
+                className="bg-card rounded-2xl border border-border overflow-hidden flex flex-col h-full"
               >
                 {/* Image */}
                 <div className="relative w-full aspect-video bg-gradient-to-br from-slate-800 to-slate-950 overflow-hidden">
@@ -112,22 +111,8 @@ const Projects = () => {
                     src={project.image}
                     alt={project.title}
                     loading="lazy"
-                    className="w-full h-full object-contain p-2 group-hover:scale-105 transition-transform duration-500"
+                    className="w-full h-full object-contain p-2"
                   />
-
-                  {/* Hover overlay */}
-                  {project.link && (
-                    <a
-                      href={project.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center"
-                    >
-                      <span className="flex items-center gap-2 px-5 py-2 rounded-full bg-orange-500 text-white text-sm font-semibold shadow-lg">
-                        View Project <ArrowUpRight className="w-4 h-4" />
-                      </span>
-                    </a>
-                  )}
 
                   {/* Category badge */}
                   <div className="absolute top-2 right-2 px-2 py-0.5 rounded-full bg-background/80 backdrop-blur-sm text-[0.65rem] font-medium text-muted-foreground border border-border">
@@ -187,7 +172,7 @@ const Projects = () => {
                     )}
                   </div>
                 </div>
-              </TiltCard>
+              </div>
             </ScrollReveal3D>
           ))}
         </div>
