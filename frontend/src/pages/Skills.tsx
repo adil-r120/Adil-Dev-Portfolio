@@ -278,33 +278,6 @@ const Skills = () => {
               <Badge variant="secondary" className="text-[9px] px-1.5 h-3.5 border-none bg-secondary/50"></Badge>
             </a>
 
-            {/* HackerRank */}
-            <a
-              href="https://www.hackerrank.com/profile/mdadilraza510"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-card p-3 md:p-4 rounded-lg border border-royal/10 hover:border-royal transition-all group text-center block card-glow"
-            >
-              <div className="w-8 h-8 md:w-10 md:h-10 mx-auto mb-2 flex items-center justify-center rounded-lg bg-orange-500/10 border border-orange-500/20 transition-transform group-hover:scale-110">
-                <Terminal className="w-5 h-5 md:w-6 md:h-6 text-orange-500" />
-              </div>
-              <p className="text-blue-900 dark:text-blue-100 mb-1 text-[0.7rem] md:text-sm font-bold group-hover:text-royal transition-colors">HackerRank</p>
-              <Badge variant="secondary" className="text-[9px] px-1.5 h-3.5 border-none bg-secondary/50"> </Badge>
-            </a>
-
-            {/* GeeksforGeeks */}
-            <a
-              href="https://auth.geeksforgeeks.org/user/mdadilraza510"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-card p-3 md:p-4 rounded-lg border border-royal/10 hover:border-royal transition-all group text-center block card-glow"
-            >
-              <div className="w-8 h-8 md:w-10 md:h-10 mx-auto mb-2 flex items-center justify-center rounded-lg bg-orange-500/10 border border-orange-500/20 transition-transform group-hover:scale-110">
-                <Server className="w-5 h-5 md:w-6 md:h-6 text-orange-500" />
-              </div>
-              <p className="text-blue-900 dark:text-blue-100 mb-1 text-[0.7rem] md:text-sm font-bold group-hover:text-royal transition-colors">GeeksforGeeks</p>
-              <Badge variant="secondary" className="text-[9px] px-1.5 h-3.5 border-none bg-secondary/50"> </Badge>
-            </a>
           </div>
         </div>
       </main>

@@ -47,7 +47,7 @@ Experience:
 
 Hackathons: Quantum_X 2025 (NHCE, 24-hour), Pixel Pursuit 2024 (Mobile Dev Club, NHCE).
 
-Coding Platforms: CodeChef (adil_r120), LeetCode (adil_r120), HackerRank (mdadilraza510), GeeksforGeeks (mdadilraza510).`;
+Coding Platforms: CodeChef (adil_r120), LeetCode (adil_r120).`;
 
     const chatMessages = [
       { role: "system", content: SYSTEM_PROMPT },
