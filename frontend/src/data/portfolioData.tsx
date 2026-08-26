@@ -33,12 +33,33 @@ export type Hackathon = {
   link?: string;
 };
 
+export type Paper = {
+  title: string;
+  projectRef: string;
+  description: string;
+  date: string;
+  link: string;
+  tags: string[];
+};
+
+export const papers: Paper[] = [
+  {
+    title: "Research Paper: Work in Progress",
+    projectRef: "Smart-Infra: AI Infrastructure & Monitoring System",
+    description:
+      "I am currently writing a comprehensive research paper based on this project. It will detail the core methodologies, architecture, and findings. Check back soon for the published version!",
+    date: "In Progress",
+    link: "#",
+    tags: ["Research", "Drafting", "Coming Soon"],
+  },
+];
+
 export const projects: Project[] = [
     {
       title: "Smart Infra: AI Infrastructure & Monitoring System",
       description:
         "A Final year project - A full-stack AI infra-monitoring platform providing real-time traffic analytics. Built with a FastAPI backend and React/TypeScript dashboard. Features a custom-trained YOLOv8 model (66.5% mAP@50) optimized with Intel OpenVINO, and real-time anomaly detection and live video streaming via WebSockets.",
-      image: "/project-images/smart-infra.webp",
+      image: "/project-images/smart-infra.jpg",
       date: "Mar 2026 – Present",
       category: "AI/ML",
       tags: ["React.js", "TypeScript", "FastAPI", "Python", "YOLOv8", "OpenVINO", "SQLAlchemy", "WebSockets"],
@@ -48,7 +69,7 @@ export const projects: Project[] = [
       title: "AS Global Institute of Safety & Management, Website",
       description:
         "Built a production ready EdTech institutional website by architecting a React 19, Node.js monorepo with full TypeScript coverage. Implemented a centralized motion design system using Framer Motion.",
-      image: "/project-images/as-global.webp",
+      image: "/project-images/as-global.png",
       date: "Jul 2026 – Aug 2026",
       category: "Full Stack",
       tags: ["React 19", "TypeScript", "Vite", "Tailwind CSS v4", "Framer Motion", "Node.js"],
