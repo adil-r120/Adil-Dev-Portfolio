@@ -66,7 +66,7 @@ Coding Platforms: CodeChef (adil_r120), LeetCode (adil_r120).`;
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        model: "llama-3.1-8b-instant",
+        model: "openai/gpt-oss-20b",
         messages: chatMessages,
         max_tokens: 512,
         temperature: 0.7,

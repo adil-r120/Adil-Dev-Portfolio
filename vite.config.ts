@@ -79,7 +79,7 @@ Coding Platforms: CodeChef (adil_r120), LeetCode (adil_r120).`;
                       "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
                     },
                     body: JSON.stringify({
-                      model: "llama-3.1-8b-instant",
+                      model: "openai/gpt-oss-20b",
                       messages: chatMessages,
                       max_tokens: 512,
                       temperature: 0.7,
