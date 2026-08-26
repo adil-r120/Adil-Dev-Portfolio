@@ -42,7 +42,7 @@ export const projects: Project[] = [
       date: "Mar 2026 – Present",
       category: "AI/ML",
       tags: ["React.js", "TypeScript", "FastAPI", "Python", "YOLOv8", "OpenVINO", "SQLAlchemy", "WebSockets"],
-      link: "https://github.com/adil-r120",
+      link: "https://github.com/adil-r120/AI-Smart-Infra",
     },
     {
       title: "AS Global Institute of Safety & Management, Website",
@@ -93,6 +93,7 @@ export const projects: Project[] = [
       category: "AI/ML",
       tags: ["React", "Python", "REST API", "TypeScript", "LLM", "AI/ML", "Tailwind CSS"],
       link: "https://salespulse.vercel.app/",
+      github: "https://github.com/adil-r120/SalesPulse-Interactive-Data-Analytics-Dashboard",
     },
     {
       title: "Snatix – Photography Website",
