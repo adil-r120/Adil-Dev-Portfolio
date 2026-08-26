@@ -141,8 +141,8 @@ const Home = () => {
                 </ParticleBurst>
               </a>
               <a
-                href="/certificates/MD_ADIL_RAZA_Resume_2026.pdf"
-                download="MD_ADIL_RAZA_Resume_2026.pdf"
+                href="/certificates/MD-RESUME.pdf"
+                download="MD-RESUME.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full sm:w-auto"

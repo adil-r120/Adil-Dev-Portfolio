@@ -37,16 +37,16 @@ Contact: LinkedIn — linkedin.com/in/mdadilraza-dev | GitHub — github.com/adi
 
 Education: B.E. CSE at NHCE Bangalore (2023–2027). Senior Secondary (PCM, Grade A) at Park Mount Public School Patna. Matric (Grade B) at Nezamia Public School Patna.
 
-Skills: React, TypeScript, Node.js, Python, Java, C++, SQL, MySQL, HTML, CSS, REST APIs, Figma, AWS, Google Cloud, Git, Linux, AI/Data Science, UI/UX Design.
+Skills: Java, Python, C, SQL, React.js, TypeScript, Vite, HTML5, CSS3, Tailwind CSS, Node.js, FastAPI, REST APIs, WebSockets, MySQL, SQLite, MongoDB, YOLOv8, OpenCV, Prompt Engineering, LLM API Integration, AWS, Google Cloud, Git, GitHub, Vercel, Render.
 
 ${portfolioContext || ""}
 
 Experience:
-- Freelance Developer at AS Global Institute of Safety & Management (Jul 2026, Remote) — Built EdTech web app using React 19, TypeScript, Tailwind CSS v4, and Node.js.
-- Full Stack Web Developer Intern at Future Interns (Feb–Mar 2026, Remote) — built CRM, web apps, APIs
-- Volunteer Technical Team at NHCE (Oct 2025–Present) — 48-Hour National Hackathon (Silver Spectrum Techfest 2025)
+- Full Stack Web Developer Intern at Future Interns (02/2026 – 03/2026, Remote) — Developed responsive web applications by building React.js, HTML5, and CSS3 interfaces integrated with a Python-based backend.
 
-Hackathons: Quantum_X 2025 (NHCE, 24-hour), Pixel Pursuit 2024 (Mobile Dev Club, NHCE).
+Technical Achievements:
+- Solved 200+ DSA problems across CodeChef and LeetCode, along with 100+ SQL queries, strengthening algorithmic and database proficiency.
+- Participated in coding contests (Pixel Pursuit) and hackathons (Quantum_X24).
 
 Coding Platforms: CodeChef (adil_r120), LeetCode (adil_r120).`;
 

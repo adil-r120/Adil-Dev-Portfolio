@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import { MessageCircle, X, Send, Bot, Loader2, Trash2, Sparkles } from "lucide-react";
-import { projects, certifications } from "@/data/portfolioData";
+import { projects, certifications, hackathons } from "@/data/portfolioData";
 
 type Message = {
     id: string;
@@ -104,9 +104,13 @@ const ChatbotWidget = () => {
             }));
 
             const portfolioContext = `Projects (${projects.length} total):
-${projects.map(p => `- ${p.title} — ${p.tags.join(", ")} | ${p.link || p.github || ""}`).join('\n')}
+${projects.map(p => `- ${p.title} (${p.date}, ${p.category}): ${p.description} | Tags: ${p.tags.join(", ")} | Link: ${p.link || p.github || ""}`).join('\n')}
 
-Certifications (${certifications.length}): ${certifications.map(c => c.title).join(', ')}.`;
+Certifications (${certifications.length}): 
+${certifications.map(c => `- ${c.title} by ${c.issuer} (${c.issued || ""}) - Skills: ${c.skills?.join(", ") || ""}`).join('\n')}
+
+Hackathons (${hackathons.length}):
+${hackathons.map(h => `- ${h.title} (${h.date}): ${h.description}`).join('\n')}`;
 
             const res = await fetch("/api/chat", {
                 method: "POST",

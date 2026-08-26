@@ -35,6 +35,26 @@ export type Hackathon = {
 
 export const projects: Project[] = [
     {
+      title: "Smart Infra: AI Infrastructure & Monitoring System",
+      description:
+        "A Final year project - A full-stack AI infra-monitoring platform providing real-time traffic analytics. Built with a FastAPI backend and React/TypeScript dashboard. Features a custom-trained YOLOv8 model (66.5% mAP@50) optimized with Intel OpenVINO, and real-time anomaly detection and live video streaming via WebSockets.",
+      image: "/project-images/smart-infra.webp",
+      date: "Mar 2026 – Present",
+      category: "AI/ML",
+      tags: ["React.js", "TypeScript", "FastAPI", "Python", "YOLOv8", "OpenVINO", "SQLAlchemy", "WebSockets"],
+      link: "https://github.com/adil-r120",
+    },
+    {
+      title: "AS Global Institute of Safety & Management, Website",
+      description:
+        "Built a production ready EdTech institutional website by architecting a React 19, Node.js monorepo with full TypeScript coverage. Implemented a centralized motion design system using Framer Motion.",
+      image: "/project-images/as-global.webp",
+      date: "Jul 2026 – Aug 2026",
+      category: "Full Stack",
+      tags: ["React 19", "TypeScript", "Vite", "Tailwind CSS v4", "Framer Motion", "Node.js"],
+      link: "https://asglobalindia.vercel.app/",
+    },
+    {
       title: "CyberShield X",
       description:
         "A sophisticated phishing detection and security monitoring platform. It leverages a hybrid approach combining Machine Learning (Random Forest), rule-based heuristics, and real-time behavioral analysis to provide explainable risk scoring for suspicious URLs.",
@@ -169,6 +189,24 @@ export const projects: Project[] = [
   ];
 
 export const certifications: Certification[] = [
+    {
+      title: "SAP Certified - SAP Generative AI Developer",
+      issuer: "SAP",
+      issuerIcon: <Brain className="w-5 h-5 text-blue-500" />,
+      issued: "2026",
+      skills: ["SAP", "Generative AI", "LLM API Integration"],
+      link: "",
+      category: "AI/ML",
+    },
+    {
+      title: "Google Cloud Arcade Facilitator",
+      issuer: "Google Cloud",
+      issuerIcon: <Cloud className="w-5 h-5 text-blue-500" />,
+      issued: "2026",
+      skills: ["Google Cloud", "Cloud Computing"],
+      link: "",
+      category: "Cloud",
+    },
     {
       title: "Software Engineering Job Simulation",
       issuer: "JP Morgan Chase & Co",
