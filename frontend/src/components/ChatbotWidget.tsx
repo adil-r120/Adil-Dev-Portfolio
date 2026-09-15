@@ -68,6 +68,7 @@ const ChatbotWidget = () => {
     const [messages, setMessages] = useState<Message[]>([INITIAL_MESSAGE]);
     const [input, setInput] = useState("");
     const [isLoading, setIsLoading] = useState(false);
+    const [rateLimitedUntil, setRateLimitedUntil] = useState<number | null>(null);
     const hasNewMessageRef = useRef(false);
     const messagesEndRef = useRef<HTMLDivElement>(null);
     const inputRef = useRef<HTMLInputElement>(null);
@@ -89,9 +90,25 @@ const ChatbotWidget = () => {
         };
     }, [isOpen]);
 
+    useEffect(() => {
+        if (rateLimitedUntil !== null) {
+            const now = Date.now();
+            if (now >= rateLimitedUntil) {
+                setRateLimitedUntil(null);
+            } else {
+                const timeoutId = setTimeout(() => {
+                    setRateLimitedUntil(null);
+                }, rateLimitedUntil - now);
+                return () => clearTimeout(timeoutId);
+            }
+        }
+    }, [rateLimitedUntil]);
+
     const sendMessage = async (text?: string) => {
         const userMessage = (text ?? input).trim();
-        if (!userMessage || isLoading) return;
+        const isRateLimited = rateLimitedUntil !== null && Date.now() < rateLimitedUntil;
+        if (!userMessage || isLoading || isRateLimited) return;
+        if (rateLimitedUntil !== null && Date.now() >= rateLimitedUntil) setRateLimitedUntil(null);
 
         setInput("");
         setMessages((prev) => [...prev, { id: Date.now().toString(), role: "user", content: userMessage }]);
@@ -125,16 +142,31 @@ ${hackathons.map(h => `- ${h.title} (${h.date}): ${h.description}`).join('\n')}`
             });
 
             const data = await res.json();
+
+            // Friendly rate-limit message instead of raw error
+            if (res.status === 429) {
+                const retryAfter = data.retryAfter ?? 60;
+                setRateLimitedUntil(Date.now() + retryAfter * 1000);
+                setMessages((prev) => [
+                    ...prev,
+                    {
+                        id: (Date.now() + 1).toString(),
+                        role: "assistant",
+                        content: `⏳ You're chatting too fast! Please wait ${retryAfter} second${retryAfter !== 1 ? "s" : ""} before sending another message.`,
+                    },
+                ]);
+                return;
+            }
+
             if (!res.ok) throw new Error(JSON.stringify(data));
             const reply: string = data.choices?.[0]?.message?.content ?? "Sorry, I couldn't generate a response.";
 
             setMessages((prev) => [...prev, { id: (Date.now() + 1).toString(), role: "assistant", content: reply }]);
         } catch (err) {
-            const errMsg = err instanceof Error ? err.message : String(err);
             console.error("Chatbot error:", err);
             setMessages((prev) => [
                 ...prev,
-                { id: (Date.now() + 1).toString(), role: "assistant", content: `⚠️ Error: ${errMsg}` },
+                { id: (Date.now() + 1).toString(), role: "assistant", content: `⚠️ Something went wrong. Please try again.` },
             ]);
         } finally {
             setIsLoading(false);
@@ -250,15 +282,15 @@ ${hackathons.map(h => `- ${h.title} (${h.date}): ${h.description}`).join('\n')}`
                             value={input}
                             onChange={(e) => setInput(e.target.value)}
                             onKeyDown={handleKeyDown}
-                            placeholder="Ask me anything..."
+                            placeholder={rateLimitedUntil && Date.now() < rateLimitedUntil ? "Please wait before sending..." : "Ask me anything..."}
                             aria-label="Chatbot input"
-                            disabled={isLoading}
+                            disabled={isLoading || (rateLimitedUntil !== null && Date.now() < rateLimitedUntil)}
                             className="flex-1 text-sm bg-muted rounded-xl px-3 py-2 outline-none focus:ring-2 focus:ring-blue-500/50 placeholder:text-muted-foreground disabled:opacity-60"
                         />
                         <button
                             type="button"
                             onClick={() => sendMessage()}
-                            disabled={!input.trim() || isLoading}
+                            disabled={!input.trim() || isLoading || (rateLimitedUntil !== null && Date.now() < rateLimitedUntil)}
                             className="p-2 rounded-xl bg-blue-900 hover:bg-blue-800 text-white transition-all duration-200 disabled:opacity-40 disabled:cursor-not-allowed hover:scale-105 active:scale-95"
                             aria-label="Send message"
                         >

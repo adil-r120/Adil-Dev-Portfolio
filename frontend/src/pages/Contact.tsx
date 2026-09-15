@@ -1,5 +1,5 @@
 import Navigation from "@/components/Navigation";
-import { Mail, Phone, Linkedin, Github, Download } from "lucide-react";
+import { Mail, MessageCircle, Linkedin, Github, Download } from "lucide-react";
 import Footer from "@/components/Footer";
 import ContactForm from "../components/ContactForm";
 
@@ -10,9 +10,9 @@ const contactMethods = [
     href: "mailto:mdadilraza510@gmail.com"
   },
   {
-    icon: Phone,
-    label: "6203662085",
-    href: "tel:6203662085"
+    icon: MessageCircle,
+    label: "WhatsApp",
+    href: "https://wa.me/916203662085"
   },
   {
     icon: Linkedin,
@@ -69,8 +69,8 @@ const Contact = () => {
 
               <div className="pt-4">
                 <a
-                  href="/certificates/MD-RESUME.pdf"
-                  download="MD-RESUME.pdf"
+                  href="/certificates/MD_ADIL_RAZA_Resume.pdf"
+                  download="MD_ADIL_RAZA_Resume.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 px-6 py-3 bg-blue-900 text-white rounded-lg hover:bg-blue-800 transition-colors font-medium text-sm w-full sm:w-auto justify-center"

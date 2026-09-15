@@ -1,8 +1,17 @@
 import { Redis } from '@upstash/redis';
+import { Ratelimit } from '@upstash/ratelimit';
 
 const redis = new Redis({
   url: process.env.UPSTASH_REDIS_REST_URL || process.env.KV_REST_API_URL,
   token: process.env.UPSTASH_REDIS_REST_TOKEN || process.env.KV_REST_API_TOKEN,
+});
+
+// 10 requests per 60 seconds per IP (sliding window)
+const ratelimit = new Ratelimit({
+  redis,
+  limiter: Ratelimit.slidingWindow(10, "60 s"),
+  analytics: true,
+  prefix: "chatbot_rl",
 });
 
 export const config = {
@@ -16,6 +25,31 @@ export default async function handler(req) {
         headers: { 'Content-Type': 'application/json' } 
     });
   }
+
+  // ── Rate Limiting ────────────────────────────────────────────────────────────
+  const ip = req.headers.get("x-forwarded-for")?.split(",")[0].trim() ?? "anonymous";
+  const { success, remaining, reset } = await ratelimit.limit(ip);
+
+  if (!success) {
+    const retryAfterSecs = Math.ceil((reset - Date.now()) / 1000);
+    return new Response(
+      JSON.stringify({
+        error: "rate_limited",
+        message: "Too many messages. Please wait a moment before trying again.",
+        retryAfter: retryAfterSecs,
+      }),
+      {
+        status: 429,
+        headers: {
+          'Content-Type': 'application/json',
+          'Retry-After': String(retryAfterSecs),
+          'X-RateLimit-Remaining': '0',
+          'X-RateLimit-Reset': String(reset),
+        },
+      }
+    );
+  }
+  // ─────────────────────────────────────────────────────────────────────────────
 
   try {
     const body = await req.json();
@@ -82,7 +116,7 @@ Coding Platforms: CodeChef (adil_r120), LeetCode (adil_r120).`;
       });
     }
 
-    // Secretly log the conversation to Vercel KV Database
+    // Log the conversation to Upstash Redis
     try {
       if (process.env.UPSTASH_REDIS_REST_URL || process.env.KV_REST_API_URL) {
         const reply = data.choices?.[0]?.message?.content || "";
@@ -108,7 +142,10 @@ Coding Platforms: CodeChef (adil_r120), LeetCode (adil_r120).`;
 
     return new Response(JSON.stringify(data), {
       status: 200,
-      headers: { 'Content-Type': 'application/json' }
+      headers: {
+        'Content-Type': 'application/json',
+        'X-RateLimit-Remaining': String(remaining),
+      },
     });
 
   } catch (error) {

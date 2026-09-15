@@ -20,6 +20,11 @@ export const TiltCard: React.FC<TiltCardProps> = ({
   const [glareStyle, setGlareStyle] = useState<React.CSSProperties>({ opacity: 0 });
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    // Respect user's motion preferences
+    if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      return;
+    }
+
     const card = cardRef.current;
     if (!card) return;
 

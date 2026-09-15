@@ -141,8 +141,8 @@ const Home = () => {
                 </ParticleBurst>
               </a>
               <a
-                href="/certificates/MD-RESUME.pdf"
-                download="MD-RESUME.pdf"
+                href="/certificates/MD_ADIL_RAZA_Resume.pdf"
+                download="MD_ADIL_RAZA_Resume.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full sm:w-auto"
@@ -177,7 +177,7 @@ const Home = () => {
               >
                 <img
                   src="/p2.webp"
-                  alt="AR"
+                  alt="Profile Photo of MD Adil Raza"
                   className="w-full h-full object-cover object-center"
                 />
               </TiltCard>
