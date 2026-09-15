@@ -1,4 +1,4 @@
-# MD Adil Raza — Portfolio
+# *Md Adil Raza — Portfolio*
 
 [![Live Demo](https://img.shields.io/badge/Live_Demo-Vercel-black?style=flat-square&logo=vercel)](https://adil-dev-portfolio.vercel.app/)
 [![React](https://img.shields.io/badge/React-20232A?style=flat-square&logo=react&logoColor=61DAFB)](#)
@@ -108,4 +108,4 @@ Feel free to reach out if you'd like to collaborate, discuss tech, or just say h
 - **GitHub**: [github.com/adil-r120](https://github.com/adil-r120)
 
 ---
-*Designed and engineered by MD Adil Raza*
+*Designed and engineered by Md Adil Raza*
