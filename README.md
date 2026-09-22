@@ -1,5 +1,5 @@
 <div align="center">
-  <h1>✨ MD Adil Raza — Personal Portfolio ✨</h1>
+  <h1>✨ Md Adil Raza — Personal Portfolio ✨</h1>
   <p><strong>A Highly Interactive, AI-Powered 3D Web Experience</strong></p>
   
   [![Live Demo](https://img.shields.io/badge/Live_Demo-Vercel-black?style=flat-square&logo=vercel)](https://adil-dev-portfolio.vercel.app/)
@@ -130,6 +130,7 @@ Feel free to reach out if you'd like to collaborate, discuss tech, or just say h
 - ✉️ **Email**: mdadilraza510@gmail.com
 - 🔗 **LinkedIn**: [linkedin.com/in/mdadilraza-dev](https://www.linkedin.com/in/mdadilraza-dev/)
 - 🐙 **GitHub**: [github.com/adil-r120](https://github.com/adil-r120)
+- 💬 **Community**: [Vedaz Chat](https://vedaz-chat-pi.vercel.app/)
 
 <br />
 

@@ -124,6 +124,23 @@ const Home = () => {
               <span className="text-gradient typing-cursor">{text}</span>
             </p>
 
+            <div className="pt-4 pb-2 delay-150 animate-fade-in-up flex flex-col items-center w-max gap-1">
+              <div className="relative group">
+                {/* Blinking Background Glow */}
+                <div className="absolute -inset-0.5 bg-gradient-to-r from-orange-500 to-royal rounded-full blur opacity-60 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-pulse"></div>
+
+                <a
+                  href="https://vedaz-chat-pi.vercel.app/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="relative inline-flex items-center justify-center px-5 py-2 rounded-full bg-background/90 backdrop-blur-sm border border-border text-sm font-bold text-foreground transition-all duration-300 hover:scale-[1.02]"
+                >
+                  <span className="bg-clip-text text-transparent bg-gradient-to-r from-orange-500 to-cyan-400">Connect • Discuss • Build together</span>
+                </a>
+              </div>
+              <span className="text-[10px] text-muted-foreground lowercase tracking-widest animate-pulse font-semibold">↑ Click here</span>
+            </div>
+
             <div className="flex flex-col sm:flex-row gap-4 pt-4 delay-200 animate-fade-in-up">
               <a
                 href="https://github.com/adil-r120"
