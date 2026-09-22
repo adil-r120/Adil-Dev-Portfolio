@@ -189,14 +189,16 @@ export const projects: Project[] = [
       link: "https://amazon-clone-146.vercel.app/",
     },
     {
-      title: "Zepto Clone",
+      title: "QuickCart",
       description:
-        "Frontend UI clone of the Zepto grocery delivery platform elegant, responsive layout crafted entirely with HTML & CSS.",
-      image: "/project-images/zepto.webp",
+        "Frontend UI clone of the QuickCart grocery delivery platform elegant, responsive layout crafted entirely with HTML & CSS.",
+      image: "/project-images/quickcart.webp",
       date: "Feb 2024 – Mar 2024",
       category: "Frontend",
       tags: ["HTML", "CSS"],
-      link: "https://zepto-clone-sigma.vercel.app/zepto.html",
+      // link: "https://quickcart-clone-sigma.vercel.app/quickcart.html",
+      link: "https://adil-r120.github.io/QuickCart/quickcart.html",
+      github: "https://github.com/adil-r120/QuickCart",
     },
     {
       title: "Tic Tac Toe Game",
@@ -211,7 +213,7 @@ export const projects: Project[] = [
   ];
 
 export const certifications: Certification[] = [
-    {
+    /* {
       title: "SAP Certified - SAP Generative AI Developer",
       issuer: "SAP",
       issuerIcon: <Brain className="w-5 h-5 text-blue-500" />,
@@ -219,7 +221,7 @@ export const certifications: Certification[] = [
       skills: ["SAP", "Generative AI", "LLM API Integration"],
       link: "",
       category: "AI/ML",
-    },
+    }, */
     {
       title: "Google Cloud Arcade Facilitator",
       issuer: "Google Cloud",
